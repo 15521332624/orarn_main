@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+android:layout_width="fill_parent"
+android:layout_height="fill_parent" 
+android:background="@color/llb"
+android:orientation="vertical">
+ <include
+        android:id="@+id/title"
+        layout="@layout/layout_base_title"
+        />
+ <LinearLayout
+      android:id="@+id/text_li_ssid"
+   	  android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:orientation="horizontal"
+      android:padding="5dp"   
+      android:background="@color/white"    
+      >
+      
+      <TextView
+         android:id="@+id/Text_hiflying_smartlinker_ssid"
+         android:layout_weight="4"
+        android:layout_width="fill_parent"
+      	android:layout_height="wrap_content"
+         android:padding="6dp"
+         android:text="@string/hiflying_smartlinker_ssid"
+         android:textColor="@color/lb_tx"
+         android:textSize="18sp"
+         />
+      <EditText 
+           android:id="@+id/editText_hiflying_smartlinker_ssid"
+           android:layout_weight="1"
+           android:layout_width="fill_parent"
+     	 android:layout_height="wrap_content"
+           android:padding="6dp"
+          android:textColor="@color/lb_tx"
+          android:textSize="18sp"
+               android:singleLine="true"
+          />
+      	
+ </LinearLayout>
+    
+ <LinearLayout
+      android:id="@+id/text_li_password"
+   	  android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:orientation="horizontal"
+      android:padding="5dp"   
+      android:background="@color/white"    
+      >
+      
+      <TextView
+         android:id="@+id/ext_hiflying_smartlinker_password"
+         android:layout_weight="4"
+        android:layout_width="fill_parent"
+      	android:layout_height="wrap_content"
+         android:padding="6dp"
+         android:text="@string/hiflying_smartlinker_password"
+         android:textColor="@color/lb_tx"
+         android:textSize="18sp"
+         />
+      <EditText 
+           android:id="@+id/editText_hiflying_smartlinker_password"
+           android:layout_weight="1"
+           android:layout_width="fill_parent"
+     	 android:layout_height="wrap_content"
+           android:padding="6dp"
+          android:textColor="@color/lb_tx"
+          android:hint="@string/hiflying_smartlinker_password_hint"
+          android:textColorHint="@color/lb"
+          android:textSize="18sp"
+               android:singleLine="true"
+          />
+      	
+ </LinearLayout>
+    
+     <LinearLayout
+         android:id="@+id/reg_li_start"
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:orientation="horizontal"   
+      android:padding="10dp"   
+     
+      >
+      
+      <Button 
+	       android:id="@+id/button_hiflying_smartlinker_start"
+	      android:layout_width="fill_parent"
+	      android:layout_height="wrap_content"
+	      android:text="@string/hiflying_smartlinker_start"
+	      android:textColor="@color/white"
+	     
+	      android:textSize="20sp"
+	      android:background="@drawable/login_rect"
+          />
+      </LinearLayout>
+      
+     <TextView
+         android:id="@+id/help_text"
+      
+        android:layout_width="fill_parent"
+      	android:layout_height="wrap_content"
+         android:padding="6dp"
+         android:text="@string/hiflying_smartlinker_help"
+         android:singleLine="false"
+         android:textColor="@color/lb_tx"
+         android:textSize="15sp"
+         />
+
+</LinearLayout>

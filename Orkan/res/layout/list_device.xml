@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:padding="6dp"
+    android:background="@color/white"
+    android:orientation="horizontal">
+
+    <ImageView
+        android:id="@+id/device_list_im"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:paddingLeft="5dp"
+        android:paddingTop="2dp"
+        android:paddingBottom="2dp"
+        android:layout_centerVertical="true"
+        android:src="@drawable/devicelist_im" />
+
+    <TextView
+        android:id="@+id/device_name_txt"
+        android:layout_toRightOf="@id/device_list_im"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+         android:paddingLeft="6dp"
+        android:textColor="@color/theme_color"
+        android:textSize="18sp"
+
+        />
+    <LinearLayout 
+        android:layout_below="@id/device_name_txt"
+	     android:layout_toRightOf="@id/device_list_im"
+	     android:layout_width="wrap_content"
+	     android:layout_height="wrap_content"
+	     android:orientation="horizontal"
+	     android:paddingLeft="6dp">
+	     
+         <TextView
+	     android:layout_width="wrap_content"
+	     android:layout_height="wrap_content"
+	     android:textColor="@color/theme_tx_color"
+	     android:text="mac: "
+	     android:textSize="12sp" />
+	     
+      <TextView
+	     android:id="@+id/device_mac_txt"
+	     android:layout_width="wrap_content"
+	     android:layout_height="wrap_content"
+	     android:textColor="@color/theme_tx_color"
+	     android:textSize="12sp" />
+      
+      </LinearLayout>
+      
+     <ImageView
+	     android:id="@+id/device_list_rightim"
+	     android:layout_width="50dp"
+	     android:layout_alignParentRight="true"
+	     android:layout_height="fill_parent"
+	     android:paddingLeft="5dp"
+       	 android:paddingTop="2dp"
+         android:paddingBottom="2dp"
+	     android:layout_centerVertical="true"
+	     android:src="@drawable/timing_right" />
+      
+      <TextView
+         android:id="@+id/device_online_txt"
+         android:layout_toLeftOf="@id/device_list_rightim"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+          android:layout_centerVertical="true"
+         android:padding="2dp"
+         android:textColor="@color/theme_tx_color"
+         android:textSize="18sp" />
+ 
+ 
+</RelativeLayout>

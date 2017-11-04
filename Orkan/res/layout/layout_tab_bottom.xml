@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white" >
+    <ImageView
+        android:id="@+id/tab_bottom_im"
+        style="@style/style_home_tab_im"
+        />
+    <TextView
+        android:id="@+id/tab_bottom_tx"
+      
+        android:layout_below="@id/tab_bottom_im"
+        style="@style/style_home_tab_tx"
+        />
+</RelativeLayout>

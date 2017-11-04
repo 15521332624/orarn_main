@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:background="@color/theme_color" >
+
+    <RelativeLayout
+        android:id="@+id/base_title_top_line"
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:padding="4dp"
+        >
+		<ImageView
+            android:id="@+id/title_left"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:paddingTop="6dp"
+            android:paddingBottom="6dp"
+            android:paddingLeft="11dp"
+            android:paddingRight="11dp"
+            android:clickable="true"
+            android:layout_centerVertical="true"
+             android:visibility="gone"
+            />
+        
+            <TextView
+                android:id="@+id/title_tx"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginRight="10dp"
+                android:textSize="18sp"
+                android:textColor="@color/white"
+                >
+            </TextView>
+            
+           <RelativeLayout
+            android:id="@+id/layout_title_im"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:clickable="true"
+            android:padding="4dp">
+            <ImageView
+                android:id="@+id/title_im"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:clickable="true"
+                android:visibility="gone" />
+        </RelativeLayout>
+
+    </RelativeLayout>
+</RelativeLayout>

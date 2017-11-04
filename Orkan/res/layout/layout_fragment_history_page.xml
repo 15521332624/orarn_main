@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" >
+
+     <LinearLayout
+          android:id="@+id/history_page_title_li"
+	      android:layout_width="wrap_content"
+	      android:layout_height="wrap_content"
+	      android:layout_centerHorizontal="true"
+	      android:orientation="horizontal"
+		  android:paddingTop="15dp"	
+		  android:paddingBottom="5dp"	             
+	      >
+	       <ImageView
+	          android:id="@+id/indoor_history_image"
+	          android:layout_width="wrap_content"
+	          android:layout_height="wrap_content"
+	          android:scaleType="fitCenter"
+	          android:src="@drawable/outdoor_history_line" /> 
+	         <TextView
+	          android:id="@+id/indoor_history_tx"
+	          android:layout_width="wrap_content"
+	          android:layout_height="wrap_content"
+	          android:layout_marginLeft="4dp"
+	          android:text="@string/indoor"
+	          android:layout_gravity="center_horizontal"  
+	          android:textColor="@color/theme_tx_color"
+	          android:textSize="14sp"
+	          /> 
+          
+         
+	  </LinearLayout>
+      
+         <com.github.mikephil.charting.charts.LineChart 
+	     android:id="@+id/bezier_curve_chart"
+        android:layout_below="@id/history_page_title_li"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"/>
+   
+</RelativeLayout>

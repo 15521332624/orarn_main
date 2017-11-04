@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+      android:orientation="vertical" >
+   <include
+        android:id="@+id/title"
+        layout="@layout/layout_base_title"
+        />
+     <com.example.orkan.viewpagerindicator.TabPageIndicator
+        android:id="@+id/indicator"
+        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        />
+    <android.support.v4.view.ViewPager
+        android:id="@+id/pager"
+        android:layout_width="fill_parent"
+        android:layout_height="350dp"
+      
+        />
+     
+    <RelativeLayout
+        android:id="@+id/history_page_time_re"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        
+        android:padding="20dp"
+        >
+		<TextView
+	          android:id="@+id/history_page_time_tx"
+	          android:layout_width="wrap_content"
+	          android:layout_height="wrap_content"
+	          android:layout_centerVertical="true"
+	          android:paddingLeft="8dp"
+	          android:paddingRight="8dp"
+	          android:paddingTop="4dp"
+	          android:paddingBottom="4dp"
+	          android:text="@string/history_start_time"
+	          android:background="@drawable/history_rect_starttime"
+	          android:textColor="@color/white"
+	          android:textSize="14sp"
+	          /> 
+ 		<RadioGroup 
+	        android:id="@+id/history_page_time_radio"
+	        android:layout_toRightOf="@id/history_page_time_tx"
+	        android:orientation="horizontal"
+	        android:layout_marginLeft="10dp"
+	        android:layout_centerVertical="true"
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content">
+	        <RadioButton 
+	            android:id="@+id/hour"
+	            android:textSize="14sp"
+	            android:textColor="@color/theme_color"
+	            android:text="@string/history_hour"/>
+	        <RadioButton 
+	            android:id="@+id/day"
+	            android:textSize="14sp"
+	            android:textColor="@color/theme_color"
+	            android:text="@string/history_day"/>
+        	<RadioButton 
+	            android:id="@+id/week"
+	            android:textSize="14sp"
+	            android:textColor="@color/theme_color"  
+	            android:text="@string/history_week"/>
+   		</RadioGroup>
+    </RelativeLayout>
+      
+</LinearLayout>

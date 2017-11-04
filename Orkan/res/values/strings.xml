@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	
+	<string name="app_name">Orkan</string>
+	<string name="hello_world">Hello world!</string>
+	
+	
+	<!-- 首页选项卡 -->
+	
+	<string name="tab_state">状态</string>
+	<string name="tab_control">控制</string>
+	<string name="tab_history">历史</string>
+	<string name="tab_more">我的</string>
+	
+	<!-- 标题 -->
+	<string name="title_login">登录</string>
+	<string name="title_reg">注册</string>
+	<string name="title_state">状态</string>
+	<string name="title_history">历史数据</string>
+	<string name="title_more">我的</string>
+	<string name="title_timing">定时设置</string>
+	<string name="title_bund">设备绑定</string>
+	<string name="title_devicelist">设备列表</string>
+	
+	<string name="account">手机号</string>
+	<string name="password">密码</string>
+	<string name="set_password">设置密码</string>
+	<string name="phone_checknum">手机验证码</string>
+	<string name="ri_reg">立即注册</string>
+	<string name="get_checknum">获取</string>
+	<string name="forget_num">忘记密码</string>
+	<string name="get_pwd">找回密码</string>
+	<string name="new_pwd">新密码</string>
+	<string name="ok">确定</string>
+		
+	<string name="indoor">室内</string>
+	<string name="control_scree">光感屏息</string>
+	<string name="outdoor">室外</string>
+	<string name="state_pm">PM2.5指数</string>
+    <string name="state_temperature">温度</string>
+	<string name="state_humidity">湿度</string>
+				
+	<string name="history_pm">PM2.5</string>
+	<string name="history_temperature">温度</string>
+	<string name="history_humidity">湿度</string>
+	<string name="history_start_time">开始时间</string>
+	<string name="history_hour">小时</string>
+	<string name="history_day">天</string>
+	<string name="history_week">周</string>
+	
+	<string name="control_control">控制流程</string>
+	<string name="control_fengstate">风机状态</string>
+	<string name="control_automode">智能</string>
+	<string name="control_timing">定时设置</string>
+	<string name="control_timing_day">日期设置</string>
+	<string name="control_filter_warning">请更换</string>
+	<string name="control_inside_filter">内层滤芯</string>
+	<string name="control_middle_filter">中层滤芯</string>
+	<string name="control_outside_filter">外层滤芯</string>
+				
+	<string name="more_devicelist">设备列表</string>
+	<string name="more_device">设备绑定</string>
+	<string name="more_unbund">解除绑定</string>
+	<string name="more_about">关于我们</string>
+	<string name="more_help">帮助</string>
+	<string name="more_quit">退出登录</string>
+	
+    <string name="select_city">选择城市</string>
+    <string name="hot_city">热门城市</string>
+    <string name="located_city">定位城市</string>
+    <string name="hint_search_box">请输入城市名或拼音</string>
+    <string name="nothing_found">没有搜索结果~</string>
+    <string name="locating">正在定位…</string>
+    <string name="located_failed">定位失败</string>
+    
+    <string name="hiflying_smartlinker_ssid">SSID:</string>
+    <string name="hiflying_smartlinker_password">密码:</string>
+    <string name="hiflying_smartlinker_password_hint">请输入wifi密码</string>
+    <string name="hiflying_smartlinker_start">开始</string>
+    <string name="hiflying_smartlinker_connect_wifi">step1 : 连接WIFI: HF-LPT120</string>
+    <string name="hiflying_smartlinker_connect_wifi_ok">我已经连接到HF-LPT120</string>
+    <string name="hiflying_smartlinker_waiting">请稍后&#8230;</string>
+    <string name="hiflying_smartlinker_timeout">配置超时!</string>
+    <string name="hiflying_smartlinker_completed">SmartLink 完成</string>
+    <string name="hiflying_smartlinker_new_module_found" formatted="false">发现新模块: Mac-%s Ip-%s</string>
+    <string name="hiflying_smartlinker_no_wifi_connectivity">没有Wifi连接</string>
+    <string name="hiflying_smartlinker_help">1.确保手机已连接wifi\n2.输入wifi密码\n3.短按检测仪背后电源键,使wifi指示灯变为闪烁状态\n4.点击本界面开始按钮</string>
+    <string name="hiflying_aplinker_help">1.确保室内WIFI已打开\n2.打开检测仪,使wifi指示灯变为红色状态\n3.手机连接检测仪WIFI\n4.输入检测仪需要连接的WIFI账号和密码\n5.点击本页面开始</string>
+    <string name="hiflying_aplinker_step_1">1、确保检测控制器要连接的WIFI的已打开；\n2、打开检测控制器，短按一下背后开关键，约5秒钟后wifi指示灯变为红绿快闪；\n3、手机连接检测控制器wifi热点：HF-LPT120；\n4、点击页面“开始”</string>
+	<string name="hiflying_aplinker_step_2">1.输入检测仪需要连接的WIFI账号和密码\n2.点击本页面</string>
+	<string name="hiflying_aplinker_step_2_error">注意：\n1.若wifi指示灯为绿色,请选择 "添加已有设备"\n2.若wifi指示灯为红色，请选择 "ap入网模式"</string>
+	<string name="hiflying_aplinker_step_3">1.请确保手机已连接到互联网\n2.请确保设备wifi指示灯为绿色。若为红色，请检查输入的wifi帐号和密码,请退出重新进入ap入网模式\n3.点击本页面</string>
+</resources>

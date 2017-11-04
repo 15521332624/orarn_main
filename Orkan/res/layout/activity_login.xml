@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+android:layout_width="fill_parent"
+android:layout_height="fill_parent" 
+android:background="@color/llb"
+android:orientation="vertical">
+ <include
+        android:id="@+id/title"
+        layout="@layout/layout_base_title"
+        />
+	
+ <View 
+     android:layout_width="fill_parent"
+     android:layout_height="10dp"
+     />
+ <View 
+     android:layout_width="fill_parent"
+     android:layout_height="1dp"
+     
+     />
+ <LinearLayout
+         android:id="@+id/login_li_account"
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:orientation="horizontal"  
+      android:padding="5dp"
+            android:background="@color/white"      
+      >
+      
+      <TextView
+         android:id="@+id/account_tx"
+         android:layout_weight="4"
+        android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+         android:padding="6dp"
+         android:text="@string/account"
+         android:textColor="@color/lb_tx"
+         
+         android:textSize="18sp"
+         />
+      <EditText 
+           android:id="@+id/account_edit"
+           android:layout_weight="1"
+           android:layout_width="fill_parent"
+      	android:layout_height="wrap_content"
+           android:padding="6dp"
+          android:textColor="@color/lb_tx"
+          android:textSize="18sp"
+          android:background="@null"
+               android:singleLine="true"
+          />
+      
+ </LinearLayout>
+  	<View 
+     android:layout_width="10dp"
+     android:layout_height="1dp"
+     android:background="@color/white"
+     />
+  <LinearLayout
+         android:id="@+id/login_li_pwd"
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:orientation="horizontal"
+       android:padding="5dp"   
+      android:background="@color/white"    
+      >
+      
+      <TextView
+         android:id="@+id/pwd_tx"
+         android:layout_weight="4"
+        android:layout_width="fill_parent"
+      	android:layout_height="wrap_content"
+         android:padding="6dp"
+         android:text="@string/password"
+         android:textColor="@color/lb_tx"
+         android:textSize="18sp"
+         />
+      <EditText 
+           android:id="@+id/pwd_edit"
+           android:layout_weight="1"
+           android:layout_width="fill_parent"
+     	 android:layout_height="wrap_content"
+           android:padding="6dp"
+          android:textColor="@color/lb_tx"
+          android:textSize="18sp"
+          android:background="@null"
+          android:inputType="textPassword"
+               android:singleLine="true"
+          />
+      	
+ </LinearLayout>
+ 
+ <View 
+     android:layout_width="fill_parent"
+     android:layout_height="20dp"
+     />
+ 
+  <LinearLayout
+         android:id="@+id/login_li_login"
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:orientation="horizontal"   
+      android:paddingLeft="10dp"   
+      android:paddingRight="10dp"  
+      >
+      
+      <Button 
+	       android:id="@+id/login_button"
+	      android:layout_width="fill_parent"
+	      android:layout_height="wrap_content"
+	      android:text="@string/title_login"
+	      android:textColor="@color/white"
+	      android:textSize="20sp"
+	      android:background="@drawable/login_rect"
+          />
+      </LinearLayout>
+         <View 
+     android:layout_width="fill_parent"
+     android:layout_height="5dp"
+     />
+ 
+  <RelativeLayout
+      android:id="@+id/login_li_other"
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:orientation="horizontal"   
+  	android:paddingLeft="10dp"   
+      android:paddingRight="10dp"  
+      >
+     <Button 
+	      android:id="@+id/forget_button"
+	      android:layout_width="wrap_content"
+	      android:layout_height="wrap_content"
+	      android:text="@string/forget_num"
+	      android:textColor="@color/lb_tx"
+	      android:textSize="15sp"
+	       android:background="@color/llb"
+          /> 
+      <Button 
+	       android:id="@+id/reg_button"
+	      android:layout_width="wrap_content"
+	      android:layout_height="wrap_content"
+	      android:layout_alignParentRight="true"
+	      android:text="@string/ri_reg"
+	      android:textColor="@color/lb_tx"
+	      android:textSize="15sp"
+	      android:background="@color/llb"
+          />
+  </RelativeLayout>
+</LinearLayout>

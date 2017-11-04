@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/llb"
+    android:orientation="vertical" >
+
+    <include
+        android:id="@+id/title"
+        layout="@layout/layout_base_title" />
+
+    <TextView
+        android:id="@+id/apbegin_help_text"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:padding="6dp"
+        android:singleLine="false"
+        android:text="@string/hiflying_aplinker_step_1"
+        android:textColor="@color/lb_tx"
+        android:textSize="15sp" />
+
+    <LinearLayout
+        android:id="@+id/reg_li_start"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="20dp" >
+
+        <Button
+            android:id="@+id/apbegin_button_wifi_connect"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/login_rect"
+            android:text="@string/hiflying_smartlinker_connect_wifi"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+</LinearLayout>

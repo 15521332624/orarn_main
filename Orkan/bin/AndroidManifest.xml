@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.orkan"
+    android:versionCode="4"
+    android:versionName="1.0" >
+
+    <!-- 以下是使用访问网络所需的权限 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+
+    <!-- 这个权限用于进行网络定位 -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <!-- 这个权限用于访问GPS定位 -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <!-- 用于访问wifi网络信息，wifi信息会用于进行网络定位 -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"></uses-permission>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"></uses-permission>
+
+    <uses-sdk
+        android:minSdkVersion="16"
+        android:targetSdkVersion="20" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/app_icon"
+        android:label="@string/app_name"
+        android:theme="@style/MyTheme" >
+        <meta-data
+            android:name="com.baidu.lbsapi.API_KEY"
+            android:value="xL08qnu5nDRwP8b4VSg3gLemLyG3MDnG" />
+
+        <activity
+            android:name="com.example.orkan.activity.WelcomeActivity"
+            android:label="@string/app_name"
+            android:launchMode="standard" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.example.orkan.activity.LoginActivity" >
+        </activity>
+        <activity android:name="com.example.orkan.activity.DeviceListActivity" >
+        </activity>
+        <activity android:name="com.example.orkan.activity.SmartConfigActivity" >
+        </activity>
+        <activity android:name="com.example.orkan.activity.APConfigSecondActivity" >
+        </activity>
+           <activity android:name="com.example.orkan.activity.APConfigThirdActivity" >
+        </activity>
+          <activity android:name="com.example.orkan.activity.APConfigFirstActivity" >
+        </activity>
+        <activity android:name="com.example.orkan.activity.AddDeviceActivity" >
+        </activity>
+        <activity android:name="com.example.orkan.activity.GetPwdActivity" >
+        </activity>
+        <activity android:name="com.example.orkan.activity.RegActivity" >
+        </activity>
+        <activity
+            android:name="com.example.orkan.activity.MainActivity"
+            android:launchMode="singleTask" >
+        </activity>
+        <activity
+            android:name="com.example.orkan.third.citypicker.CityPickerActivity"
+            android:windowSoftInputMode="adjustResize|adjustPan" >
+        </activity>
+        <activity android:name="com.example.orkan.activity.TimingListActivity" >
+        </activity>
+        <activity android:name="com.example.orkan.activity.TimingSetActivity" >
+        </activity>
+        <activity android:name="com.example.orkan.activity.AboutUsActivity" >
+        </activity>
+		<service android:name="com.baidu.location.f" android:enabled="true" android:process=":remote"> </service>
+        <provider
+            android:name="com.example.orkan.third.citypicker.CityProvider"
+            android:authorities="com.example.orkan.provider.Citys" />
+    </application>
+
+</manifest>

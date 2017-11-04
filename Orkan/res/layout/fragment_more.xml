@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:circleimageview="http://schemas.android.com/apk/res/com.example.orkan" 
+    android:layout_width="fill_parent"
+    android:orientation="vertical"
+    android:layout_height="fill_parent" >
+      <RelativeLayout
+        android:id="@+id/base_more"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        >
+     <RelativeLayout
+        android:id="@+id/base_more_background"
+        android:layout_width="fill_parent"
+        android:layout_height="226dp"
+      	android:background="@drawable/mine_background"
+        >
+        <RelativeLayout
+        android:id="@+id/base_more_topline_re"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:padding="4dp"
+        >
+
+            <TextView
+                android:id="@+id/title_tx"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginRight="10dp"
+                android:textSize="18sp"
+                android:textColor="@color/white"
+                >
+            </TextView>
+			<ImageView
+		          android:id="@+id/title_image"
+		          android:layout_centerVertical="true"
+		          android:layout_alignParentRight="true"
+		          android:padding="8dp"
+		          android:clickable="true"
+		          android:layout_width="wrap_content"
+		          android:layout_height="wrap_content"
+		          android:scaleType="fitCenter"
+		          android:src="@drawable/share" /> 
+    </RelativeLayout>
+    
+       </RelativeLayout>
+       <com.example.orkan.view.CircleImageView
+            android:id="@+id/user_icon"
+            android:layout_marginTop="105dp"
+            android:layout_centerHorizontal="true"
+            android:layout_width="105dp"
+            android:layout_height="105dp"
+            circleimageview:border_width="5dp"
+            circleimageview:border_color="@color/white"
+            android:src="@drawable/app_icon" />  
+        <TextView
+          android:id="@+id/device_id"
+          android:layout_below="@id/user_icon"
+          android:layout_marginTop="6dp"
+          android:paddingLeft="8dp"
+          android:paddingRight="8dp"
+          android:paddingTop="4dp"
+          android:paddingBottom="4dp"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_centerHorizontal="true"
+          android:text="Orkan用户"
+          android:background="@drawable/more_rect_device"
+          android:textColor="@color/white"
+          android:textSize="15sp"
+          />
+        </RelativeLayout>
+     <LinearLayout
+	      android:layout_width="fill_parent"
+	      android:layout_height="fill_parent"
+	      android:orientation="vertical" 
+	      android:padding="20dp"
+	  >
+	  
+         <LinearLayout
+		      android:layout_width="fill_parent"
+		      android:layout_height="fill_parent"
+		      android:layout_weight="1"
+		      android:orientation="horizontal" 
+	 	  >
+		 	   <LinearLayout
+		 	       android:id="@+id/more_devicelist_li_back"
+			       android:layout_width="fill_parent"
+			       android:layout_height="fill_parent"
+			       android:layout_weight="1"
+			       android:orientation="horizontal" 
+			   
+		           android:background="@color/lb"
+		 	 	>
+		 	 	
+		 	          <LinearLayout
+		 	       android:id="@+id/more_devicelist_li"
+			       android:layout_width="fill_parent"
+			       android:layout_height="fill_parent"
+			       android:gravity="center"
+			       android:orientation="vertical" 
+			       android:clickable="true"
+		           android:background="@color/white"
+		 		 	>
+		 		 	  <ImageView
+				          android:id="@+id/more_devicelist"
+				          android:layout_marginTop="4dp"
+				          android:layout_width="60dp"
+				          android:layout_height="60dp"
+				          android:scaleType="fitCenter"
+				          android:src="@drawable/more_devicelist" /> 
+				       <TextView
+				          android:id="@+id/devicelist_tx"
+				          android:layout_width="wrap_content"
+				          android:layout_height="wrap_content"
+				          android:text="@string/more_devicelist"
+				          android:textColor="@color/lb_tx"
+				          android:textSize="16sp"
+				          />
+          
+	 	 		</LinearLayout>
+		 	       
+	 	 		</LinearLayout>
+	 	 		 <LinearLayout
+		 	       android:id="@+id/more_device_li_back"
+			       android:layout_width="fill_parent"
+			       android:layout_height="fill_parent"
+			       android:layout_weight="1"
+			       android:orientation="horizontal" 
+			   
+		           android:background="@color/lb"
+		 	 	>
+		 	 	
+		 	          <LinearLayout
+		 	       android:id="@+id/more_device_li"
+			       android:layout_width="fill_parent"
+			       android:layout_height="fill_parent"
+			       android:gravity="center"
+			       android:orientation="vertical" 
+			       android:clickable="true"
+		           android:background="@color/white"
+		 		 	>
+		 		 	  <ImageView
+				          android:id="@+id/more_bind"
+				          android:layout_marginTop="4dp"
+				          android:layout_width="60dp"
+				          android:layout_height="60dp"
+				          android:scaleType="fitCenter"
+				          android:src="@drawable/more_bind" /> 
+				       <TextView
+				          android:id="@+id/device_tx"
+				          android:layout_width="wrap_content"
+				          android:layout_height="wrap_content"
+				          android:text="@string/more_device"
+				          android:textColor="@color/lb_tx"
+				          android:textSize="16sp"
+				          />
+          
+	 	 		</LinearLayout>
+		 	       
+	 	 		</LinearLayout>
+		 	    <LinearLayout
+		 	       android:id="@+id/more_unbund_li_back"
+			       android:layout_width="fill_parent"
+			       android:layout_height="fill_parent"
+			       android:layout_weight="1"
+			       android:orientation="horizontal" 
+			       android:background="@color/lb"
+			       
+		 	 	 >
+	 	      <LinearLayout
+		 	       android:id="@+id/more_unbund_li"
+			       android:layout_width="fill_parent"
+			       android:layout_height="fill_parent"
+			       android:gravity="center"
+			       android:orientation="vertical" 
+			       android:clickable="true"
+		           android:background="@color/white"
+		 		 	>
+		 		 	  <ImageView
+				          android:id="@+id/more_unbind"
+				          android:layout_marginTop="4dp"
+				          android:layout_width="60dp"
+				          android:layout_height="60dp"
+				          android:scaleType="fitCenter"
+				          android:src="@drawable/more_unbind" /> 
+				       <TextView
+				          android:id="@+id/unbund_tx"
+				          android:layout_width="wrap_content"
+				          android:layout_height="wrap_content"
+				          android:text="@string/more_unbund"
+				          android:textColor="@color/lb_tx"
+				          android:textSize="16sp"
+				          />
+          
+	 	 		</LinearLayout>
+	 	  		</LinearLayout>
+	 	  		
+		 	    
+		 	    
+		 	    
+	 	  	</LinearLayout>
+	     <LinearLayout
+		      android:layout_width="fill_parent"
+		      android:layout_height="fill_parent"
+		      android:layout_weight="1"
+		      android:orientation="horizontal" 
+	 	 	 >
+	  		
+		 	    <LinearLayout
+		 	       android:id="@+id/more_help_li_back"
+			       android:layout_width="fill_parent"
+			       android:layout_height="fill_parent"
+			       android:layout_weight="1"
+			       android:orientation="horizontal" 
+			       android:background="@color/lb"
+			   
+		 	 	 >
+	 	    <LinearLayout
+		 	       android:id="@+id/more_help_li"
+			       android:layout_width="fill_parent"
+			       android:layout_height="fill_parent"
+			       android:gravity="center"
+			       android:orientation="vertical" 
+			       android:clickable="true"
+		           android:background="@color/white"
+		 		 	>
+		 		 	  <ImageView
+				          android:id="@+id/more_help"
+				          android:layout_marginTop="4dp"
+				          android:layout_width="60dp"
+				          android:layout_height="60dp"
+				          android:scaleType="fitCenter"
+				          android:src="@drawable/more_help" /> 
+				       <TextView
+				          android:id="@+id/help_tx"
+				          android:layout_width="wrap_content"
+				          android:layout_height="wrap_content"
+				          android:text="@string/more_help"
+				          android:textColor="@color/lb_tx"
+				          android:textSize="16sp"
+				          />
+          
+	 	 		</LinearLayout>
+	 	  		</LinearLayout>
+	 	  		 <LinearLayout
+		 	       android:id="@+id/more_about_li_back"
+			       android:layout_width="fill_parent"
+			       android:layout_height="fill_parent"
+			       android:layout_weight="1"
+			       android:orientation="horizontal" 
+			      
+		           android:background="@color/lb"
+		 	 	>
+	 	        <LinearLayout
+		 	       android:id="@+id/more_about_li"
+			       android:layout_width="fill_parent"
+			       android:layout_height="fill_parent"
+			       android:gravity="center"
+			       android:orientation="vertical" 
+			       android:clickable="true"
+		           android:background="@color/white"
+		 		 	>
+		 		 	  <ImageView
+				          android:id="@+id/more_aboutus"
+				          android:layout_marginTop="4dp"
+				          android:layout_width="60dp"
+				          android:layout_height="60dp"
+				          android:scaleType="fitCenter"
+				          android:src="@drawable/more_aboutus" /> 
+				       <TextView
+				          android:id="@+id/about_tx"
+				          android:layout_width="wrap_content"
+				          android:layout_height="wrap_content"
+				          android:text="@string/more_about"
+				          android:textColor="@color/lb_tx"
+				          android:textSize="16sp"
+				          />
+          
+	 	 		</LinearLayout>
+	 	 		</LinearLayout>
+	 	 		
+		 	    
+	 	   <LinearLayout
+		 	       android:id="@+id/more_quit_li_back"
+			       android:layout_width="fill_parent"
+			       android:layout_height="fill_parent"
+			       android:layout_weight="1"
+			       android:orientation="horizontal" 
+			       android:background="@color/lb"
+			   
+		 	 	 >
+	 	    <LinearLayout
+		 	       android:id="@+id/more_quit_li"
+			       android:layout_width="fill_parent"
+			       android:layout_height="fill_parent"
+			       android:gravity="center"
+			       android:orientation="vertical" 
+			       android:clickable="true"
+		           android:background="@color/white"
+		 		 	>
+		 		 	  <ImageView
+				          android:id="@+id/more_quit"
+				          android:layout_marginTop="4dp"
+				          android:layout_width="60dp"
+				          android:layout_height="60dp"
+				          android:scaleType="fitCenter"
+				          android:src="@drawable/more_quit" /> 
+				       <TextView
+				          android:id="@+id/quit_tx"
+				          android:layout_width="wrap_content"
+				          android:layout_height="wrap_content"
+				          android:text="@string/more_quit"
+				          android:textColor="@color/lb_tx"
+				          android:textSize="16sp"
+				          />
+          
+	 	 		</LinearLayout>
+	 	  		</LinearLayout>
+	 		</LinearLayout>
+         
+	 </LinearLayout>
+    
+</LinearLayout>

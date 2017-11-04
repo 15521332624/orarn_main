@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/llb"
+    android:orientation="vertical" >
+
+    <include
+        android:id="@+id/title"
+        layout="@layout/layout_base_title" />
+
+    <LinearLayout
+        android:id="@+id/text_li_ssid"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        android:padding="5dp" >
+
+        <TextView
+            android:id="@+id/Text_hiflying_smartlinker_ssid"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"
+            android:padding="6dp"
+            android:text="@string/hiflying_smartlinker_ssid"
+            android:textColor="@color/lb_tx"
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/editText_hiflying_smartlinker_ssid"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:padding="6dp"
+            android:singleLine="true"
+            android:textColor="@color/lb_tx"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/text_li_password"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        android:padding="5dp" >
+
+        <TextView
+            android:id="@+id/ext_hiflying_smartlinker_password"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"
+            android:padding="6dp"
+            android:text="@string/hiflying_smartlinker_password"
+            android:textColor="@color/lb_tx"
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/editText_hiflying_smartlinker_password"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="@string/hiflying_smartlinker_password_hint"
+            android:padding="6dp"
+            android:singleLine="true"
+            android:textColor="@color/lb_tx"
+            android:textColorHint="@color/lb"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/reg_li_start"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="10dp" >
+
+        <Button
+            android:id="@+id/button_hiflying_smartlinker_start"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/login_rect"
+            android:text="step2 : 设备联网"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/help_text"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:padding="6dp"
+        android:singleLine="false"
+        android:text="@string/hiflying_aplinker_step_2"
+        android:textColor="@color/lb_tx"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/error_text"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dip"
+        android:visibility="gone"
+        android:padding="6dp"
+        android:singleLine="false"
+        android:text="@string/hiflying_aplinker_step_2_error"
+        android:textColor="@color/red"
+         />
+    
+         <Button
+             android:id="@+id/button_green"
+             android:layout_width="fill_parent"
+             android:layout_height="wrap_content"
+             android:background="@drawable/login_rect"
+             android:text="确定"
+             android:textColor="@color/white"
+             android:layout_margin="10dip"
+             android:visibility="gone"
+             android:textSize="20sp" />
+         
+              <Button
+            android:id="@+id/button_not_green"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/login_rect"
+            android:text="WIFI指示灯为红色"
+            android:textColor="@color/white"
+            android:visibility="gone"
+            android:textSize="20sp" />
+
+</LinearLayout>
