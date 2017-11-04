@@ -37,7 +37,7 @@ public class AboutUsActivity extends BaseActivity{
 	ImageView title_left;
 	ImageView content_im;
 	
-	//TEST
+	
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_aboutus);
