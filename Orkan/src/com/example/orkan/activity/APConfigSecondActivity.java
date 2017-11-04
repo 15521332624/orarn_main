@@ -41,7 +41,6 @@ public class APConfigSecondActivity extends BaseActivity implements UDPWatcher,M
 	private EditText mPasswordEditText;
 	private Button mStartButton;
 	
-	//TEST 2
 	
 	private LinearLayout text_li_ssid;
 	private LinearLayout text_li_password;
