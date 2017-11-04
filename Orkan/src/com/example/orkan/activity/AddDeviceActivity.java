@@ -55,6 +55,7 @@ public class AddDeviceActivity extends BaseActivity implements
 	public static final String EXTRA_SMARTLINK_VERSION = "EXTRA_SMARTLINK_VERSION";
 
 	private static final String TAG = "CustomizedActivity";
+	//test for git
 	TextView title_tx;
 	ImageView title_im;
 	ImageView title_left;
