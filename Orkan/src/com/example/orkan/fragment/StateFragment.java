@@ -273,19 +273,23 @@ public class StateFragment extends BaseTabFragment implements View.OnClickListen
 			if (pm < 50) {
 				indoor_pm_grade.setText(pmgradArray[0]);
 				indoor_pm_quality.setText(pmtipsArray[0]);
+				indoor_pm_grade.setTextColor(Color.rgb(255, 255, 255));
 				indoor_pm_value.setTextColor(Color.rgb(255, 255, 255));
 				
 			} else if (pm < 100) {
 				indoor_pm_grade.setText(pmgradArray[1]);
 				indoor_pm_quality.setText(pmtipsArray[1]);
+				indoor_pm_grade.setTextColor(Color.rgb(232, 255, 77));
 				indoor_pm_value.setTextColor(Color.rgb(232, 255, 77));
 			} else if (pm < 150) {
 				indoor_pm_grade.setText(pmgradArray[2]);
 				indoor_pm_quality.setText(pmtipsArray[2]);
+				indoor_pm_grade.setTextColor(Color.rgb(254, 115, 35));
 				indoor_pm_value.setTextColor(Color.rgb(254, 115, 35));
 			} else {
 				indoor_pm_grade.setText(pmgradArray[3]);
 				indoor_pm_quality.setText(pmtipsArray[3]);
+				indoor_pm_grade.setTextColor(Color.rgb(255, 63, 37));
 				indoor_pm_value.setTextColor(Color.rgb(255, 63, 37));
 			}
 
