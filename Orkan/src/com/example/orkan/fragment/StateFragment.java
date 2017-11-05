@@ -300,7 +300,7 @@ public class StateFragment extends BaseTabFragment implements View.OnClickListen
 			if (pm2 < 0) {
 				pm2 = 0;
 			}
-			indoor_count_image.setImageResource(mImageViewArray[pm2]);
+			indoor_count_image.setBackgroundResource(mImageViewArray[pm2]);
 			
 			setFlickerAnimation(indoor_logo_image);
 		}

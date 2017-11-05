@@ -88,6 +88,6 @@
     <string name="hiflying_aplinker_help">1.确保室内WIFI已打开\n2.打开检测仪,使wifi指示灯变为红色状态\n3.手机连接检测仪WIFI\n4.输入检测仪需要连接的WIFI账号和密码\n5.点击本页面开始</string>
     <string name="hiflying_aplinker_step_1">1、确保检测控制器要连接的WIFI的已打开；\n2、打开检测控制器，短按一下背后开关键，约5秒钟后wifi指示灯变为红绿快闪；\n3、手机连接检测控制器wifi热点：HF-LPT120；\n4、点击页面“开始”</string>
 	<string name="hiflying_aplinker_step_2">1.输入检测仪需要连接的WIFI账号和密码\n2.点击本页面</string>
-	<string name="hiflying_aplinker_step_2_error">注意：\n1.若wifi指示灯为绿色,请选择 "添加已有设备"\n2.若wifi指示灯为红色，请选择 "ap入网模式"</string>
+	<string name="hiflying_aplinker_step_2_error">请检查WIFI指示灯是否变亮</string>
 	<string name="hiflying_aplinker_step_3">1.请确保手机已连接到互联网\n2.请确保设备wifi指示灯为绿色。若为红色，请检查输入的wifi帐号和密码,请退出重新进入ap入网模式\n3.点击本页面</string>
 </resources>

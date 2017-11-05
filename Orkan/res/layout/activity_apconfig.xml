@@ -100,12 +100,13 @@
         android:id="@+id/error_text"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dip"
+        android:layout_marginTop="5dip"
         android:visibility="gone"
         android:padding="6dp"
         android:singleLine="false"
+        android:textSize="18sp"
         android:text="@string/hiflying_aplinker_step_2_error"
-        android:textColor="@color/red"
+        android:textColor="@color/black"
          />
     
          <Button
@@ -113,9 +114,9 @@
              android:layout_width="fill_parent"
              android:layout_height="wrap_content"
              android:background="@drawable/login_rect"
-             android:text="确定"
+             android:text="灯已变绿，搜索已入网设备"
              android:textColor="@color/white"
-             android:layout_margin="10dip"
+             android:layout_margin="20dip"
              android:visibility="gone"
              android:textSize="20sp" />
          
@@ -124,8 +125,9 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/login_rect"
-            android:text="WIFI指示灯为红色"
+            android:text="灯依然红色，重新操作一次"
             android:textColor="@color/white"
+            android:layout_margin="20dip"
             android:visibility="gone"
             android:textSize="20sp" />
 

@@ -53,6 +53,7 @@ public class APConfigSecondActivity extends BaseActivity implements UDPWatcher,M
 	//protected MQTTController mqttController;
 	private ProbeHandler probeHandler = new ProbeHandler();
 	private Button button_green;
+	private Button button_not_green;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -69,8 +70,10 @@ public class APConfigSecondActivity extends BaseActivity implements UDPWatcher,M
 		title_left.setImageResource(R.drawable.back);
 		title_left.setVisibility(View.VISIBLE);
 		button_green = (Button)findViewById(R.id.button_green);
+		button_not_green= (Button)findViewById(R.id.button_not_green);
 		title_left.setOnClickListener(click);
 		button_green.setOnClickListener(click);
+		button_not_green.setOnClickListener(click);
 		//UI
 		mSsidEditText = (EditText) findViewById(R.id.editText_hiflying_smartlinker_ssid);
 		mPasswordEditText = (EditText) findViewById(R.id.editText_hiflying_smartlinker_password);
@@ -120,6 +123,11 @@ public class APConfigSecondActivity extends BaseActivity implements UDPWatcher,M
 				}
 				
 			}else if(id == R.id.button_green) {
+				//TODO
+				startActivity(new Intent(APConfigSecondActivity.this, ApConfigSeearchDeviceActivity.class));
+				finish();
+				
+			}else if(id == R.id.button_not_green){
 				startActivity(new Intent(APConfigSecondActivity.this, AddDeviceActivity.class));
 				finish();
 			}
@@ -142,6 +150,7 @@ public class APConfigSecondActivity extends BaseActivity implements UDPWatcher,M
 	      			help_text.setVisibility(View.GONE);
 	      			error_tex.setVisibility(View.VISIBLE);
 	      			button_green.setVisibility(View.VISIBLE);
+	      			button_not_green.setVisibility(View.VISIBLE);
 	      			//Toast.makeText(getApplicationContext(), "设备绑定wifi超时", Toast.LENGTH_SHORT).show();
 	      			//TODO
 	      			

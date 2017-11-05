@@ -108,47 +108,53 @@
 
         <ImageView
             android:id="@+id/indoor_count_image"
-            android:layout_width="240dp"
-            android:layout_height="wrap_content"
+            android:layout_width="260dp"
+            android:layout_height="60dip"
             android:layout_below="@+id/indoor_image"
             android:layout_centerHorizontal="true"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp"
-            android:scaleType="fitCenter"
-            android:src="@drawable/pm_count1" />
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/pm_count1" />
         
-         <ImageView
-            android:id="@+id/indoor_logo_image"
-            android:layout_width="240dp"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/indoor_count_image"
-            android:layout_centerHorizontal="true"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp"
-            android:scaleType="fitCenter"
-            android:src="@drawable/statelogo" />
+ 
 
-        <TextView
-            android:id="@+id/indoor_pm_count"
+     
+        
+              <ImageView
+            android:id="@+id/indoor_logo_image"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/indoor_image"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="70dp"
-            android:text="@string/state_pm"
-            android:textColor="@color/white"
-            android:textSize="17sp" />
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="25dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/statelogo" />
 
         <TextView
             android:id="@+id/indoor_pm_value"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/indoor_pm_count"
+            android:layout_below="@+id/indoor_image"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="-10dp"
+            android:layout_marginTop="70dp"
             android:text="--"
             android:textColor="@color/white"
             android:textSize="84sp" />
+        
+           <TextView
+            android:id="@+id/indoor_pm_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/indoor_pm_value"
+            android:layout_marginTop="-10dp"
+            android:layout_centerHorizontal="true"
+            android:text="@string/state_pm"
+            android:textColor="@color/white"
+            android:textSize="17sp" />
+        
+  
 
         <TextView
             android:id="@+id/indoor_pm_grade"
@@ -166,9 +172,9 @@
             android:id="@+id/indoor_pm_quality"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/indoor_pm_value"
+            android:layout_below="@id/indoor_pm_count"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="-10dp"
+            android:layout_marginTop="10dp"
             android:background="@drawable/state_rect_quality"
             android:paddingBottom="4dp"
             android:paddingLeft="8dp"
@@ -280,7 +286,7 @@
         android:id="@+id/outdoor_relayout"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:paddingBottom="16dp"
+        android:paddingBottom="10dp"
         android:paddingLeft="6dp"
         android:paddingRight="6dp"
         android:paddingTop="6dp" >
