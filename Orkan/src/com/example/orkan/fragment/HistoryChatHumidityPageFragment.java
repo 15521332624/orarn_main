@@ -110,7 +110,6 @@ public class HistoryChatHumidityPageFragment extends Fragment implements View.On
 	        mChart.getXAxis().setPosition(XAxisPosition.BOTTOM);
 	        mChart.getXAxis().setAvoidFirstLastClipping(true);
 	        mChart.getXAxis().setDrawGridLines(false);
-	        mChart.getXAxis().setAvoidFirstLastClipping(true);
 	        //mChart.getXAxis().setLabelsToSkip(0);
 	      // mChart.getXAxis().resetLabelsToSkip(); 
 	       

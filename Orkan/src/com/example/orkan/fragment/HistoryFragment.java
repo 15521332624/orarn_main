@@ -262,13 +262,14 @@ public class HistoryFragment extends BaseTabFragment implements View.OnClickList
  
 	private void gethttp(final String type){
 			Util.d("date  "+date);
-			Util.d(Util.URL + "History/" + date + "/" + Util.MQTT_USER_MAC + "/" + type);
+			Util.d(Util.URL_H + "History/" + date + "/" + Util.MQTT_USER_MAC + "/" + type);
 		   FinalHttp fh = new FinalHttp();
 			AjaxParams params = new AjaxParams();
 			params.put("id", Util.USER_ID);
 			params.put("token", Util.USER_TOCKEN);
 		
 			//params.put("sn", MQTTUtil.byte2hex(Util.MQTT_USER_FENG));
+			//MAC : f0fe6b320166
 			fh.post(Util.URL + "History/" + date + "/" + Util.MQTT_USER_MAC + "/" + type, params, new AjaxCallBack<String>() {
 			@Override
 			public void onSuccess(String t){

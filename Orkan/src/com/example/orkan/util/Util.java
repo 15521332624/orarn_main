@@ -37,6 +37,7 @@ public class Util
 	public static final String WEATHER_URL = "http://zhwnlapi.etouch.cn/Ecalender/api/v2/weather";
 	
 	public static final String URL = "http://orkan.t-tt.cn/";
+	public static final String URL_H = "http://t.t-tt.cn/com.luftmon.orkan/";
 	public static String USER_ID = "";
 	public static String USER_TOCKEN = "";
 	public static String USER_PHONE = "";
