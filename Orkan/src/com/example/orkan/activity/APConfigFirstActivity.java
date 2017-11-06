@@ -70,16 +70,16 @@ public class APConfigFirstActivity extends BaseActivity {
 			apbegin_button_wifi_connect.setText(R.string.hiflying_smartlinker_connect_wifi);
 			Util.d("wifi noteable");
 			isEnter = false;
-			return;
-		}
-		
-		if("HF-LPT120".equals(getSSid())) {
-			apbegin_button_wifi_connect.setText(R.string.hiflying_smartlinker_connect_wifi_ok);
-			isEnter = true;
-			
-		}else {
-			Util.d("wifi enable,not wifi");
-			apbegin_button_wifi_connect.setText(R.string.hiflying_smartlinker_connect_wifi);
+			//return;
+		}else{
+			if("HF-LPT120".equals(getSSid())) {
+				apbegin_button_wifi_connect.setText(R.string.hiflying_smartlinker_connect_wifi_ok);
+				isEnter = true;
+				
+			}else {
+				Util.d("wifi enable,not wifi");
+				apbegin_button_wifi_connect.setText(R.string.hiflying_smartlinker_connect_wifi);
+			}
 		}
 		
 		mWifiChangedReceiver = new BroadcastReceiver() {

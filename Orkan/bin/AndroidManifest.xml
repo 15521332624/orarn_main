@@ -52,6 +52,8 @@
         </activity>
         <activity android:name="com.example.orkan.activity.APConfigSecondActivity" >
         </activity>
+         <activity android:name="com.example.orkan.activity.ApConfigSeearchDeviceActivity" >
+        </activity>
            <activity android:name="com.example.orkan.activity.APConfigThirdActivity" >
         </activity>
           <activity android:name="com.example.orkan.activity.APConfigFirstActivity" >

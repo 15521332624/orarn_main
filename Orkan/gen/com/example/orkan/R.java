@@ -1431,12 +1431,12 @@ containing a value of this type.
         public static final int bezier_curve_chart=0x7f0a0108;
         public static final int buttonHorizontalDivider=0x7f0a0117;
         public static final int buttonVerticalDivider=0x7f0a0119;
-        public static final int button_ap_add=0x7f0a0040;
+        public static final int button_ap_add=0x7f0a003f;
         public static final int button_green=0x7f0a004a;
         public static final int button_hiflying_smartlinker_start=0x7f0a0047;
         public static final int button_not_green=0x7f0a004b;
         public static final int button_smartconfig=0x7f0a003e;
-        public static final int button_udp=0x7f0a003f;
+        public static final int button_udp=0x7f0a0040;
         public static final int cancelButton=0x7f0a0118;
         public static final int checkbox=0x7f0a002d;
         public static final int checknum_button=0x7f0a005c;
