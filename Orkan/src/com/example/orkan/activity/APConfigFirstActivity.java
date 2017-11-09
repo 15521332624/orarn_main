@@ -49,7 +49,7 @@ public class APConfigFirstActivity extends BaseActivity {
 			
 				if(isEnter) {
 					startActivity(new Intent(APConfigFirstActivity.this,
-							APConfigSecondActivity.class));
+							APConfigSecondTcpActivity.class));
 					APConfigFirstActivity.this.finish();
 				}else {
 					Toast.makeText(getApplicationContext(), "请连接wifi： hf-lpt120", Toast.LENGTH_SHORT).show();

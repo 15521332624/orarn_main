@@ -63,12 +63,7 @@ public class FrUDPSocketServer {
 			UDPSocket = null;
 		}
 
-//		if (receiveUDPThread != null)
-//			receiveUDPThread.interrupt();
 		receiveUDPThread = null;
-		
-//		if (sendUDPThread != null)
-//			sendUDPThread.interrupt();
 		sendUDPThread = null;
 
 	}
@@ -92,7 +87,6 @@ public class FrUDPSocketServer {
 					receiveDatagramPacket = new DatagramPacket(receiveBuffer, BUFFER_LENGTH);
 					UDPSocket.receive(receiveDatagramPacket);
 					if (receiveDatagramPacket.getLength() == 0) {
-						Util.d("udp server: Received length 0");
 						continue;
 					}
 
@@ -136,7 +130,6 @@ public class FrUDPSocketServer {
 				try {
 					if(sendData != null){
 						int length = sendData.length();
-						Util.d("send2 :" + sendData);
 						// 发送UDP报文
 						sendDatagramPacket = new DatagramPacket(sendData.getBytes(), length, InetAddress.getByName(mLocalIp), SEND_PORT);
 						UDPSocket.send(sendDatagramPacket);
