@@ -537,15 +537,19 @@ public class ControlFragment extends BaseTabFragment implements View.OnClickList
     	int v3 = (int)(((double)(Util.INITIAL_STATUS_INSIDEFILTER_VALUE_MAX - Util.INITIAL_STATUS_INSIDEFILTER_VALUE)/Util.INITIAL_STATUS_INSIDEFILTER_VALUE_MAX)*100);
     	int v2 = (int)(((double)(Util.INITIAL_STATUS_MIDDLEFILTER_VALUE_MAX - Util.INITIAL_STATUS_MIDDLEFILTER_VALUE)/Util.INITIAL_STATUS_MIDDLEFILTER_VALUE_MAX)*100);
     	int v1 = (int)(((double)(Util.INITIAL_STATUS_OUTSIDEFILTER_VALUE_MAX - Util.INITIAL_STATUS_OUTSIDEFILTER_VALUE)/Util.INITIAL_STATUS_OUTSIDEFILTER_VALUE_MAX)*100);
-    	if (v1 < 0){
-    		v1 =0;
+    	
+      	if (v3 < 0){
+    		v3 =0;
     	}
+    	
     	if (v2 < 0){
     		v2 =0;
     	}
-    	if (v3 < 0){
-    		v3 =0;
+    	
+    	if (v1 < 0){
+    		v1 =0;
     	}
+  
 		inside_filter_progressbar.setCurProgress(v1,100);
 		middle_filter_progressbar.setCurProgress(v2,100);
 		outside_filter_progressbar.setCurProgress(v3,100);

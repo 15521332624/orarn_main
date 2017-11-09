@@ -240,6 +240,14 @@ public class StateFragment extends BaseTabFragment implements View.OnClickListen
           
         mLocClient.start();  // 调用此方法开始定位  
 	}
+	
+	
+	@Override
+	public void onResume() {
+		// TODO 自动生成的方法存根
+		animation = null;
+		super.onResume();
+	}
 
     public class BDLocationListenerImpl implements BDLocationListener {  
   	  

@@ -1,13 +1,11 @@
 package com.example.orkan.activity;
 
+import net.tsz.afinal.FinalHttp;
+import net.tsz.afinal.http.AjaxCallBack;
+import net.tsz.afinal.http.AjaxParams;
+
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import com.example.orkan.R;
-import com.example.orkan.controller.MQTTController;
-import com.example.orkan.controller.MQTTController.MQTTFinish;
-import com.example.orkan.net.UDPWatcher;
-import com.example.orkan.util.Util;
 
 import android.app.ProgressDialog;
 import android.content.BroadcastReceiver;
@@ -22,13 +20,17 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-import net.tsz.afinal.FinalHttp;
-import net.tsz.afinal.http.AjaxCallBack;
-import net.tsz.afinal.http.AjaxParams;
+
+import com.example.orkan.R;
+import com.example.orkan.controller.MQTTController;
+import com.example.orkan.controller.MQTTController.MQTTFinish;
+import com.example.orkan.net.UDPWatcher;
+import com.example.orkan.util.Util;
 
 public class APConfigThirdActivity extends BaseActivity implements UDPWatcher,MQTTFinish{
 	
 	private Button apbegin_button_wifi_connect;
+	private Button apbegin_button_red;
 	private ImageView title_left;
 	private BroadcastReceiver mWifiChangedReceiver;
 	private TextView title_tx;
@@ -48,6 +50,7 @@ public class APConfigThirdActivity extends BaseActivity implements UDPWatcher,MQ
 		title_tx = (TextView) findViewById(R.id.title_tx);
 		title_tx.setText(R.string.title_bund);
 		title_left.setImageResource(R.drawable.back);
+		apbegin_button_red = (Button)findViewById(R.id.apbegin_button_red);
 		title_left.setVisibility(View.VISIBLE);
 		mWaitingDialog = new ProgressDialog(this);
 		mWaitingDialog.setMessage(getString(R.string.hiflying_smartlinker_waiting));
@@ -69,6 +72,15 @@ public class APConfigThirdActivity extends BaseActivity implements UDPWatcher,MQ
 			@Override
 			public void onClick(View arg0) {
 				APConfigThirdActivity.this.finish();
+			}
+		});
+		
+		apbegin_button_red.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View arg0) {
+				startActivity(new Intent(APConfigThirdActivity.this, AddDeviceActivity.class));
+				finish();
 			}
 		});
 		

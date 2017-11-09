@@ -31,9 +31,27 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/login_rect"
-            android:text="step3 : 绑定设备"
+            android:text="灯已变绿，绑定该设备"
             android:textColor="@color/white"
             android:textSize="20sp" />
     </LinearLayout>
+    
+    <LinearLayout
+        android:id="@+id/reg_lead_read"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="20dp" >
+
+        <Button
+            android:id="@+id/apbegin_button_red"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/login_rect"
+            android:text="灯依然红色，重新操作一次"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+    </LinearLayout>
+    
 
 </LinearLayout>
