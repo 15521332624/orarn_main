@@ -300,7 +300,7 @@ public class HistoryFragment extends BaseTabFragment implements View.OnClickList
 						String maxTime = minTime;
 						
 						Util.HistoryData = data.length();
-						
+						Log.v("snake", "data-length = " + data.length());
 						for(int i=0;i<data.length();i++) {
 							JSONObject obj = data.getJSONObject(i);
 							String time = obj.getString("time");

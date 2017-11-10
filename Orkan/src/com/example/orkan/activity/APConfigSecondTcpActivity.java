@@ -81,8 +81,8 @@ public class APConfigSecondTcpActivity extends BaseActivity implements UDPWatche
 		mStartButton = (Button) findViewById(R.id.button_hiflying_smartlinker_start);
 		mSsidEditText.setHint("请输入WIFI账号");
 		mPasswordEditText.setHint("请输入WIFI密码");
-		//mSsidEditText.setText("302");
-		//mPasswordEditText.setText("chenxiaoxia");
+		//mSsidEditText.setText("TP-LINK_888b");
+		//mPasswordEditText.setText("luftmon2015");
 		mStartButton.setOnClickListener(click);
 		
 		
@@ -152,19 +152,12 @@ public class APConfigSecondTcpActivity extends BaseActivity implements UDPWatche
 	      			error_tex.setVisibility(View.VISIBLE);
 	      			button_green.setVisibility(View.VISIBLE);
 	      			button_not_green.setVisibility(View.VISIBLE);
-	      			//Toast.makeText(getApplicationContext(), "设备绑定wifi超时", Toast.LENGTH_SHORT).show();
-	      			//TODO
 	      			
 	      		}else if(msg.what == 2){
-	      			
 	      			String s = ">>" + mSsidEditText.getText().toString().trim() +  " " + mPasswordEditText.getText().toString().trim();
 	      			socket.sendSocketData(s);
-	      			Log.v("snake", "send Data : " + s);
 	      			probeHandler.sendEmptyMessageDelayed(1, 10000);
 	      		}else if(msg.what == 3) {
-	      			//Wifi and 4g
-	      			Log.v("snake", "mqttstart");
-	      		//	mqttController.start();
 	      			startActivity(new Intent(APConfigSecondTcpActivity.this, APConfigThirdActivity.class));
 	      			finish();
 	      		}
@@ -174,7 +167,8 @@ public class APConfigSecondTcpActivity extends BaseActivity implements UDPWatche
 	private String macString = "";
 	private void socketInit(){
 		
-		socket = new FrTCPSocketServer("10.10.100.254", 20001);
+		socket = new FrTCPSocketServer("10.10.100.254", 28899);
+		
 		socket.addUDPListener(new FrUDPConnectListener() {
 			
 			@Override
@@ -185,12 +179,11 @@ public class APConfigSecondTcpActivity extends BaseActivity implements UDPWatche
 					Log.v("snake", "receive mac : " + macString);
 					Util.MQTT_USER_MAC = macString;
 					probeHandler.removeMessages(1);
-					probeHandler.sendEmptyMessageDelayed(3, 1000);
+					probeHandler.sendEmptyMessageDelayed(3, 7000);
 					socket.stopTCPSocketThread();
 	    
 				}else {
 				   if(receivedString.contains("<<set failed")){
-					Log.v("snake", "receive error : " + receivedString);
 					socket.stopTCPSocketThread();
 				}
 				}
@@ -247,7 +240,6 @@ public class APConfigSecondTcpActivity extends BaseActivity implements UDPWatche
 					
 					JSONObject jsonData = new JSONObject(t);
 					int code = jsonData.getInt("code");
-					Log.v("snake", "band success Code = " + code);
 					if (code == 1) {
 						Toast.makeText(getApplicationContext(), "设备绑定成功", Toast.LENGTH_SHORT).show();
 						Util.START_FROM_LOGIN = 0;

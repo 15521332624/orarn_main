@@ -11,6 +11,8 @@ import java.net.SocketException;
 
 import com.example.orkan.util.Util;
 
+import android.util.Log;
+
 public class FrTCPSocketServer {
 	
 	private static int PORT = 20001;
@@ -78,11 +80,13 @@ public class FrTCPSocketServer {
 				if(tcpClient != null){
 					tcpClient.close();
 				}
-				tcpClient = new Socket(InetAddress.getByName(mLocalIp), PORT);
+				tcpClient = new Socket(mLocalIp, PORT);
 				outputStream = new DataOutputStream(tcpClient.getOutputStream());
 				inputStream = new DataInputStream(tcpClient.getInputStream());
 				receiveTPCThread = new Thread(receiver);
+				receiveTPCThread.start();
 				sendTCPThread = new Thread(send);
+				sendTCPThread.start();
 			} catch (Exception e) {
 				stopTCPSocketThread();
 				e.printStackTrace();
@@ -95,10 +99,8 @@ public class FrTCPSocketServer {
 		
 		@Override
 		public void run() {
-			Util.d("UDPSocketReceiver thread run");
 			final byte[] readBuffer = new byte[READ_BUFFER_SIZE];
 			while (isThreadRunning) {
-				
 				try {
 					inputStream.read(readBuffer);
 					String revStr = new String(readBuffer,"utf-8");
@@ -129,7 +131,7 @@ public class FrTCPSocketServer {
 			
 			try {
 				if(sendData != null){
-					outputStream.writeChars(sendData);
+					outputStream.write(sendData.getBytes());
 					outputStream.flush();
 					sendData = null;
 				}

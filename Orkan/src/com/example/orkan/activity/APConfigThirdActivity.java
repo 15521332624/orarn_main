@@ -24,6 +24,7 @@ import android.widget.Toast;
 import com.example.orkan.R;
 import com.example.orkan.controller.MQTTController;
 import com.example.orkan.controller.MQTTController.MQTTFinish;
+import com.example.orkan.dialog.MessageDialog;
 import com.example.orkan.net.UDPWatcher;
 import com.example.orkan.util.Util;
 
@@ -64,7 +65,7 @@ public class APConfigThirdActivity extends BaseActivity implements UDPWatcher,MQ
 				mqttController.setFinishCallBack(APConfigThirdActivity.this);
 				mWaitingDialog.show();
 				mqttController.start();
-				probeHandler.sendEmptyMessageDelayed(1, 10000);
+				probeHandler.sendEmptyMessageDelayed(1, 30000);
 			}
 		});
 		title_left.setOnClickListener(new OnClickListener() {
@@ -150,6 +151,11 @@ public class APConfigThirdActivity extends BaseActivity implements UDPWatcher,MQ
 						startActivity(new Intent(APConfigThirdActivity.this, DeviceListActivity.class));
 
 						finish();
+					}else {
+						probeHandler.removeMessages(1);
+						MessageDialog msgDialog = new MessageDialog(APConfigThirdActivity.this,
+								jsonData.getString("msg"));
+						msgDialog.show();
 					}
 				} catch (JSONException e) {
 					// TODO Auto-generated catch block
