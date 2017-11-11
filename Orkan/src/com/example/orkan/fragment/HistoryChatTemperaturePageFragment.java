@@ -1,47 +1,32 @@
 package com.example.orkan.fragment;
 
 import java.util.ArrayList;
-import java.util.List;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import android.graphics.Color;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.orkan.R;
-import com.example.orkan.fragment.HistoryPMPageFragment.ProbeHandler;
-import com.example.orkan.net.UDPSocketServer;
-import com.example.orkan.net.UDPWatcher;
-import com.example.orkan.third.kprogresshud.KProgressHUD;
 import com.example.orkan.util.Util;
-import com.example.orkan.view.BezierCurveChart;
-import com.example.orkan.view.BezierCurveChart.Point;
 import com.github.mikephil.charting.charts.LineChart;
-import com.github.mikephil.charting.components.YAxis;
 import com.github.mikephil.charting.components.XAxis.XAxisPosition;
+import com.github.mikephil.charting.components.YAxis;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
 
 public class HistoryChatTemperaturePageFragment extends Fragment implements View.OnClickListener{
-	public View rootView;
-	LineChart mChart;
-
-	// KProgressHUD hud;
-	String tipText = "ug/m3";
+	
+	private View rootView;
+	private LineChart mChart;
+	private int dataLenth = 0;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		Util.d("history pm oncreate");
 	}
 
 	@Override
@@ -68,30 +53,16 @@ public class HistoryChatTemperaturePageFragment extends Fragment implements View
 
 	 
 	public void refresh() {
-		if (rootView == null) {
-			return;
-		}
-
+		 if (rootView == null) {
+		 	return;
+		 }
 	     LineData data = getLineData();  
-         mChart.setData(data);  
+	     mChart.setData(data);  
+	     setXDiffShow();
 		 mChart.invalidate();
 	}
 
-	@Override
-	public void onDestroy() {
-		super.onDestroy();
-	}
-
-
-
-	@Override
-	public void onClick(View v) {
-		// TODO Auto-generated method stub
-
-	}
-
-
-
+	@SuppressWarnings("deprecation")
 	private void initLineChart() {
 	       mChart.setDrawGridBackground(false);  
 	        mChart.setDrawBorders(false);  
@@ -99,10 +70,6 @@ public class HistoryChatTemperaturePageFragment extends Fragment implements View
 	        mChart.setDescription("");  
 	        //设置透明度  
 	        mChart.setAlpha(0.8f);  
-	        //设置网格底下的那条线的颜色  
-	    //    mChart.setBorderColor(Color.rgb(213, 216, 214));  
-	        //设置高亮显示  
-	    //    mChart.setHighlightEnabled(true);  
 	        //设置是否可以触摸，如为false，则不能拖动，缩放等  
 	        mChart.setTouchEnabled(true);  
 	        //设置是否可以拖拽  
@@ -111,56 +78,77 @@ public class HistoryChatTemperaturePageFragment extends Fragment implements View
 	        mChart.setScaleEnabled(false);  
 	        //设置是否能扩大扩小  
 	        mChart.setPinchZoom(false);  
+	        //x
 	        mChart.getXAxis().setPosition(XAxisPosition.BOTTOM);
-	        mChart.getXAxis().setAvoidFirstLastClipping(true);
 	        mChart.getXAxis().setDrawGridLines(false);
-	        //mChart.getXAxis().setLabelsToSkip(0);
-	      // mChart.getXAxis().resetLabelsToSkip(); 
-	       
+	        mChart.getXAxis().setTextSize(8f);
+	        
+	        //y
 	        YAxis leftAxis = mChart.getAxisLeft();
 	        YAxis rightAxis = mChart.getAxisRight();
 	        rightAxis.setEnabled(false);	
-	        leftAxis.setDrawGridLines(true);
+	        leftAxis.setDrawGridLines(false);
 	        leftAxis.setStartAtZero(true);
-	       // leftAxis.setAxisMaxValue(150);
-	       // leftAxis.setLabelCount(15, true);
-	       // leftAxis.setShowOnlyMinMax(true);
+	        
 	        // 加载数据  
 	        LineData data = getLineData();  
 	        mChart.setData(data);  
-	        /** 
-	         * ====================3.x，y动画效果和刷新图表等=========================== 
-	         */  
+	        setXDiffShow();
 	        mChart.invalidate();
-		
-		
 	}
 	
+private void setXDiffShow(){
+   
+    if(dataLenth == 30){
+   	 //hour
+   	 mChart.getXAxis().setAvoidFirstLastClipping(false);
+   	 mChart.getXAxis().setLabelsToSkip(5);
+    }else if(dataLenth == 24){
+   	 //day
+   	 mChart.getXAxis().setAvoidFirstLastClipping(false);
+   	 mChart.getXAxis().setLabelsToSkip(5);
+    }else{
+   	 //week
+   	 mChart.getXAxis().setAvoidFirstLastClipping(false);
+   	 mChart.getXAxis().setLabelsToSkip(2);
+    }
+}
+	
 private LineData getLineData() {  
+	
+	  dataLenth = Util.CHAR_INDOOR_TEMPERATURE.size();
+	  ArrayList<String> xVals = new ArrayList<String>();  
+	  for (int i = 0; i < Util.CHAR_INDOOR_TEMPERATURE.size(); i++) {  
+	      xVals.add(Util.CHAR_INDOOR_TEMPERATURE.get(i).time);  
+	  }  
+	 //hour and day add more point
+	  if(dataLenth == 24 || dataLenth == 30)
+		  xVals.add(Util.CHAR_INDOOR_TEMPERATURE.get(Util.CHAR_INDOOR_TEMPERATURE.size() - 1).time);  
+	  
+	  ArrayList<Entry> yVals = new ArrayList<Entry>();  
+	  for (int i = 0; i < Util.CHAR_INDOOR_TEMPERATURE.size(); i++) {    
+	      yVals.add(new Entry(Util.CHAR_INDOOR_TEMPERATURE.get(i).value, i));  
+	  }
+	  //hour and day add more point
+	  if(dataLenth == 24 || dataLenth == 30)
+		  yVals.add(new Entry(Util.CHAR_INDOOR_TEMPERATURE.get(Util.CHAR_INDOOR_TEMPERATURE.size() - 1).value, Util.CHAR_INDOOR_TEMPERATURE.size()));  
+	
+	  LineDataSet set1 = new LineDataSet(yVals, "X-Time Y-℃");  
+	  set1.setDrawCubic(false);  //设置曲线为圆滑的线  
+	  set1.setCubicIntensity(0.2f);  
+	  set1.setDrawFilled(false);  //设置包括的范围区域填充颜色  
+	  set1.setDrawCircles(false);  //设置有圆点  
+	  set1.setLineWidth(3f);    //设置线的宽度  
+	  set1.setValueTextSize(0);
+	  set1.setCircleColor(Color.parseColor("#32C5BD"));
+	  set1.setColor(Color.parseColor("#32C5BD"));    //设置曲线的颜色  
+	  
+	  return new LineData(xVals, set1);  
+}
 
-  ArrayList<String> xVals = new ArrayList<String>();  
-  for (int i = 0; i < Util.CHAR_INDOOR_TEMPERATURE.size(); i++) {  
-      xVals.add(Util.CHAR_INDOOR_TEMPERATURE.get(i).time);  
-  }  
-  
-  ArrayList<Entry> yVals = new ArrayList<Entry>();  
-  for (int i = 0; i < Util.CHAR_INDOOR_TEMPERATURE.size(); i++) {  
-      yVals.add(new Entry(Util.CHAR_INDOOR_TEMPERATURE.get(i).value, i));  
-  }  
-
-  LineDataSet set1 = new LineDataSet(yVals, "X-Time Y-mg/m3");  
-  set1.setDrawCubic(false);  //设置曲线为圆滑的线  
-  set1.setCubicIntensity(0.2f);  
-  set1.setDrawFilled(false);  //设置包括的范围区域填充颜色  
-  set1.setDrawCircles(false);  //设置有圆点  
-  set1.setLineWidth(3f);    //设置线的宽度  
-  set1.setCircleSize(6f);   //设置小圆的大小  
-  set1.setValueTextSize(0);
- // set1.setValueTextColor(Color.RED);
-  set1.setCircleColor(Color.parseColor("#32C5BD"));
-  set1.setColor(Color.parseColor("#32C5BD"));    //设置曲线的颜色  
-
-  return new LineData(xVals, set1);  
+@Override
+public void onClick(View arg0) {
+	
 }  
 
 
