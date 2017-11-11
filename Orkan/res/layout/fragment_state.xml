@@ -109,12 +109,13 @@
         <ImageView
             android:id="@+id/indoor_count_image"
             android:layout_width="260dp"
-            android:layout_height="60dip"
+            android:layout_height="80dip"
             android:layout_below="@+id/indoor_image"
             android:layout_centerHorizontal="true"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:background="@drawable/pm_count1" />
+            android:src="@drawable/pm_count1"
+            android:scaleType="fitCenter" />
         
  
 

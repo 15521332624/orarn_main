@@ -256,7 +256,7 @@ public class CustomProgressBar extends View {
 
     private void drawProgressDesc(Canvas canvas) {
 
-        String finalProgressDesc = mProgressDesc + " " + mProgress + "/" + mMax;
+        String finalProgressDesc = mProgressDesc + " " + mProgress + "%";
         mTextPaint.getTextBounds(finalProgressDesc, 0,
                 finalProgressDesc.length(), mTextBounds);
 

@@ -194,7 +194,7 @@ public class MainActivity extends BaseActivity implements UDPWatcher, MQTTFinish
 
 						loginMsgDialog.show();  
 		            	Window window = loginMsgDialog.getWindow();  
-		            	window.setContentView(R.layout.dialog_quit);  
+		            	window.setContentView(R.layout.dialog_samelogin);  
 		            	TextView alert_btn_title = (TextView)window.findViewById(R.id.alert_btn_title);
 		            	alert_btn_title.setText("该账号已在其他终端登录\n请重新登录");
 		            	Button reboot_cancel_alert_btn = (Button)window.findViewById(R.id.reboot_cancel_alert_btn);
@@ -401,7 +401,7 @@ public class MainActivity extends BaseActivity implements UDPWatcher, MQTTFinish
 	        if (Util.START_FROM_LOGIN == 1){
 		        getState();
 		        handler2 = new Handler();
-		        handler2.postDelayed(r2, 100*1000);
+		        handler2.postDelayed(r2, 60*1000);
 	        }
 		}
 		first = false;

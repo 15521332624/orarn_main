@@ -155,7 +155,7 @@ public class ControlFragment extends BaseTabFragment implements View.OnClickList
 			fengStateViewArray[i] = (View) view.findViewById(fengStateArray[i]);
 		}
 		title_tx = (TextView) view.findViewById(R.id.title_tx);
-		title_tx.setText(R.string.title_state);
+		title_tx.setText(R.string.tab_control);
 		inside_filter_warning = (TextView) view.findViewById(R.id.inside_filter_warning);
 		middle_filter_warning = (TextView) view.findViewById(R.id.middle_filter_warning);
 		outside_filter_warning = (TextView) view.findViewById(R.id.outside_filter_warning);
@@ -584,29 +584,32 @@ public class ControlFragment extends BaseTabFragment implements View.OnClickList
 			fengsu_tx.setText("风速:三级");
 		}
 
-		if (v3 < 20) {
-			inside_filter_progressbar.setProgressColor(Color.parseColor("#FF5E2B"));
+		if (v3 < 25) {
+			inside_filter_progressbar.setProgressColor(Color.parseColor("#ff3f25"));
 			inside_filter_warning.setVisibility(View.VISIBLE);
 		} else if (v3 < 60) {
-			inside_filter_progressbar.setProgressColor(Color.parseColor("#F5BC20"));
+			//inside_filter_progressbar.setProgressColor(Color.parseColor("#F5BC20"));
+			inside_filter_progressbar.setProgressColor(Color.parseColor("#31c6bd"));
 		} else {
 			inside_filter_progressbar.setProgressColor(Color.parseColor("#31c6bd"));
 		}
 
-		if (v2 < 20) {
-			middle_filter_progressbar.setProgressColor(Color.parseColor("#FF5E2B"));
+		if (v2 < 25) {
+			middle_filter_progressbar.setProgressColor(Color.parseColor("#ff3f25"));
 			middle_filter_warning.setVisibility(View.VISIBLE);
 		} else if (v2 < 60) {
-			middle_filter_progressbar.setProgressColor(Color.parseColor("#F5BC20"));
+			//middle_filter_progressbar.setProgressColor(Color.parseColor("#F5BC20"));
+			middle_filter_progressbar.setProgressColor(Color.parseColor("#31c6bd"));
 		} else {
 			middle_filter_progressbar.setProgressColor(Color.parseColor("#31c6bd"));
 		}
 
-		if (v1 < 20) {
-			outside_filter_progressbar.setProgressColor(Color.parseColor("#FF5E2B"));
+		if (v1 < 25) {
+			outside_filter_progressbar.setProgressColor(Color.parseColor("#ff3f25"));
 			outside_filter_warning.setVisibility(View.VISIBLE);
 		} else if (v1 < 60) {
-			outside_filter_progressbar.setProgressColor(Color.parseColor("#F5BC20"));
+			//outside_filter_progressbar.setProgressColor(Color.parseColor("#F5BC20"));
+			outside_filter_progressbar.setProgressColor(Color.parseColor("#31c6bd"));
 		} else {
 			outside_filter_progressbar.setProgressColor(Color.parseColor("#31c6bd"));
 		}

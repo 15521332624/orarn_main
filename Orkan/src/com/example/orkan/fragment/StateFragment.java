@@ -93,8 +93,8 @@ public class StateFragment extends BaseTabFragment implements View.OnClickListen
 			R.drawable.pm_count20, R.drawable.pm_count21, R.drawable.pm_count22, R.drawable.pm_count23,
 			R.drawable.pm_count24, R.drawable.pm_count25, R.drawable.pm_count26, R.drawable.pm_count27,
 			R.drawable.pm_count28, };
-	private String pmtipsArray[] = { "质量棒棒哒，继续保持~", "质量还可以，继续加油~", "质量很一般，要努力哦~", "质量不太好，需要净化" };
-	private String pmgradArray[] = { "优", "良", "中", "差" };
+	private String pmtipsArray[] = { "质量棒棒哒，继续保持~", "质量还可以，继续加油~", "轻度污染了，要努力哦~", "中度污染了，需要净化～", "重度污染了，急需净化～", "严重污染了，急需净化～" };
+	private String pmgradArray[] = { "优", "良", "中", "差","重度","严重" };
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -277,28 +277,43 @@ public class StateFragment extends BaseTabFragment implements View.OnClickListen
 		} else {
 
 			int pm = Integer.parseInt(Util.INITIAL_STATUS_PM_VALUE);
-
 			if (pm < 50) {
 				indoor_pm_grade.setText(pmgradArray[0]);
 				indoor_pm_quality.setText(pmtipsArray[0]);
 				indoor_pm_grade.setTextColor(Color.rgb(255, 255, 255));
 				indoor_pm_value.setTextColor(Color.rgb(255, 255, 255));
+				indoor_pm_quality.setTextColor(Color.rgb(255, 255, 255));
 				
 			} else if (pm < 100) {
 				indoor_pm_grade.setText(pmgradArray[1]);
 				indoor_pm_quality.setText(pmtipsArray[1]);
 				indoor_pm_grade.setTextColor(Color.rgb(232, 255, 77));
 				indoor_pm_value.setTextColor(Color.rgb(232, 255, 77));
+				indoor_pm_quality.setTextColor(Color.rgb(232, 255, 77));
 			} else if (pm < 150) {
 				indoor_pm_grade.setText(pmgradArray[2]);
 				indoor_pm_quality.setText(pmtipsArray[2]);
 				indoor_pm_grade.setTextColor(Color.rgb(254, 115, 35));
 				indoor_pm_value.setTextColor(Color.rgb(254, 115, 35));
-			} else {
+				indoor_pm_quality.setTextColor(Color.rgb(254, 115, 35));
+			}else if (pm < 200) {
 				indoor_pm_grade.setText(pmgradArray[3]);
 				indoor_pm_quality.setText(pmtipsArray[3]);
 				indoor_pm_grade.setTextColor(Color.rgb(255, 63, 37));
 				indoor_pm_value.setTextColor(Color.rgb(255, 63, 37));
+				indoor_pm_quality.setTextColor(Color.rgb(255, 63, 37));
+			}else if (pm < 250) {
+				indoor_pm_grade.setText(pmgradArray[4]);
+				indoor_pm_quality.setText(pmtipsArray[4]);
+				indoor_pm_grade.setTextColor(Color.rgb(182, 82, 237));
+				indoor_pm_value.setTextColor(Color.rgb(182, 82, 237));
+				indoor_pm_quality.setTextColor(Color.rgb(182, 82, 237));
+			} else {
+				indoor_pm_grade.setText(pmgradArray[5]);
+				indoor_pm_quality.setText(pmtipsArray[5]);
+				indoor_pm_grade.setTextColor(Color.rgb(191, 59, 41));
+				indoor_pm_value.setTextColor(Color.rgb(191, 59, 41));
+				indoor_pm_quality.setTextColor(Color.rgb(191, 59, 41));
 			}
 
 			int pm2 = pm / 10;
@@ -308,7 +323,8 @@ public class StateFragment extends BaseTabFragment implements View.OnClickListen
 			if (pm2 < 0) {
 				pm2 = 0;
 			}
-			indoor_count_image.setBackgroundResource(mImageViewArray[pm2]);
+			indoor_count_image.setImageResource(mImageViewArray[pm2]);
+			//indoor_count_image.setBackgroundResource(mImageViewArray[pm2]);
 			
 			setFlickerAnimation(indoor_logo_image);
 		}
