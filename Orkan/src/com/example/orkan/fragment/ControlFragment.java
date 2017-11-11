@@ -144,6 +144,11 @@ public class ControlFragment extends BaseTabFragment implements View.OnClickList
 		fragmentView = inflater.inflate(R.layout.fragment_control, null);
 
 		init(fragmentView);
+		//临时兼容诺基亚项目
+		Util.INITIAL_STATUS_FENG_NUM =0;
+		for(int i =0;i<6;i++){
+			 fengStateViewArray[i].setVisibility(View.GONE);
+		 }
 		initData();
 
 		return fragmentView;
@@ -505,7 +510,7 @@ public class ControlFragment extends BaseTabFragment implements View.OnClickList
 	}
 
 	protected void initData() {
-
+		
 		// 初始化数据
 
 		int v3 = (int) (((double) (Util.INITIAL_STATUS_INSIDEFILTER_VALUE_MAX - Util.INITIAL_STATUS_INSIDEFILTER_VALUE)
