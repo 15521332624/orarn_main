@@ -188,10 +188,10 @@
             android:layout_width="wrap_content"
             android:layout_height="25dp"
             android:layout_below="@id/line1"
-            android:gravity="center_vertical"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="4dp"
             android:layout_marginTop="8dp"
+            android:gravity="center_vertical"
             android:text="@string/control_inside_filter"
             android:textColor="@color/theme_tx_color"
             android:textSize="12sp" />
@@ -208,12 +208,11 @@
             android:background="@drawable/cha"
             android:gravity="center"
             android:paddingLeft="4dp"
-            android:visibility="gone"
             android:paddingRight="4dp"
             android:text="@string/control_filter_warning"
             android:textColor="@color/white"
             android:textSize="10sp"
-             />
+            android:visibility="gone" />
 
         <com.example.orkan.view.CustomProgressBar
             android:id="@+id/inside_filter_progressbar"
@@ -234,10 +233,10 @@
             android:layout_width="wrap_content"
             android:layout_height="25dp"
             android:layout_below="@id/inside_filter_tx"
-            android:gravity="center_vertical"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="4dp"
             android:layout_marginTop="8dp"
+            android:gravity="center_vertical"
             android:text="@string/control_middle_filter"
             android:textColor="@color/theme_tx_color"
             android:textSize="12sp" />

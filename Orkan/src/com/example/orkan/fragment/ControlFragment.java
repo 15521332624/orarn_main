@@ -12,6 +12,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.app.AlertDialog;
+import android.app.ActionBar.Tab;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -52,7 +53,8 @@ import com.example.orkan.view.slidedatetimepicker.CustomTimePicker;
 import com.example.orkan.view.slidedatetimepicker.SlideDateTimeListener;
 import com.example.orkan.view.slidedatetimepicker.SlideDateTimePicker;
 
-public class ControlFragment extends BaseTabFragment implements View.OnClickListener, UDPWatcher {
+public class ControlFragment extends BaseTabFragment implements
+		View.OnClickListener, UDPWatcher {
 	private View fragmentView;
 	TextView title_tx;
 	KProgressHUD hud;
@@ -86,13 +88,15 @@ public class ControlFragment extends BaseTabFragment implements View.OnClickList
 	protected MQTTController mqttController;
 
 	ImageView newwindmodeIm;
-	private int newwindmodeImArray[] = { R.drawable.control_newopen0, R.drawable.control_newopen1,
-			R.drawable.control_newopen2 };
-	private int switchmodeImArray[] = { R.drawable.control_open0, R.drawable.control_open1, R.drawable.control_open2,
+	private int newwindmodeImArray[] = { R.drawable.control_newopen0,
+			R.drawable.control_newopen1, R.drawable.control_newopen2 };
+	private int switchmodeImArray[] = { R.drawable.control_open0,
+			R.drawable.control_open1, R.drawable.control_open2,
 			R.drawable.control_open3 };
 
-	private int fengStateArray[] = { R.id.feng_state_1, R.id.feng_state_2, R.id.feng_state_3, R.id.feng_state_4,
-			R.id.feng_state_5, R.id.feng_state_6 };
+	private int fengStateArray[] = { R.id.feng_state_1, R.id.feng_state_2,
+			R.id.feng_state_3, R.id.feng_state_4, R.id.feng_state_5,
+			R.id.feng_state_6 };
 	private View[] fengStateViewArray = new View[6];
 
 	private ProbeHandler probeHandler = new ProbeHandler();
@@ -101,7 +105,8 @@ public class ControlFragment extends BaseTabFragment implements View.OnClickList
 
 		@Override
 		public void onDateTimeSet(Date date) {
-			Toast.makeText(getActivity(), mFormatter.format(date), Toast.LENGTH_SHORT).show();
+			Toast.makeText(getActivity(), mFormatter.format(date),
+					Toast.LENGTH_SHORT).show();
 		}
 
 		// Optional cancel listener
@@ -139,16 +144,17 @@ public class ControlFragment extends BaseTabFragment implements View.OnClickList
 	}
 
 	@Override
-	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+	public View onCreateView(LayoutInflater inflater, ViewGroup container,
+			Bundle savedInstanceState) {
 
 		fragmentView = inflater.inflate(R.layout.fragment_control, null);
 
 		init(fragmentView);
-		//临时兼容诺基亚项目
-		Util.INITIAL_STATUS_FENG_NUM =0;
-		for(int i =0;i<6;i++){
-			 fengStateViewArray[i].setVisibility(View.GONE);
-		 }
+		// 临时兼容诺基亚项目
+		Util.INITIAL_STATUS_FENG_NUM = 0;
+		for (int i = 0; i < 6; i++) {
+			fengStateViewArray[i].setVisibility(View.GONE);
+		}
 		initData();
 
 		return fragmentView;
@@ -161,15 +167,20 @@ public class ControlFragment extends BaseTabFragment implements View.OnClickList
 		}
 		title_tx = (TextView) view.findViewById(R.id.title_tx);
 		title_tx.setText(R.string.tab_control);
-		inside_filter_warning = (TextView) view.findViewById(R.id.inside_filter_warning);
-		middle_filter_warning = (TextView) view.findViewById(R.id.middle_filter_warning);
-		outside_filter_warning = (TextView) view.findViewById(R.id.outside_filter_warning);
+		inside_filter_warning = (TextView) view
+				.findViewById(R.id.inside_filter_warning);
+		middle_filter_warning = (TextView) view
+				.findViewById(R.id.middle_filter_warning);
+		outside_filter_warning = (TextView) view
+				.findViewById(R.id.outside_filter_warning);
 		control_wind_im2 = (ImageView) view.findViewById(R.id.control_wind_im2);
 		control_wind_im = (ImageView) view.findViewById(R.id.control_wind_im);
 		control_wind_im1 = (ImageView) view.findViewById(R.id.control_wind_im1);
 		fengsu_tx = (TextView) view.findViewById(R.id.fengsu_tx);
-		control_timing_open = (TextView) view.findViewById(R.id.control_timing_open);
-		control_opendoor = (ToggleButton) view.findViewById(R.id.control_door_im);
+		control_timing_open = (TextView) view
+				.findViewById(R.id.control_timing_open);
+		control_opendoor = (ToggleButton) view
+				.findViewById(R.id.control_door_im);
 		control_opendoor.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -199,7 +210,12 @@ public class ControlFragment extends BaseTabFragment implements View.OnClickList
 
 			@Override
 			public void onClick(View v) {
-
+				//TODO
+				if(autoclick){
+					Toast.makeText(getActivity(), "请先关闭智能控制", Toast.LENGTH_SHORT).show();
+					return;
+				}
+				
 				if (Util.INITIAL_STATUS_OPEN == 0) {
 					// 需要开机
 					byte[] b1 = Util.MQTT_USER_FENG;
@@ -226,9 +242,17 @@ public class ControlFragment extends BaseTabFragment implements View.OnClickList
 
 			@Override
 			public void onClick(View v) {
-				Util.d("INITIAL_STATUS_SWITCHMODE " + Util.INITIAL_STATUS_SWITCHMODE);
+				
+				if(autoclick){
+					Toast.makeText(getActivity(), "请先关闭智能控制", Toast.LENGTH_SHORT).show();
+					return;
+				}
+				
+				Util.d("INITIAL_STATUS_SWITCHMODE "
+						+ Util.INITIAL_STATUS_SWITCHMODE);
 				if (Util.INITIAL_STATUS_OPEN == 0) {
-					MessageDialog msgDialog = new MessageDialog(getActivity(), "请先打开总开关");
+					MessageDialog msgDialog = new MessageDialog(getActivity(),
+							"请先打开总开关");
 					msgDialog.show();
 
 					return;
@@ -251,8 +275,15 @@ public class ControlFragment extends BaseTabFragment implements View.OnClickList
 
 			@Override
 			public void onClick(View v) {
+				
+				if(autoclick){
+					Toast.makeText(getActivity(), "请先关闭智能控制", Toast.LENGTH_SHORT).show();
+					return;
+				}
+				
 				if (Util.INITIAL_STATUS_OPEN == 0) {
-					MessageDialog msgDialog = new MessageDialog(getActivity(), "请先打开总开关");
+					MessageDialog msgDialog = new MessageDialog(getActivity(),
+							"请先打开总开关");
 					msgDialog.show();
 					return;
 				}
@@ -275,8 +306,15 @@ public class ControlFragment extends BaseTabFragment implements View.OnClickList
 
 			@Override
 			public void onClick(View v) {
+				
+				if(autoclick){
+					Toast.makeText(getActivity(), "请先关闭智能控制", Toast.LENGTH_SHORT).show();
+					return;
+				}
+				
 				if (Util.INITIAL_STATUS_OPEN == 0) {
-					MessageDialog msgDialog = new MessageDialog(getActivity(), "请先打开总开关");
+					MessageDialog msgDialog = new MessageDialog(getActivity(),
+							"请先打开总开关");
 					msgDialog.show();
 					return;
 				}
@@ -300,7 +338,8 @@ public class ControlFragment extends BaseTabFragment implements View.OnClickList
 		});
 
 		// 内层
-		inside_filter_progressbar = (CustomProgressBar) view.findViewById(R.id.inside_filter_progressbar);
+		inside_filter_progressbar = (CustomProgressBar) view
+				.findViewById(R.id.inside_filter_progressbar);
 		inside_filter_progressbar.setMaxProgress(100);
 		inside_filter_progressbar.setProgressColor(Color.parseColor("#31c6bd"));
 
@@ -309,34 +348,41 @@ public class ControlFragment extends BaseTabFragment implements View.OnClickList
 
 			@Override
 			public void onClick(View v) {
-				final AlertDialog alertDialog = new AlertDialog.Builder(getActivity()).create();
+				final AlertDialog alertDialog = new AlertDialog.Builder(
+						getActivity()).create();
 				alertDialog.show();
 				Window window = alertDialog.getWindow();
 				window.setContentView(R.layout.dialog_quit);
-				TextView alert_btn_title = (TextView) window.findViewById(R.id.alert_btn_title);
+				TextView alert_btn_title = (TextView) window
+						.findViewById(R.id.alert_btn_title);
 				alert_btn_title.setText("真的要重置内层滤网时间么？");
-				Button reboot_cancel_alert_btn = (Button) window.findViewById(R.id.reboot_cancel_alert_btn);
-				reboot_cancel_alert_btn.setOnClickListener(new OnClickListener() {
-					@Override
-					public void onClick(View v) {
-						updateLvxin(3);
-						alertDialog.cancel();
-					}
-				});
-				Button reboot_confirm_alert_btn = (Button) window.findViewById(R.id.reboot_confirm_alert_btn);
-				reboot_confirm_alert_btn.setOnClickListener(new OnClickListener() {
-					@Override
-					public void onClick(View v) {
-						alertDialog.cancel();
-					}
-				});
+				Button reboot_cancel_alert_btn = (Button) window
+						.findViewById(R.id.reboot_cancel_alert_btn);
+				reboot_cancel_alert_btn
+						.setOnClickListener(new OnClickListener() {
+							@Override
+							public void onClick(View v) {
+								updateLvxin(3);
+								alertDialog.cancel();
+							}
+						});
+				Button reboot_confirm_alert_btn = (Button) window
+						.findViewById(R.id.reboot_confirm_alert_btn);
+				reboot_confirm_alert_btn
+						.setOnClickListener(new OnClickListener() {
+							@Override
+							public void onClick(View v) {
+								alertDialog.cancel();
+							}
+						});
 
 			}
 		});
 
 		// inside_filter_progressbar.setCurProgress(70,2000);
 		// 中层
-		middle_filter_progressbar = (CustomProgressBar) view.findViewById(R.id.middle_filter_progressbar);
+		middle_filter_progressbar = (CustomProgressBar) view
+				.findViewById(R.id.middle_filter_progressbar);
 		middle_filter_progressbar.setMaxProgress(100);
 		middle_filter_progressbar.setProgressColor(Color.parseColor("#31c6bd"));
 
@@ -345,71 +391,87 @@ public class ControlFragment extends BaseTabFragment implements View.OnClickList
 
 			@Override
 			public void onClick(View v) {
-				final AlertDialog alertDialog = new AlertDialog.Builder(getActivity()).create();
+				final AlertDialog alertDialog = new AlertDialog.Builder(
+						getActivity()).create();
 				alertDialog.show();
 				Window window = alertDialog.getWindow();
 				window.setContentView(R.layout.dialog_quit);
-				TextView alert_btn_title = (TextView) window.findViewById(R.id.alert_btn_title);
+				TextView alert_btn_title = (TextView) window
+						.findViewById(R.id.alert_btn_title);
 				alert_btn_title.setText("真的要重置中层滤网时间么？");
-				Button reboot_cancel_alert_btn = (Button) window.findViewById(R.id.reboot_cancel_alert_btn);
-				reboot_cancel_alert_btn.setOnClickListener(new OnClickListener() {
-					@Override
-					public void onClick(View v) {
-						updateLvxin(2);
-						alertDialog.cancel();
-					}
-				});
-				Button reboot_confirm_alert_btn = (Button) window.findViewById(R.id.reboot_confirm_alert_btn);
-				reboot_confirm_alert_btn.setOnClickListener(new OnClickListener() {
-					@Override
-					public void onClick(View v) {
-						alertDialog.cancel();
-					}
-				});
+				Button reboot_cancel_alert_btn = (Button) window
+						.findViewById(R.id.reboot_cancel_alert_btn);
+				reboot_cancel_alert_btn
+						.setOnClickListener(new OnClickListener() {
+							@Override
+							public void onClick(View v) {
+								updateLvxin(2);
+								alertDialog.cancel();
+							}
+						});
+				Button reboot_confirm_alert_btn = (Button) window
+						.findViewById(R.id.reboot_confirm_alert_btn);
+				reboot_confirm_alert_btn
+						.setOnClickListener(new OnClickListener() {
+							@Override
+							public void onClick(View v) {
+								alertDialog.cancel();
+							}
+						});
 			}
 		});
 
 		// middle_filter_progressbar.setCurProgress(60,2000);
 		// 外层
-		outside_filter_progressbar = (CustomProgressBar) view.findViewById(R.id.outside_filter_progressbar);
+		outside_filter_progressbar = (CustomProgressBar) view
+				.findViewById(R.id.outside_filter_progressbar);
 		outside_filter_progressbar.setMaxProgress(100);
-		outside_filter_progressbar.setProgressColor(Color.parseColor("#31c6bd"));
+		outside_filter_progressbar
+				.setProgressColor(Color.parseColor("#31c6bd"));
 		// outside_filter_progressbar.setCurProgress(70,2000);
 		outside_filter_progressbar.setClickable(true);
 		outside_filter_progressbar.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
-				final AlertDialog alertDialog = new AlertDialog.Builder(getActivity()).create();
+				final AlertDialog alertDialog = new AlertDialog.Builder(
+						getActivity()).create();
 				alertDialog.show();
 				Window window = alertDialog.getWindow();
 				window.setContentView(R.layout.dialog_quit);
-				TextView alert_btn_title = (TextView) window.findViewById(R.id.alert_btn_title);
+				TextView alert_btn_title = (TextView) window
+						.findViewById(R.id.alert_btn_title);
 				alert_btn_title.setText("真的要重置外层滤网时间么？");
-				Button reboot_cancel_alert_btn = (Button) window.findViewById(R.id.reboot_cancel_alert_btn);
-				reboot_cancel_alert_btn.setOnClickListener(new OnClickListener() {
-					@Override
-					public void onClick(View v) {
-						updateLvxin(1);
-						alertDialog.cancel();
-					}
-				});
-				Button reboot_confirm_alert_btn = (Button) window.findViewById(R.id.reboot_confirm_alert_btn);
-				reboot_confirm_alert_btn.setOnClickListener(new OnClickListener() {
-					@Override
-					public void onClick(View v) {
-						alertDialog.cancel();
-					}
-				});
+				Button reboot_cancel_alert_btn = (Button) window
+						.findViewById(R.id.reboot_cancel_alert_btn);
+				reboot_cancel_alert_btn
+						.setOnClickListener(new OnClickListener() {
+							@Override
+							public void onClick(View v) {
+								updateLvxin(1);
+								alertDialog.cancel();
+							}
+						});
+				Button reboot_confirm_alert_btn = (Button) window
+						.findViewById(R.id.reboot_confirm_alert_btn);
+				reboot_confirm_alert_btn
+						.setOnClickListener(new OnClickListener() {
+							@Override
+							public void onClick(View v) {
+								alertDialog.cancel();
+							}
+						});
 			}
 		});
 
-		control_timing_li = (RelativeLayout) view.findViewById(R.id.control_timing_li);
+		control_timing_li = (RelativeLayout) view
+				.findViewById(R.id.control_timing_li);
 		control_timing_li.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
-				Intent intent = new Intent(getActivity(), TimingListActivity.class);
+				Intent intent = new Intent(getActivity(),
+						TimingListActivity.class);
 				startActivity(intent);
 			}
 		});
@@ -425,37 +487,43 @@ public class ControlFragment extends BaseTabFragment implements View.OnClickList
 		params.put("num", ln + "");
 		// params.put("sn", "48ff70067577525009352581");
 		Util.d(MQTTUtil.byte2hexNospace(Util.MQTT_USER_FENG));
-		fh.post(Util.URL + "/FreshAir/timeToZero", params, new AjaxCallBack<String>() {
-			@Override
-			public void onSuccess(String t) {
-				super.onSuccess(t);
-				try {
-					Util.d("timeToZero  " + t);
-					JSONObject jsonData = new JSONObject(t);
-					int code = jsonData.getInt("code");
-					if (code == 1) {
-						MessageDialog msgDialog = new MessageDialog(getActivity(), jsonData.getString("msg"));
-						msgDialog.show();
-						getLvxin();
+		fh.post(Util.URL + "/FreshAir/timeToZero", params,
+				new AjaxCallBack<String>() {
+					@Override
+					public void onSuccess(String t) {
+						super.onSuccess(t);
+						try {
+							Util.d("timeToZero  " + t);
+							JSONObject jsonData = new JSONObject(t);
+							int code = jsonData.getInt("code");
+							if (code == 1) {
+								MessageDialog msgDialog = new MessageDialog(
+										getActivity(), jsonData
+												.getString("msg"));
+								msgDialog.show();
+								getLvxin();
 
-					} else {
-						MessageDialog msgDialog = new MessageDialog(getActivity(), jsonData.getString("msg"));
-						msgDialog.show();
+							} else {
+								MessageDialog msgDialog = new MessageDialog(
+										getActivity(), jsonData
+												.getString("msg"));
+								msgDialog.show();
 
+							}
+							cancelAll();
+						} catch (JSONException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
 					}
-					cancelAll();
-				} catch (JSONException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-			}
 
-			@Override
-			public void onFailure(Throwable t, int errorNo, String strMsg) {
-				Util.d("getFreshAir faild->>" + strMsg);
-				super.onFailure(t, errorNo, strMsg);
-			}
-		});
+					@Override
+					public void onFailure(Throwable t, int errorNo,
+							String strMsg) {
+						Util.d("getFreshAir faild->>" + strMsg);
+						super.onFailure(t, errorNo, strMsg);
+					}
+				});
 	}
 
 	protected void getLvxin() {
@@ -471,54 +539,58 @@ public class ControlFragment extends BaseTabFragment implements View.OnClickList
 		params.put("token", Util.USER_TOCKEN);
 		params.put("sn", MQTTUtil.byte2hexNospace(Util.MQTT_USER_FENG));
 		// params.put("sn", "48ff70067577525009352581");
-		Util.d("MQTT_USER_FENG  " + MQTTUtil.byte2hexNospace(Util.MQTT_USER_FENG));
-		fh.post(Util.URL + "/FreshAir/getFreshAir", params, new AjaxCallBack<String>() {
-			@Override
-			public void onSuccess(String t) {
-				super.onSuccess(t);
-				try {
-					Util.d("getFreshAir  " + t);
-					JSONObject jsonData = new JSONObject(t);
-					int code = jsonData.getInt("code");
-					if (code == 1) {
-						JSONArray data = jsonData.getJSONArray("data");
-						if (data.length() < 1) {
-							return;
+		Util.d("MQTT_USER_FENG  "
+				+ MQTTUtil.byte2hexNospace(Util.MQTT_USER_FENG));
+		fh.post(Util.URL + "/FreshAir/getFreshAir", params,
+				new AjaxCallBack<String>() {
+					@Override
+					public void onSuccess(String t) {
+						super.onSuccess(t);
+						try {
+							Util.d("getFreshAir  " + t);
+							JSONObject jsonData = new JSONObject(t);
+							int code = jsonData.getInt("code");
+							if (code == 1) {
+								JSONArray data = jsonData.getJSONArray("data");
+								if (data.length() < 1) {
+									return;
+								}
+								JSONObject obj = data.getJSONObject(0);
+								Util.INITIAL_STATUS_INSIDEFILTER_VALUE = obj
+										.getInt("time3");
+								Util.INITIAL_STATUS_MIDDLEFILTER_VALUE = obj
+										.getInt("time2");
+								Util.INITIAL_STATUS_OUTSIDEFILTER_VALUE = obj
+										.getInt("time1");
+								initData();
+							} else {
+								Toast.makeText(getActivity(), "获取滤网信息失败",
+										Toast.LENGTH_SHORT).show();
+								return;
+							}
+
+						} catch (JSONException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
 						}
-						JSONObject obj = data.getJSONObject(0);
-						Util.INITIAL_STATUS_INSIDEFILTER_VALUE = obj.getInt("time3");
-						Util.INITIAL_STATUS_MIDDLEFILTER_VALUE = obj.getInt("time2");
-						Util.INITIAL_STATUS_OUTSIDEFILTER_VALUE = obj.getInt("time1");
-						initData();
-					} else {
-						Toast.makeText(getActivity(), "获取滤网信息失败", Toast.LENGTH_SHORT).show();
-						return;
 					}
 
-				} catch (JSONException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-			}
-
-			@Override
-			public void onFailure(Throwable t, int errorNo, String strMsg) {
-				Util.d("getFreshAir faild->>" + strMsg);
-				super.onFailure(t, errorNo, strMsg);
-			}
-		});
+					@Override
+					public void onFailure(Throwable t, int errorNo,
+							String strMsg) {
+						Util.d("getFreshAir faild->>" + strMsg);
+						super.onFailure(t, errorNo, strMsg);
+					}
+				});
 	}
 
 	protected void initData() {
-		
+
 		// 初始化数据
 
-		int v3 = (int) (((double) (Util.INITIAL_STATUS_INSIDEFILTER_VALUE_MAX - Util.INITIAL_STATUS_INSIDEFILTER_VALUE)
-				/ Util.INITIAL_STATUS_INSIDEFILTER_VALUE_MAX) * 100);
-		int v2 = (int) (((double) (Util.INITIAL_STATUS_MIDDLEFILTER_VALUE_MAX - Util.INITIAL_STATUS_MIDDLEFILTER_VALUE)
-				/ Util.INITIAL_STATUS_MIDDLEFILTER_VALUE_MAX) * 100);
-		int v1 = (int) (((double) (Util.INITIAL_STATUS_OUTSIDEFILTER_VALUE_MAX
-				- Util.INITIAL_STATUS_OUTSIDEFILTER_VALUE) / Util.INITIAL_STATUS_OUTSIDEFILTER_VALUE_MAX) * 100);
+		int v3 = (int) (((double) (Util.INITIAL_STATUS_INSIDEFILTER_VALUE_MAX - Util.INITIAL_STATUS_INSIDEFILTER_VALUE) / Util.INITIAL_STATUS_INSIDEFILTER_VALUE_MAX) * 100);
+		int v2 = (int) (((double) (Util.INITIAL_STATUS_MIDDLEFILTER_VALUE_MAX - Util.INITIAL_STATUS_MIDDLEFILTER_VALUE) / Util.INITIAL_STATUS_MIDDLEFILTER_VALUE_MAX) * 100);
+		int v1 = (int) (((double) (Util.INITIAL_STATUS_OUTSIDEFILTER_VALUE_MAX - Util.INITIAL_STATUS_OUTSIDEFILTER_VALUE) / Util.INITIAL_STATUS_OUTSIDEFILTER_VALUE_MAX) * 100);
 
 		if (v3 < 0) {
 			v3 = 0;
@@ -545,38 +617,47 @@ public class ControlFragment extends BaseTabFragment implements View.OnClickList
 
 		if (Util.INITIAL_STATUS_TIMING == 1) {
 			control_timing_open.setText("开启");
-			control_timing_open.setTextColor(getActivity().getResources().getColor(R.color.theme_color));
+			control_timing_open.setTextColor(getActivity().getResources()
+					.getColor(R.color.theme_color));
 		} else {
 			control_timing_open.setText("关闭");
-			control_timing_open.setTextColor(getActivity().getResources().getColor(R.color.lb_tx));
+			control_timing_open.setTextColor(getActivity().getResources()
+					.getColor(R.color.lb_tx));
 		}
 
 		Util.d(Util.INITIAL_STATUS_OPEN + "Util.INITIAL_STATUS_OPEN");
 		if (Util.INITIAL_STATUS_OPEN == 0) {
-			switchmodeIm.setImageDrawable(getActivity().getResources().getDrawable(R.drawable.switch_close));
+			switchmodeIm.setImageDrawable(getActivity().getResources()
+					.getDrawable(R.drawable.switch_close));
 
 		} else {
-			switchmodeIm.setImageDrawable(getActivity().getResources().getDrawable(R.drawable.switch_open));
+			switchmodeIm.setImageDrawable(getActivity().getResources()
+					.getDrawable(R.drawable.switch_open));
 		}
 
 		if (Util.INITIAL_STATUS_XINFENG_OPEN == 0) {
-			newwindmodeIm.setImageDrawable(getActivity().getResources().getDrawable(R.drawable.switch_close));
+			newwindmodeIm.setImageDrawable(getActivity().getResources()
+					.getDrawable(R.drawable.switch_close));
 		} else {
-			newwindmodeIm.setImageDrawable(getActivity().getResources().getDrawable(R.drawable.switch_open));
+			newwindmodeIm.setImageDrawable(getActivity().getResources()
+					.getDrawable(R.drawable.switch_open));
 		}
 		control_feng_num = 0;
 		control_ver_feng_num = 0;
 		control_handler.removeCallbacks(runnablefeng);
 		control_handler.removeCallbacks(runnablefengleft);
 		control_ver_handler.removeCallbacks(runnablefengver);
-		if (Util.INITIAL_STATUS_OPEN == 1 && Util.INITIAL_STATUS_XINFENG_OPEN == 1) {
+		if (Util.INITIAL_STATUS_OPEN == 1
+				&& Util.INITIAL_STATUS_XINFENG_OPEN == 1) {
 			control_handler.postDelayed(runnablefeng, 500);
 			control_ver_handler.postDelayed(runnablefengver, 500);
-		} else if (Util.INITIAL_STATUS_OPEN == 1 && Util.INITIAL_STATUS_XINFENG_OPEN == 0) {
+		} else if (Util.INITIAL_STATUS_OPEN == 1
+				&& Util.INITIAL_STATUS_XINFENG_OPEN == 0) {
 			control_handler.postDelayed(runnablefengleft, 500);
 			control_ver_handler.postDelayed(runnablefengver, 500);
 		} else {
-			control_wind_im2.setImageDrawable(getActivity().getResources().getDrawable(R.drawable.control_feng0));
+			control_wind_im2.setImageDrawable(getActivity().getResources()
+					.getDrawable(R.drawable.control_feng0));
 		}
 
 		if (Util.INITIAL_STATUS_SWITCHMODE == 1) {
@@ -590,33 +671,42 @@ public class ControlFragment extends BaseTabFragment implements View.OnClickList
 		}
 
 		if (v3 < 25) {
-			inside_filter_progressbar.setProgressColor(Color.parseColor("#ff3f25"));
+			inside_filter_progressbar.setProgressColor(Color
+					.parseColor("#ff3f25"));
 			inside_filter_warning.setVisibility(View.VISIBLE);
 		} else if (v3 < 60) {
-			//inside_filter_progressbar.setProgressColor(Color.parseColor("#F5BC20"));
-			inside_filter_progressbar.setProgressColor(Color.parseColor("#31c6bd"));
+			// inside_filter_progressbar.setProgressColor(Color.parseColor("#F5BC20"));
+			inside_filter_progressbar.setProgressColor(Color
+					.parseColor("#31c6bd"));
 		} else {
-			inside_filter_progressbar.setProgressColor(Color.parseColor("#31c6bd"));
+			inside_filter_progressbar.setProgressColor(Color
+					.parseColor("#31c6bd"));
 		}
 
 		if (v2 < 25) {
-			middle_filter_progressbar.setProgressColor(Color.parseColor("#ff3f25"));
+			middle_filter_progressbar.setProgressColor(Color
+					.parseColor("#ff3f25"));
 			middle_filter_warning.setVisibility(View.VISIBLE);
 		} else if (v2 < 60) {
-			//middle_filter_progressbar.setProgressColor(Color.parseColor("#F5BC20"));
-			middle_filter_progressbar.setProgressColor(Color.parseColor("#31c6bd"));
+			// middle_filter_progressbar.setProgressColor(Color.parseColor("#F5BC20"));
+			middle_filter_progressbar.setProgressColor(Color
+					.parseColor("#31c6bd"));
 		} else {
-			middle_filter_progressbar.setProgressColor(Color.parseColor("#31c6bd"));
+			middle_filter_progressbar.setProgressColor(Color
+					.parseColor("#31c6bd"));
 		}
 
 		if (v1 < 25) {
-			outside_filter_progressbar.setProgressColor(Color.parseColor("#ff3f25"));
+			outside_filter_progressbar.setProgressColor(Color
+					.parseColor("#ff3f25"));
 			outside_filter_warning.setVisibility(View.VISIBLE);
 		} else if (v1 < 60) {
-			//outside_filter_progressbar.setProgressColor(Color.parseColor("#F5BC20"));
-			outside_filter_progressbar.setProgressColor(Color.parseColor("#31c6bd"));
+			// outside_filter_progressbar.setProgressColor(Color.parseColor("#F5BC20"));
+			outside_filter_progressbar.setProgressColor(Color
+					.parseColor("#31c6bd"));
 		} else {
-			outside_filter_progressbar.setProgressColor(Color.parseColor("#31c6bd"));
+			outside_filter_progressbar.setProgressColor(Color
+					.parseColor("#31c6bd"));
 		}
 
 		// temp
@@ -629,10 +719,12 @@ public class ControlFragment extends BaseTabFragment implements View.OnClickList
 			Util.d("i " + i + " " + Util.INITIAL_STATUS_FENG_STATE[i]);
 			if (Util.INITIAL_STATUS_FENG_STATE[i] != 0) {
 				fengStateViewArray[i]
-						.setBackground(getActivity().getResources().getDrawable(R.drawable.feng_state_rect));
+						.setBackground(getActivity().getResources()
+								.getDrawable(R.drawable.feng_state_rect));
 			} else {
-				fengStateViewArray[i]
-						.setBackground(getActivity().getResources().getDrawable(R.drawable.feng_state_rect_un));
+				fengStateViewArray[i].setBackground(getActivity()
+						.getResources().getDrawable(
+								R.drawable.feng_state_rect_un));
 			}
 		}
 	}
@@ -681,7 +773,8 @@ public class ControlFragment extends BaseTabFragment implements View.OnClickList
 				Util.INITIAL_STATUS_XINFENG_OPEN = 1;
 			}
 
-			Util.d("Util.INITIAL_STATUS_SWITCHMODE " + Util.INITIAL_STATUS_SWITCHMODE);
+			Util.d("Util.INITIAL_STATUS_SWITCHMODE "
+					+ Util.INITIAL_STATUS_SWITCHMODE);
 			Util.INITIAL_STATUS_AUTOMODE = data[15] & 0xff;
 			Util.INITIAL_STATUS_TIMING = data[16] & 0xff;
 
@@ -758,15 +851,20 @@ public class ControlFragment extends BaseTabFragment implements View.OnClickList
 		public void run() {
 
 			if (control_feng_num == 0) {
-				control_wind_im2.setImageDrawable(getActivity().getResources().getDrawable(R.drawable.control_feng0));
+				control_wind_im2.setImageDrawable(getActivity().getResources()
+						.getDrawable(R.drawable.control_feng0));
 			} else if (control_feng_num == 1) {
-				control_wind_im2.setImageDrawable(getActivity().getResources().getDrawable(R.drawable.control_feng1));
+				control_wind_im2.setImageDrawable(getActivity().getResources()
+						.getDrawable(R.drawable.control_feng1));
 			} else if (control_feng_num == 2) {
-				control_wind_im2.setImageDrawable(getActivity().getResources().getDrawable(R.drawable.control_feng2));
+				control_wind_im2.setImageDrawable(getActivity().getResources()
+						.getDrawable(R.drawable.control_feng2));
 			} else if (control_feng_num == 3) {
-				control_wind_im2.setImageDrawable(getActivity().getResources().getDrawable(R.drawable.control_feng3));
+				control_wind_im2.setImageDrawable(getActivity().getResources()
+						.getDrawable(R.drawable.control_feng3));
 			} else if (control_feng_num == 4) {
-				control_wind_im2.setImageDrawable(getActivity().getResources().getDrawable(R.drawable.control_feng4));
+				control_wind_im2.setImageDrawable(getActivity().getResources()
+						.getDrawable(R.drawable.control_feng4));
 			}
 
 			// 要做的事情
@@ -781,15 +879,15 @@ public class ControlFragment extends BaseTabFragment implements View.OnClickList
 		public void run() {
 
 			if (control_ver_feng_num == 0) {
-				control_wind_im
-						.setImageDrawable(getActivity().getResources().getDrawable(R.drawable.control_ver_feng0));
-				control_wind_im1
-						.setImageDrawable(getActivity().getResources().getDrawable(R.drawable.control_ver_feng0));
+				control_wind_im.setImageDrawable(getActivity().getResources()
+						.getDrawable(R.drawable.control_ver_feng0));
+				control_wind_im1.setImageDrawable(getActivity().getResources()
+						.getDrawable(R.drawable.control_ver_feng0));
 			} else if (control_ver_feng_num == 1) {
-				control_wind_im
-						.setImageDrawable(getActivity().getResources().getDrawable(R.drawable.control_ver_feng1));
-				control_wind_im1
-						.setImageDrawable(getActivity().getResources().getDrawable(R.drawable.control_ver_feng1));
+				control_wind_im.setImageDrawable(getActivity().getResources()
+						.getDrawable(R.drawable.control_ver_feng1));
+				control_wind_im1.setImageDrawable(getActivity().getResources()
+						.getDrawable(R.drawable.control_ver_feng1));
 			}
 
 			// 要做的事情
@@ -805,19 +903,20 @@ public class ControlFragment extends BaseTabFragment implements View.OnClickList
 		public void run() {
 
 			if (control_feng_num == 0) {
-				control_wind_im2.setImageDrawable(getActivity().getResources().getDrawable(R.drawable.control_feng0));
+				control_wind_im2.setImageDrawable(getActivity().getResources()
+						.getDrawable(R.drawable.control_feng0));
 			} else if (control_feng_num == 1) {
-				control_wind_im2
-						.setImageDrawable(getActivity().getResources().getDrawable(R.drawable.control_fengleft1));
+				control_wind_im2.setImageDrawable(getActivity().getResources()
+						.getDrawable(R.drawable.control_fengleft1));
 			} else if (control_feng_num == 2) {
-				control_wind_im2
-						.setImageDrawable(getActivity().getResources().getDrawable(R.drawable.control_fengleft2));
+				control_wind_im2.setImageDrawable(getActivity().getResources()
+						.getDrawable(R.drawable.control_fengleft2));
 			} else if (control_feng_num == 3) {
-				control_wind_im2
-						.setImageDrawable(getActivity().getResources().getDrawable(R.drawable.control_fengleft3));
+				control_wind_im2.setImageDrawable(getActivity().getResources()
+						.getDrawable(R.drawable.control_fengleft3));
 			} else if (control_feng_num == 4) {
-				control_wind_im2
-						.setImageDrawable(getActivity().getResources().getDrawable(R.drawable.control_fengleft4));
+				control_wind_im2.setImageDrawable(getActivity().getResources()
+						.getDrawable(R.drawable.control_fengleft4));
 			}
 
 			// 要做的事情
