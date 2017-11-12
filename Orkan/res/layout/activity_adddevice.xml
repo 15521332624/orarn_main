@@ -14,26 +14,6 @@
         android:layout_height="30dp" />
 
     <LinearLayout
-        android:id="@+id/reg_li_start"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:visibility="gone"
-        android:padding="10dp" >
-
-        <Button
-            android:id="@+id/button_smartconfig"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/login_rect"
-            android:text="新设备入网"
-            android:textColor="@color/white"
-            android:textSize="20sp" />
-    </LinearLayout>
-
-
-
-    <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -48,12 +28,12 @@
             android:textColor="@color/white"
             android:textSize="20sp" />
     </LinearLayout>
-    
-        <View
+
+    <View
         android:layout_width="fill_parent"
         android:layout_height="10dp" />
-    
-        <LinearLayout
+
+    <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -67,6 +47,25 @@
             android:text="添加已有设备"
             android:textColor="@color/white"
             android:textSize="20sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/reg_li_start"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+         android:gravity="bottom|right"
+         >
+
+        <Button
+            android:id="@+id/button_smartconfig"
+            android:layout_width="60dip"
+            android:layout_height="30dip"
+            android:layout_margin="5dip"
+            android:layout_marginRight="10dip"
+            android:background="@drawable/login_rect"
+            android:text="旧版配网模式"
+            android:textColor="@color/white"
+            android:textSize="8sp" />
     </LinearLayout>
 
 </LinearLayout>
