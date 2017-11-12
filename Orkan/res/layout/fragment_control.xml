@@ -116,7 +116,7 @@
             android:layout_alignTop="@id/control_image"
             android:layout_marginRight="2dp"
             android:layout_toLeftOf="@id/control_door_im"
-            android:text="自动模式"
+            android:text="智能模式"
             android:textColor="@color/theme_tx_color"
             android:textSize="13sp" />
 
