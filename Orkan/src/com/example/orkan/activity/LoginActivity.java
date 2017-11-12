@@ -8,11 +8,10 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.InputType;
 import android.view.View;
-import android.view.Window;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
@@ -41,6 +40,8 @@ public class LoginActivity extends BaseActivity{
 	Button loginButton;
 	Button forgetButton;
 	Button regButton;
+	ImageView code_eye;
+	boolean isHigh = true;
 	
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
@@ -54,7 +55,7 @@ public class LoginActivity extends BaseActivity{
     	//content_im = (ImageView)findViewById(R.id.content_im);
     	
     	title_left= (ImageView)findViewById(R.id.title_left);
- 
+    	code_eye = (ImageView)findViewById(R.id.code_eye);
     	title_left.setVisibility(View.VISIBLE);
     	
     	accountEdit = (EditText)findViewById(R.id.account_edit);
@@ -70,6 +71,23 @@ public class LoginActivity extends BaseActivity{
            
             }
         });
+    	
+    	code_eye.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View arg0) {
+				// TODO 自动生成的方法存根
+				isHigh = !isHigh;
+				if(isHigh){
+					pwdEdit.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+					code_eye.setImageResource(R.drawable.code_hide);
+				}else{
+					pwdEdit.setInputType(InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
+					code_eye.setImageResource(R.drawable.code_show);
+				}
+			}
+		});
+    	
     	regButton = (Button)findViewById(R.id.reg_button);
     	regButton.setOnClickListener(new OnClickListener() {
 
