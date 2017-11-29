@@ -40,6 +40,7 @@ public class APConfigThirdActivity extends BaseActivity implements UDPWatcher,MQ
 	protected MQTTController mqttController;
 	private ProgressDialog mWaitingDialog;
 	private ProbeHandler probeHandler = new ProbeHandler();
+	private TextView apbegin_help_text;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -50,11 +51,23 @@ public class APConfigThirdActivity extends BaseActivity implements UDPWatcher,MQ
 		title_left = (ImageView) findViewById(R.id.title_left);
 		title_tx = (TextView) findViewById(R.id.title_tx);
 		title_tx.setText(R.string.title_bund);
+		apbegin_help_text = (TextView)findViewById(R.id.apbegin_help_text);
 		title_left.setImageResource(R.drawable.back);
 		apbegin_button_red = (Button)findViewById(R.id.apbegin_button_red);
 		title_left.setVisibility(View.VISIBLE);
 		mWaitingDialog = new ProgressDialog(this);
 		mWaitingDialog.setMessage(getString(R.string.hiflying_smartlinker_waiting));
+		
+		if(Util.AP_MODULE_CONFIG == Util.MODULE_DASK) {
+			apbegin_help_text.setText(R.string.hiflying_aplinker_step_3);
+			apbegin_button_wifi_connect.setText("灯已变绿，绑定该设备");
+			apbegin_button_red.setText("灯依然红色，重新操作一次");
+		}else {
+			apbegin_help_text.setText(R.string.hiflying_aplinker_insert_step_3);
+			apbegin_button_wifi_connect.setText("图标已经常亮，搜索已入网设备");
+			apbegin_button_red.setText("图标一直闪缩，重新操作一遍");
+		}
+		
 		apbegin_button_wifi_connect.setOnClickListener(new OnClickListener() {
 			
 			@Override

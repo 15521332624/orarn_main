@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.orkan"
     android:versionCode="4"
-    android:versionName="1.0" >
+    android:versionName="1.1" >
 
     <!-- 以下是使用访问网络所需的权限 -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -49,6 +49,8 @@
         <activity android:name="com.example.orkan.activity.LoginActivity" >
         </activity>
         <activity android:name="com.example.orkan.activity.DeviceListActivity" >
+        </activity>
+        <activity android:name="com.example.orkan.activity.APConfigTypeActivity" >
         </activity>
         <activity android:name="com.example.orkan.activity.SmartConfigActivity" >
         </activity>

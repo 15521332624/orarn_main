@@ -13,9 +13,9 @@ import com.example.orkan.R;
 public class DeviceListAdapter extends SimpleAdapter {
     //回调代理
     private TimingListAdapterListener mTimingListAdapterListener;
-    private List<Map<String,  String>> data;
+    private List<Map<String,  Object>> data;
 
-    public DeviceListAdapter(Context context, List<Map<String, String>> data,
+    public DeviceListAdapter(Context context, List<Map<String, Object>> data,
                               int resource, String[] from, int[] to) {
         super(context, data, resource,from,to);
         this.data = data;
@@ -37,7 +37,7 @@ public class DeviceListAdapter extends SimpleAdapter {
         }
         
         TextView device_online_txt = (TextView)convertView.findViewById(R.id.device_online_txt);
-        Map<String,String> map = data.get(position);
+       // Map<String,String> map = data.get(position);
         
         return convertView;
     }

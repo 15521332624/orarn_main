@@ -59,6 +59,10 @@ public class Util
 	public static String MQTT_DEVICE_ID = "";
 	public static int START_FROM_LOGIN = 0;
 	
+	public static int AP_MODULE_CONFIG = 0;
+	public static int MODULE_DASK = 1;
+	public static int MODULE_INSERT = 2;
+	
 	//sharedpreference
 	public static final String SAVED_ACCOUNT = "account";
 	public static final String SAVED_PWD = "password";

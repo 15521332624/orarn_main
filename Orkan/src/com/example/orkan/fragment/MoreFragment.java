@@ -8,6 +8,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import com.example.orkan.R;
+import com.example.orkan.activity.APConfigTypeActivity;
 import com.example.orkan.activity.AboutUsActivity;
 import com.example.orkan.activity.AddDeviceActivity;
 import com.example.orkan.activity.DeviceListActivity;
@@ -360,7 +361,7 @@ public class MoreFragment extends BaseTabFragment implements View.OnClickListene
 		// return;
 		// }
 
-		startActivity(new Intent(getActivity(), AddDeviceActivity.class));
+		startActivity(new Intent(getActivity(), APConfigTypeActivity.class));
 
 		getActivity().finish();
 	}

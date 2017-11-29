@@ -29,6 +29,7 @@ public class APConfigFirstActivity extends BaseActivity {
 	private BroadcastReceiver mWifiChangedReceiver;
 	private TextView title_tx;
 	private boolean isEnter = false;
+	private TextView apbegin_help_text;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +42,12 @@ public class APConfigFirstActivity extends BaseActivity {
 		title_tx.setText(R.string.title_bund);
 		title_left.setImageResource(R.drawable.back);
 		title_left.setVisibility(View.VISIBLE);
+		apbegin_help_text = (TextView)findViewById(R.id.apbegin_help_text);
+		if(Util.AP_MODULE_CONFIG == Util.MODULE_DASK) {
+			apbegin_help_text.setText(R.string.hiflying_aplinker_step_1);
+		}else {
+			apbegin_help_text.setText(R.string.hiflying_aplinker_insert_step_1);
+		}
 		InitButton();
 		apbegin_button_wifi_connect.setOnClickListener(new OnClickListener() {
 			
