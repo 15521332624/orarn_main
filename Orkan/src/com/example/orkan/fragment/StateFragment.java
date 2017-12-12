@@ -367,20 +367,21 @@ public class StateFragment extends BaseTabFragment implements View.OnClickListen
 			public void onSuccess(String t) {
 				super.onSuccess(t);
 				try {
-					Util.d(t);
+					//Util.d(t + "snake");
 					JSONObject jsonData = new JSONObject(t);
 					JSONObject realtimeData = jsonData.getJSONObject("observe");
 					String temp = realtimeData.getString("temp");
 					String humi = realtimeData.getString("shidu");
 					JSONObject aqiData = jsonData.getJSONObject("evn");
-					String pm = aqiData.getString("pm25");
+					String pm = aqiData.getString("pm10");
+					Log.v("snake", "realtimeData = " + aqiData.toString());
 					Util.INITIAL_STATUS_OUTDOOR_PM_VALUE = pm;
 					Util.INITIAL_STATUS_OUTDOOR_HUMIDITY_VALUE = humi;
 					Util.INITIAL_STATUS_OUTDOOR_TEMP_VALUE = temp;
 					outdoor_state_pm_value.setText(Util.INITIAL_STATUS_OUTDOOR_PM_VALUE);
 					outdoor_state_humidity_value.setText(Util.INITIAL_STATUS_OUTDOOR_HUMIDITY_VALUE);
 					outdoor_state_temperature_value.setText(Util.INITIAL_STATUS_OUTDOOR_TEMP_VALUE + "℃");
-					Util.d(jsonData.toString());
+					//Util.d(jsonData.toString() + "snake");
 				} catch (JSONException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
