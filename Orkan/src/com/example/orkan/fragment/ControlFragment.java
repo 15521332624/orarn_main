@@ -211,10 +211,10 @@ public class ControlFragment extends BaseTabFragment implements
 			@Override
 			public void onClick(View v) {
 				//TODO
-				if(autoclick){
-					Toast.makeText(getActivity(), "请先关闭智能控制", Toast.LENGTH_SHORT).show();
-					return;
-				}
+//				if(autoclick){
+//					Toast.makeText(getActivity(), "请先关闭智能控制", Toast.LENGTH_SHORT).show();
+//					return;
+//				}
 				
 				if (Util.INITIAL_STATUS_OPEN == 0) {
 					// 需要开机
