@@ -244,7 +244,7 @@ public class ControlFragment extends BaseTabFragment implements
 			public void onClick(View v) {
 				
 				if(autoclick){
-					Toast.makeText(getActivity(), "请先关闭智能控制", Toast.LENGTH_SHORT).show();
+					Toast.makeText(getActivity(), "请先关闭智能模式", Toast.LENGTH_SHORT).show();
 					return;
 				}
 				
@@ -277,7 +277,7 @@ public class ControlFragment extends BaseTabFragment implements
 			public void onClick(View v) {
 				
 				if(autoclick){
-					Toast.makeText(getActivity(), "请先关闭智能控制", Toast.LENGTH_SHORT).show();
+					Toast.makeText(getActivity(), "请先关闭智能模式", Toast.LENGTH_SHORT).show();
 					return;
 				}
 				
@@ -470,6 +470,11 @@ public class ControlFragment extends BaseTabFragment implements
 
 			@Override
 			public void onClick(View v) {
+				
+				if(autoclick){
+					Toast.makeText(getActivity(), "请先关闭智能模式", Toast.LENGTH_SHORT).show();
+					return;
+			    }
 				Intent intent = new Intent(getActivity(),
 						TimingListActivity.class);
 				startActivity(intent);
