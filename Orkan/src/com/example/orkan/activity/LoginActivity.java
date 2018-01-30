@@ -168,7 +168,7 @@ public class LoginActivity extends BaseActivity{
 								//此版本仅有一个设备
 								if (length < 1){
 							//	if(true){	
-									startActivity(new Intent(LoginActivity.this,AddDeviceActivity.class));	    
+									startActivity(new Intent(LoginActivity.this,APConfigTypeActivity.class));	    
 							    	LoginActivity.this.finish();
 
 								}else{
