@@ -114,7 +114,10 @@ public class MoreFragment extends BaseTabFragment implements View.OnClickListene
 	}
 
 	protected void initData() {
-		device_id.setText(Util.MQTT_DEVICE_NAME);
+		if("null".endsWith(Util.MQTT_DEVICE_ID))
+			device_id.setText(R.string.plzlogin);
+		else 
+			device_id.setText(Util.MQTT_DEVICE_NAME);
 
 	}
 
@@ -133,7 +136,8 @@ public class MoreFragment extends BaseTabFragment implements View.OnClickListene
 			startActivity(Intent.createChooser(shareIntent, "分享到"));
 			break;
 		case R.id.more_unbund_li:
-
+			if("null".endsWith(Util.MQTT_DEVICE_ID))
+				break;
 			final AlertDialog alertDialog = new AlertDialog.Builder(getActivity()).create();
 			alertDialog.show();
 			Window window = alertDialog.getWindow();
@@ -157,7 +161,8 @@ public class MoreFragment extends BaseTabFragment implements View.OnClickListene
 			});
 			break;
 		case R.id.more_device_li:
-
+			if("null".endsWith(Util.MQTT_DEVICE_ID))
+				break;
 			bund();
 			// 设备
 			break;
@@ -171,7 +176,8 @@ public class MoreFragment extends BaseTabFragment implements View.OnClickListene
 			break;
 		case R.id.more_devicelist_li:
 			// 设备列表
-
+			if("null".endsWith(Util.MQTT_DEVICE_ID))
+				break;
 			FragmentActivity c = this.getActivity();
 			startActivity(new Intent(c, DeviceListActivity.class));
 			c.finish();
@@ -183,9 +189,17 @@ public class MoreFragment extends BaseTabFragment implements View.OnClickListene
 			break;
 		case R.id.device_id:
 			// change name
-			showInputDialog();
+			if("null".endsWith(Util.MQTT_DEVICE_ID))
+				gotoLogin();
+			else
+				showInputDialog();
 			break;
 		}
+	}
+	
+	private void gotoLogin() {
+		startActivity(new Intent(this.getActivity(), LoginActivity.class));
+		getActivity().finish();
 	}
 
 	EditText dialog_edit;

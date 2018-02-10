@@ -146,6 +146,8 @@ public class HistoryFragment extends BaseTabFragment implements
 	}
 
 	protected void initData() {
+		if("null".endsWith(Util.MQTT_DEVICE_ID))
+			return ;
 		if (Util.INITIAL_STATUS_HISTORY_DATAMODE == Util.DATA_MODE_HOUR) {
 			date = "Hour";
 		} else if (Util.INITIAL_STATUS_HISTORY_DATAMODE == Util.DATA_MODE_DAY) {

@@ -121,6 +121,8 @@ public class ControlFragment extends BaseTabFragment implements
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
+		if("null".endsWith(Util.MQTT_DEVICE_ID))
+			return;
 		// 注册观察者
 		mqttController = MQTTController.getInstance();
 		mqttController.addWatcher(this);
@@ -129,17 +131,6 @@ public class ControlFragment extends BaseTabFragment implements
 		// 获取新风机状态
 		mqttController.sendMsg((byte) 0x03, b1);
 		getLvxin();
-		// final Handler handler = new Handler();
-		// handler.postDelayed(new Runnable() {
-		// @Override
-		// public void run() {
-		// //每两秒获取一次
-		// byte[] b1 = Util.MQTT_USER_FENG;
-		// //获取新风机状态
-		// mqttController.sendMsg((byte)0x03, b1);
-		// handler.postDelayed(this, 2000);
-		// }
-		// }, 2000);
 
 	}
 
@@ -148,7 +139,8 @@ public class ControlFragment extends BaseTabFragment implements
 			Bundle savedInstanceState) {
 
 		fragmentView = inflater.inflate(R.layout.fragment_control, null);
-
+		if("null".endsWith(Util.MQTT_DEVICE_ID))
+			return fragmentView;
 		init(fragmentView);
 		// 临时兼容诺基亚项目
 		Util.INITIAL_STATUS_FENG_NUM = 0;

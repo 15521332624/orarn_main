@@ -166,4 +166,16 @@ android:orientation="vertical">
 	      android:background="@color/llb"
           />
   </RelativeLayout>
+        <Button 
+	      android:id="@+id/outlogin_button"
+	      android:layout_width="match_parent"
+	      android:layout_height="match_parent"
+	      android:padding="15dip"
+	      android:gravity="bottom|right"
+	      android:text="@string/outlogin"
+	      android:textColor="@color/theme_color"
+	      android:textSize="20sp"
+	      android:background="@color/llb"
+          />
+  
 </LinearLayout>

@@ -116,6 +116,8 @@ public class StateFragment extends BaseTabFragment implements View.OnClickListen
 		init(fragmentView);
 		Log.v("orkan", "state on create view");
 		getOutdoorData();
+		if("null".endsWith(Util.MQTT_DEVICE_ID))
+			return fragmentView;
 		initData();
 
 		return fragmentView;
@@ -373,7 +375,7 @@ public class StateFragment extends BaseTabFragment implements View.OnClickListen
 					String temp = realtimeData.getString("temp");
 					String humi = realtimeData.getString("shidu");
 					JSONObject aqiData = jsonData.getJSONObject("evn");
-					String pm = aqiData.getString("pm10");
+					String pm = aqiData.getString("pm25");
 					Log.v("snake", "realtimeData = " + aqiData.toString());
 					Util.INITIAL_STATUS_OUTDOOR_PM_VALUE = pm;
 					Util.INITIAL_STATUS_OUTDOOR_HUMIDITY_VALUE = humi;
@@ -381,7 +383,7 @@ public class StateFragment extends BaseTabFragment implements View.OnClickListen
 					outdoor_state_pm_value.setText(Util.INITIAL_STATUS_OUTDOOR_PM_VALUE);
 					outdoor_state_humidity_value.setText(Util.INITIAL_STATUS_OUTDOOR_HUMIDITY_VALUE);
 					outdoor_state_temperature_value.setText(Util.INITIAL_STATUS_OUTDOOR_TEMP_VALUE + "℃");
-					//Util.d(jsonData.toString() + "snake");
+					Util.d(jsonData.toString() + "snake");
 				} catch (JSONException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();

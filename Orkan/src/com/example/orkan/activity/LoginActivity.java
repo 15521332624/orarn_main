@@ -40,6 +40,7 @@ public class LoginActivity extends BaseActivity{
 	Button loginButton;
 	Button forgetButton;
 	Button regButton;
+	Button outlogin_button;
 	ImageView code_eye;
 	boolean isHigh = true;
 	
@@ -50,6 +51,7 @@ public class LoginActivity extends BaseActivity{
     }
     
     private void init(){
+    	Util.MQTT_DEVICE_ID = "null";
     	title_tx = (TextView)findViewById(R.id.title_tx);
     	title_tx.setText(R.string.title_login);
     	//content_im = (ImageView)findViewById(R.id.content_im);
@@ -62,6 +64,15 @@ public class LoginActivity extends BaseActivity{
     	pwdEdit = (EditText)findViewById(R.id.pwd_edit);
     	
     	forgetButton = (Button)findViewById(R.id.forget_button);
+    	outlogin_button = (Button)findViewById(R.id.outlogin_button);
+    	outlogin_button.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View arg0) {
+				startActivity(new Intent(LoginActivity.this, MainActivity.class));
+				LoginActivity.this.finish();
+			}
+		});
     	forgetButton.setOnClickListener(new OnClickListener() {
 
             @Override
