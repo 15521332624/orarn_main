@@ -99,7 +99,7 @@ public class ApConfigSeearchDeviceActivity extends BaseActivity implements
 						searchNum = 0;	
 						MessageDialog msgDialog = new MessageDialog(
 								ApConfigSeearchDeviceActivity.this,
-								"未搜索到设备\n请确保手机和设备在同一wifi并重试");
+								getString(R.string.device_no_search));
 						msgDialog.show();
 						return;
 					}
@@ -116,7 +116,7 @@ public class ApConfigSeearchDeviceActivity extends BaseActivity implements
 							.findViewById(R.id.dialog_list);
 					TextView dialog_title = (TextView) window
 							.findViewById(R.id.dialog_title);
-					dialog_title.setText("选择设备");
+					dialog_title.setText(R.string.select_device);
 
 					deviceSimpleAdapter = new SimpleAdapter(
 							ApConfigSeearchDeviceActivity.this, devicelist,
@@ -159,7 +159,7 @@ public class ApConfigSeearchDeviceActivity extends BaseActivity implements
 														if (code == 1) {
 															Toast.makeText(
 																	getApplicationContext(),
-																	"设备绑定成功",
+																	getString(R.string.band_success),
 																	Toast.LENGTH_SHORT)
 																	.show();
 															cancelAll();
@@ -194,7 +194,7 @@ public class ApConfigSeearchDeviceActivity extends BaseActivity implements
 															strMsg);
 													Toast.makeText(
 															getApplicationContext(),
-															"设备绑定失败",
+															getString(R.string.band_fail),
 															Toast.LENGTH_SHORT)
 															.show();
 													cancelAll();
@@ -259,7 +259,7 @@ public class ApConfigSeearchDeviceActivity extends BaseActivity implements
 				} else {
 
 					MessageDialog msgDialog = new MessageDialog(
-							ApConfigSeearchDeviceActivity.this, "请先连接wifi");
+							ApConfigSeearchDeviceActivity.this, getString(R.string.connect_wifi));
 					msgDialog.show();
 				}
 

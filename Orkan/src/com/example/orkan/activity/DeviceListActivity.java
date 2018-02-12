@@ -103,18 +103,6 @@ public class DeviceListActivity extends BaseActivity {
 		devicelistView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view, final int position, long id) {
-				// Intent intent = new Intent(DeviceListActivity.this, TimingSetActivity.class);
-				// Bundle bundle = new Bundle();
-				// // bundle.putString("Id", Util.CONTROL_TIMING_LIST.get(position).get("Id"));
-				// bundle.putString("StartTime",
-				// Util.CONTROL_TIMING_LIST.get(position).get("StartTime"));
-				// bundle.putString("EndTime",
-				// Util.CONTROL_TIMING_LIST.get(position).get("EndTime"));
-				// bundle.putString("level",
-				// Util.CONTROL_TIMING_LIST.get(position).get("level"));
-				// bundle.putString("Mode", position+"");
-				// intent.putExtras(bundle);
-				// startActivityForResult(intent, 1);
 
 				Util.MQTT_DEVICE_NAME = (String) deviceList.get(position).get("deviceName");
 				Util.MQTT_USER_MAC = (String) deviceList.get(position).get("mac");
@@ -124,17 +112,7 @@ public class DeviceListActivity extends BaseActivity {
 			}
 		});
 
-		// timing_delete = (TextView)findViewById(R.id.timing_delete);
-		// timing_delete.setVisibility(View.GONE);
-		// timing_delete.setOnClickListener(new OnClickListener() {
-		//
-		// @Override
-		// public void onClick(View v)
-		// {
-		//
-		//
-		// }
-		// });
+
 		initData();
 		deviceList.clear();
 		beginAll();
@@ -232,9 +210,9 @@ public class DeviceListActivity extends BaseActivity {
 											Boolean state = deviceObj.getBoolean("state");
 											String dstate;
 											if (state == true) {
-												dstate = "在线";
+												dstate = getString(R.string.on_line);
 											} else {
-												dstate = "离线";
+												dstate = getString(R.string.out_line);
 											}
 											int dl = deviceList.size();
 											for (int j = 0; j < dl; j++) {
@@ -287,7 +265,7 @@ public class DeviceListActivity extends BaseActivity {
 							Window window = loginMsgDialog.getWindow();
 							window.setContentView(R.layout.dialog_quit);
 							TextView alert_btn_title = (TextView) window.findViewById(R.id.alert_btn_title);
-							alert_btn_title.setText("该账号已在其他终端登录\n请重新登录");
+							alert_btn_title.setText(R.string.re_login);
 							Button reboot_cancel_alert_btn = (Button) window.findViewById(R.id.reboot_cancel_alert_btn);
 							reboot_cancel_alert_btn.setOnClickListener(new OnClickListener() {
 								@Override
@@ -319,7 +297,7 @@ public class DeviceListActivity extends BaseActivity {
 			@Override
 			public void onFailure(Throwable t, int errorNo, String strMsg) {
 				super.onFailure(t, errorNo, strMsg);
-				MessageDialog msgDialog = new MessageDialog(DeviceListActivity.this, "获取设备列表失败");
+				MessageDialog msgDialog = new MessageDialog(DeviceListActivity.this,getString(R.string.device_fail));
 				msgDialog.show();
 				cancelAll();
 			}

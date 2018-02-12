@@ -14,40 +14,29 @@ import org.json.JSONObject;
 
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
-import android.content.BroadcastReceiver;
-import android.content.Context;
 import android.content.DialogInterface;
-import android.content.Intent;
-import android.content.IntentFilter;
 import android.content.DialogInterface.OnDismissListener;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
-import android.net.wifi.WifiInfo;
-import android.net.wifi.WifiManager;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.util.Log;
 import android.view.View;
-import android.view.Window;
 import android.view.View.OnClickListener;
+import android.view.Window;
 import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.AdapterView.OnItemClickListener;
 
 import com.example.orkan.R;
 import com.example.orkan.dialog.MessageDialog;
-import com.example.orkan.model.MQTTRevMsg;
 import com.example.orkan.net.SmartUDPSocketServer;
 import com.example.orkan.net.WiFiController;
 import com.example.orkan.util.Util;
-import com.hiflying.smartlink.ISmartLinker;
 
 public class AddDeviceActivity extends BaseActivity implements
 		SmartUDPSocketServer.FindDevice {
@@ -86,7 +75,7 @@ public class AddDeviceActivity extends BaseActivity implements
 					if (devicelist.size() < 1) {
 						MessageDialog msgDialog = new MessageDialog(
 								AddDeviceActivity.this,
-								"未搜索到设备\n请确保手机和设备在同一wifi并重试");
+								getString(R.string.device_no_search));
 						msgDialog.show();
 						return;
 					}
@@ -102,7 +91,7 @@ public class AddDeviceActivity extends BaseActivity implements
 							.findViewById(R.id.dialog_list);
 					TextView dialog_title = (TextView) window
 							.findViewById(R.id.dialog_title);
-					dialog_title.setText("选择设备");
+					dialog_title.setText(getString(R.string.device_select));
 
 					deviceSimpleAdapter = new SimpleAdapter(
 							AddDeviceActivity.this, devicelist,
@@ -145,7 +134,7 @@ public class AddDeviceActivity extends BaseActivity implements
 														if (code == 1) {
 															Toast.makeText(
 																	getApplicationContext(),
-																	"设备绑定成功",
+																	getString(R.string.band_success),
 																	Toast.LENGTH_SHORT)
 																	.show();
 															cancelAll();
@@ -180,7 +169,7 @@ public class AddDeviceActivity extends BaseActivity implements
 															strMsg);
 													Toast.makeText(
 															getApplicationContext(),
-															"设备绑定失败",
+															getString(R.string.band_fail),
 															Toast.LENGTH_SHORT)
 															.show();
 													cancelAll();
@@ -245,7 +234,7 @@ public class AddDeviceActivity extends BaseActivity implements
 				} else {
 
 					MessageDialog msgDialog = new MessageDialog(
-							AddDeviceActivity.this, "请先连接wifi");
+							AddDeviceActivity.this, getString(R.string.connect_wifi));
 					msgDialog.show();
 				}
 

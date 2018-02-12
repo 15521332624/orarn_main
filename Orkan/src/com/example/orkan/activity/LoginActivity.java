@@ -133,7 +133,7 @@ public class LoginActivity extends BaseActivity{
     	if(accountEdit.getText().toString().trim().equals("") || 
     			pwdEdit.getText().toString().trim().equals("")){
     		MessageDialog msgDialog = new MessageDialog(LoginActivity.this,
-					"输入为空");
+					getString(R.string.input_null));
 			msgDialog.show();
 			return;
     	}
@@ -230,7 +230,7 @@ public class LoginActivity extends BaseActivity{
 			public void onFailure(Throwable t, int errorNo, String strMsg){
 				super.onFailure(t, errorNo, strMsg);
 					MessageDialog msgDialog = new MessageDialog(LoginActivity.this,
-							"登录失败\n请检查网络连接");
+							getString(R.string.login_fail));
 					msgDialog.show();
 					cancelAll();
 			}

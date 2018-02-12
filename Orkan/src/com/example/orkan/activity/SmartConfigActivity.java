@@ -211,7 +211,7 @@ public class SmartConfigActivity extends BaseActivity implements OnSmartLinkList
 
 							Util.d("code  " + code);
 							if (code == 1) {
-								Toast.makeText(getApplicationContext(), "设备绑定成功", Toast.LENGTH_SHORT).show();
+								Toast.makeText(getApplicationContext(), R.string.band_success, Toast.LENGTH_SHORT).show();
 								Util.START_FROM_LOGIN = 0;
 								startActivity(new Intent(SmartConfigActivity.this, DeviceListActivity.class));
 
@@ -226,7 +226,7 @@ public class SmartConfigActivity extends BaseActivity implements OnSmartLinkList
 					@Override
 					public void onFailure(Throwable t, int errorNo, String strMsg) {
 						super.onFailure(t, errorNo, strMsg);
-						Toast.makeText(getApplicationContext(), "设备绑定失败", Toast.LENGTH_SHORT).show();
+						Toast.makeText(getApplicationContext(), R.string.band_fail, Toast.LENGTH_SHORT).show();
 					}
 				});
 			}

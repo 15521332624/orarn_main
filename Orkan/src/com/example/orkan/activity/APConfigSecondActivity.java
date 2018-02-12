@@ -78,8 +78,8 @@ public class APConfigSecondActivity extends BaseActivity implements UDPWatcher,M
 		mSsidEditText = (EditText) findViewById(R.id.editText_hiflying_smartlinker_ssid);
 		mPasswordEditText = (EditText) findViewById(R.id.editText_hiflying_smartlinker_password);
 		mStartButton = (Button) findViewById(R.id.button_hiflying_smartlinker_start);
-		mSsidEditText.setHint("请输入WIFI账号");
-		mPasswordEditText.setHint("请输入WIFI密码");
+		mSsidEditText.setHint(R.string.plz_connect_wifi_account);
+		mPasswordEditText.setHint(R.string.plz_connect_wifi_password);
 		//mSsidEditText.setText("302");
 		//mPasswordEditText.setText("chenxiaoxia");
 		mStartButton.setOnClickListener(click);
@@ -119,7 +119,7 @@ public class APConfigSecondActivity extends BaseActivity implements UDPWatcher,M
 					mWaitingDialog.show();
 					
 				}else{
-					Toast.makeText(getApplicationContext(), "请连接WIFI", Toast.LENGTH_SHORT).show();
+					Toast.makeText(getApplicationContext(), getString(R.string.connect_wifi), Toast.LENGTH_SHORT).show();
 				}
 				
 			}else if(id == R.id.button_green) {
@@ -249,7 +249,7 @@ public class APConfigSecondActivity extends BaseActivity implements UDPWatcher,M
 					int code = jsonData.getInt("code");
 					Log.v("snake", "band success Code = " + code);
 					if (code == 1) {
-						Toast.makeText(getApplicationContext(), "设备绑定成功", Toast.LENGTH_SHORT).show();
+						Toast.makeText(getApplicationContext(), getString(R.string.band_success), Toast.LENGTH_SHORT).show();
 						Util.START_FROM_LOGIN = 0;
 						startActivity(new Intent(APConfigSecondActivity.this, DeviceListActivity.class));
 
@@ -264,7 +264,7 @@ public class APConfigSecondActivity extends BaseActivity implements UDPWatcher,M
 			@Override
 			public void onFailure(Throwable t, int errorNo, String strMsg) {
 				super.onFailure(t, errorNo, strMsg);
-				Toast.makeText(getApplicationContext(), "设备绑定失败", Toast.LENGTH_SHORT).show();
+				Toast.makeText(getApplicationContext(), getString(R.string.band_fail), Toast.LENGTH_SHORT).show();
 			}
 		});
 		

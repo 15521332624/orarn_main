@@ -91,7 +91,7 @@ public class MainActivity extends BaseActivity implements UDPWatcher, MQTTFinish
  		setContentView(R.layout.activity_main);
  		
  		offlineMsgDialog = new MessageDialog(MainActivity.this,
-				"检测到设备已离线");
+				getString(R.string.device_out));
  		fengjiAlertDialog = new AlertDialog.Builder(this).create(); 
  		
  		loginMsgDialog = new AlertDialog.Builder(this).create(); 
@@ -196,7 +196,7 @@ public class MainActivity extends BaseActivity implements UDPWatcher, MQTTFinish
 		            	Window window = loginMsgDialog.getWindow();  
 		            	window.setContentView(R.layout.dialog_samelogin);  
 		            	TextView alert_btn_title = (TextView)window.findViewById(R.id.alert_btn_title);
-		            	alert_btn_title.setText("该账号已在其他终端登录\n请重新登录");
+		            	alert_btn_title.setText(R.string.login_other_device);
 		            	Button reboot_cancel_alert_btn = (Button)window.findViewById(R.id.reboot_cancel_alert_btn);
 		            	reboot_cancel_alert_btn.setOnClickListener(new OnClickListener(){
 		                    @Override
@@ -298,7 +298,7 @@ public class MainActivity extends BaseActivity implements UDPWatcher, MQTTFinish
 	            	Window window = fengjiAlertDialog.getWindow();  
 	            	window.setContentView(R.layout.dialog_quit);  
 	            	TextView alert_btn_title = (TextView)window.findViewById(R.id.alert_btn_title);
-	            	alert_btn_title.setText("未联动新风机\n请将新风机重新插电,然后点击确定");
+	            	alert_btn_title.setText(R.string.not_connect_fan_device);
 	            	Button reboot_cancel_alert_btn = (Button)window.findViewById(R.id.reboot_cancel_alert_btn);
 	            	reboot_cancel_alert_btn.setOnClickListener(new OnClickListener(){
 	                    @Override
@@ -332,7 +332,7 @@ public class MainActivity extends BaseActivity implements UDPWatcher, MQTTFinish
 			//新风机配对
 			cancelAll();
 			MessageDialog msgDialog = new MessageDialog(this,
-					"新风机配对成功");
+					getString(R.string.pair_success));
 			msgDialog.show();
 		}
 		

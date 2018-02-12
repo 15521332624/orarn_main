@@ -65,7 +65,7 @@ public class BaseActivity extends FragmentActivity {
             	if (hud.isShowing()){
             		hud.dismiss();
             		Toast.makeText(BaseActivity.this,
-   		                    "请求超时", Toast.LENGTH_SHORT).show();
+   		                    getString(R.string.time_out), Toast.LENGTH_SHORT).show();
             	}
             }
         };

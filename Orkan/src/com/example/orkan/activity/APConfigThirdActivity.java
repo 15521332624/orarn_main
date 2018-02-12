@@ -60,12 +60,12 @@ public class APConfigThirdActivity extends BaseActivity implements UDPWatcher,MQ
 		
 		if(Util.AP_MODULE_CONFIG == Util.MODULE_DASK) {
 			apbegin_help_text.setText(R.string.hiflying_aplinker_step_3);
-			apbegin_button_wifi_connect.setText("灯已变绿，绑定该设备");
-			apbegin_button_red.setText("灯依然红色，重新操作一次");
+			apbegin_button_wifi_connect.setText(R.string.light_green);
+			apbegin_button_red.setText(R.string.light_red);
 		}else {
 			apbegin_help_text.setText(R.string.hiflying_aplinker_insert_step_3);
-			apbegin_button_wifi_connect.setText("图标已经常亮，搜索已入网设备");
-			apbegin_button_red.setText("图标一直闪缩，重新操作一遍");
+			apbegin_button_wifi_connect.setText(R.string.light_always_light);
+			apbegin_button_red.setText(R.string.light_evasive);
 		}
 		
 		apbegin_button_wifi_connect.setOnClickListener(new OnClickListener() {
@@ -130,7 +130,7 @@ public class APConfigThirdActivity extends BaseActivity implements UDPWatcher,MQ
 	    		if (mWaitingDialog.isShowing()) {
 	    			mWaitingDialog.dismiss();
 	    		}
-	    		Toast.makeText(getApplicationContext(), "请重试", Toast.LENGTH_SHORT).show();
+	    		Toast.makeText(getApplicationContext(), getString(R.string.plz_try), Toast.LENGTH_SHORT).show();
 	      }
 	  }
 
@@ -159,7 +159,7 @@ public class APConfigThirdActivity extends BaseActivity implements UDPWatcher,MQ
 					int code = jsonData.getInt("code");
 					if (code == 1) {
 						probeHandler.removeMessages(1);
-						Toast.makeText(getApplicationContext(), "设备绑定成功", Toast.LENGTH_SHORT).show();
+						Toast.makeText(getApplicationContext(),getString(R.string.band_success), Toast.LENGTH_SHORT).show();
 						Util.START_FROM_LOGIN = 0;
 						startActivity(new Intent(APConfigThirdActivity.this, DeviceListActivity.class));
 
@@ -179,7 +179,7 @@ public class APConfigThirdActivity extends BaseActivity implements UDPWatcher,MQ
 			@Override
 			public void onFailure(Throwable t, int errorNo, String strMsg) {
 				super.onFailure(t, errorNo, strMsg);
-				Toast.makeText(getApplicationContext(), "设备绑定失败", Toast.LENGTH_SHORT).show();
+				Toast.makeText(getApplicationContext(),getString(R.string.band_fail), Toast.LENGTH_SHORT).show();
 			}
 		});
 		

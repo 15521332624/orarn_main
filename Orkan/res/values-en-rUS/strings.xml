@@ -67,26 +67,26 @@
     <string name="located_failed">Location Fail</string>
     <string name="hiflying_smartlinker_ssid">SSID:</string>
     <string name="hiflying_smartlinker_password">Password:</string>
-    <string name="hiflying_smartlinker_password_hint">请输入wifi密码</string>
+    <string name="hiflying_smartlinker_password_hint">Input Wifi Password</string>
     <string name="hiflying_smartlinker_start">Start</string>
-    <string name="hiflying_smartlinker_connect_wifi">step1 : 连接WIFI: HF-LPT120</string>
-    <string name="hiflying_smartlinker_connect_wifi_ok">我已经连接到HF-LPT120</string>
-    <string name="hiflying_smartlinker_waiting">请稍后&#8230;</string>
-    <string name="hiflying_smartlinker_timeout">配置超时!</string>
-    <string name="hiflying_smartlinker_completed">SmartLink 完成</string>
-    <string name="hiflying_smartlinker_new_module_found" formatted="false">发现新模块: Mac-%s Ip-%s</string>
-    <string name="hiflying_smartlinker_no_wifi_connectivity">没有Wifi连接</string>
-    <string name="hiflying_smartlinker_help">1.确保手机已连接wifi\n2.输入wifi密码\n3.短按检测控制器背后电源键,使wifi指示灯变为闪烁状态\n4.点击本界面开始按钮</string>
-    <string name="hiflying_aplinker_help">1.确保室内WIFI已打开\n2.打开检测仪,使wifi指示灯变为红色状态\n3.手机连接检测控制器WIFI\n4.输入检测控制器需要连接的WIFI账号和密码\n5.点击本页面</string>
-    <string name="hiflying_aplinker_step_1">1、确保检测控制器要连接的WIFI的已打开；\n2、打开检测控制器，短按一下背后开关键，约5秒钟后wifi指示灯变为红绿快闪；\n3、手机连接检测控制器wifi热点：HF-LPT120；\n4、点击页面“我已经连接到HF-LPT120”</string>
-    <string name="hiflying_aplinker_insert_step_1">1、确保检测控制器要连接的WIFI的已打开；\n2、长按工作模式键（左起第二个按键）5秒，使wi-fi图标（右上角）变成闪烁状态；\n3、手机连接检测控制器wifi热点：HF-LPT120；\n4、点击页面“我已经连接到HF-LPT120”</string>
-    <string name="hiflying_aplinker_step_2">1.输入检测控制器需要连接的WIFI账号和密码\n2.点击本页面“设备联网”</string>
-    <string name="hiflying_aplinker_step_2_error">请检查检测控制器WIFI指示灯是否变亮</string>
-    <string name="hiflying_aplinker_step_3">1.请确保手机已连接到互联网\n2.请确保检测控制器wifi指示灯是否为绿色。若为红色，请检查输入的wifi帐号和密码\n3.根据指示灯点颜色点击本页面按钮</string>
-    <string name="hiflying_aplinker_insert_step_3">1.请确保手机已连接到互联网\n2.请确保检测控制器wifi图标是否为长亮。若为闪缩，请检查输入的wifi帐号和密码\n3.根据wifi图标点击本页面按钮</string>
-    <string name="device_type_xiangfan">嵌墙式检测控制器</string>
-    <string name="device_type_fenwen">桌面式检测控制器</string>
-    <string name="device_xiangfan_introduce">空气检测,新风机控制,嵌墙安装</string>
-    <string name="device_fenwen_introduce">空气检测,新风机控制,桌面摆放</string>
+    <string name="hiflying_smartlinker_connect_wifi">step1 : Connect WIFI: HF-LPT120</string>
+    <string name="hiflying_smartlinker_connect_wifi_ok">I Have Conneted HF-LPT120</string>
+    <string name="hiflying_smartlinker_waiting">Wait&#8230;</string>
+    <string name="hiflying_smartlinker_timeout">TimeOut!</string>
+    <string name="hiflying_smartlinker_completed">SmartLink Done</string>
+    <string name="hiflying_smartlinker_new_module_found" formatted="false">Find New Module: Mac-%s Ip-%s</string>
+    <string name="hiflying_smartlinker_no_wifi_connectivity">No Wifi Connect</string>
+    <string name="hiflying_smartlinker_help">1.Comfirm phone connect wifi\n2.Input wifi password\n3.Short prss the power key which behind the control device,wifi indicator into flicker\n4.Press start</string>
+    <string name="hiflying_aplinker_help">1.Confirm indoor wifi open\n2.open control device,wifi indicator light change to red state\n3.Phone connect control device wifi\n4.Input wifi account and password\n5.Press the button</string>
+    <string name="hiflying_aplinker_step_1">1、Comfirm control device wifi is opened；\n2、Open control device,Short press the power key behind the control device，5s later,wifi indicator into red and green flash；\n3、Phone connect wifi hot spot：HF-LPT120；\n4、Press the button “It have connected HF-LPT120”</string>
+    <string name="hiflying_aplinker_insert_step_1">1、Comfirm control device wifi is opened；\n2、长按工作模式键（左起第二个按键）5秒，使wi-fi图标（右上角）变成闪烁状态；\n3、Phone connect wifi hot spo：HF-LPT120；\n4、Press the button “It have connected HF-LPT120”</string>
+    <string name="hiflying_aplinker_step_2">1.Input wifi account and password\n2.Press the button “Device Connect”</string>
+    <string name="hiflying_aplinker_step_2_error">Check control device wifi indicator light is bright?</string>
+    <string name="hiflying_aplinker_step_3">1.Comfirm phone conected the internet\n2.Comfirm control device wifi indicator light is green?If red,Input wifi account and password\n3.Base the indicator light press the button</string>
+    <string name="hiflying_aplinker_insert_step_3">1.Comfirm phone conected the internet\n2.Comfirm control device wifi icon long bright。If flicker,Input wifi account and password\n3.Base wifi icon press the button</string>
+    <string name="device_type_xiangfan">Wall type detection controller</string>
+    <string name="device_type_fenwen">Desktop detection controller</string>
+    <string name="device_xiangfan_introduce">Air inspection, New fan control, Wall installation</string>
+    <string name="device_fenwen_introduce">Air testing, New fan control, Desktop placement</string>
     
 </resources>

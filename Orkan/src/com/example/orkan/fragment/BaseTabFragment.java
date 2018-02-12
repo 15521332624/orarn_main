@@ -1,5 +1,6 @@
 package com.example.orkan.fragment;
 
+import com.example.orkan.R;
 import com.example.orkan.third.kprogresshud.KProgressHUD;
 import com.example.orkan.util.Util;
 
@@ -37,7 +38,7 @@ public class BaseTabFragment extends Fragment{
             	if (hud.isShowing()){
             		hud.dismiss();
             		Toast.makeText(getActivity(),
-   		                    "请求超时", Toast.LENGTH_SHORT).show();
+   		                    R.string.time_out, Toast.LENGTH_SHORT).show();
             	}
             }
         };

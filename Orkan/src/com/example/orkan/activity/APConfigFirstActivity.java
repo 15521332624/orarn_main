@@ -59,7 +59,7 @@ public class APConfigFirstActivity extends BaseActivity {
 							APConfigSecondTcpActivity.class));
 					APConfigFirstActivity.this.finish();
 				}else {
-					Toast.makeText(getApplicationContext(), "请连接wifi： hf-lpt120", Toast.LENGTH_SHORT).show();
+					Toast.makeText(getApplicationContext(), getString(R.string.connect_hf), Toast.LENGTH_SHORT).show();
 				}
 			}
 		});

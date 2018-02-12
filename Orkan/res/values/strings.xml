@@ -89,4 +89,67 @@
     <string name="device_xiangfan_introduce">空气检测,新风机控制,嵌墙安装</string>
     <string name="device_fenwen_introduce">空气检测,新风机控制,桌面摆放</string>
     
+    <!-- Other -->
+    <string name="device_no_search">未搜索到设备\n请确保手机和设备在同一wifi并重试</string>
+    <string name="device_select">选择设备</string>
+    <string name="band_success">设备绑定成功</string>
+    <string name="band_fail">设备绑定失败</string>
+    <string name="connect_wifi">请先连接wifi</string>
+    <string name="connect_hf">请连接wifi： hf-lpt120</string>
+    <string name="plz_connect_wifi_account">请输入WIFI账号</string>
+    <string name="plz_connect_wifi_password">请输入WIFI密码</string>
+    <string name="select_device">选择设备</string>
+	<string name="plz_try">请重试</string>
+	<string name="light_green">灯已变绿，绑定该设备</string>
+	<string name="light_red">灯依然红色，重新操作一次</string>
+	<string name="light_always_light">图标已经常亮，搜索已入网设备</string>
+	<string name="light_evasive">图标一直闪缩，重新操作一遍</string>
+    <string name="time_out">请求超时</string>
+    <string name="on_line">在线</string>
+    <string name="out_line">离线</string>
+    <string name="re_login">该账号已在其他终端登录\n请重新登录</string>
+    <string name="device_fail">获取设备列表失败</string>
+    <string name="phone_null">手机号为空</string>
+    <string name="send_success">发送成功</string>
+    <string name="send_fail">发送失败\n请检查网络连接</string>
+    <string name="input_null">输入为空</string>
+    <string name="change_success">修改成功</string>
+    <string name="change_fail">修改失败\n请检查网络连接</string>
+    <string name="login_fail">登录失败\n请检查网络连接</string>
+    <string name="device_out">检测到设备已离线</string>
+    <string name="login_other_device">该账号已在其他终端登录\n请重新登录</string>
+    <string name="not_connect_fan_device">未联动新风机\n请将新风机重新插电,然后点击确定</string>
+    <string name="pair_success">新风机配对成功</string>
+    <string name="close">关闭</string>
+    <string name="open">开启</string>
+    <string name="setting_success">设置成功</string>
+    <string name="close_mode">请先关闭智能模式</string>
+    <string name="close_all_device">请先打开总开关</string>
+    <string name="reset_1">真的要重置内层滤网时间么？</string>
+    <string name="reset_2">真的要重置中层滤网时间么？</string>
+    <string name="reset_3">真的要重置外层滤网时间么？</string>
+    <string name="get_info_error">获取滤网信息失败</string>
+    <string name="fengsu1">风速:一级</string>
+    <string name="fengsu2">风速:二级</string>
+    <string name="fengsu3">风速:三级</string>
+    
+   
+   
+
+
+
+
+
+
+
+    
+    
+  
+    
+   
+    
+    
+    
+    
+    
 </resources>

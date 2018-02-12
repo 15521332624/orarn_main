@@ -91,7 +91,7 @@ public class GetPwdActivity extends BaseActivity{
     private void getCheckNum(){
     	if(accountEdit.getText().toString().trim().equals("")){
     		MessageDialog msgDialog = new MessageDialog(GetPwdActivity.this,
-					"手机号为空");
+    				getString(R.string.phone_null));
 			msgDialog.show();
 			return;
     	}
@@ -107,7 +107,7 @@ public class GetPwdActivity extends BaseActivity{
 					int code = jsonData.getInt("code");
 					if (code == 1){
 						MessageDialog msgDialog = new MessageDialog(GetPwdActivity.this,
-								"发送成功");
+								getString(R.string.send_success));
 						msgDialog.show();
 					}else{
 						MessageDialog msgDialog = new MessageDialog(GetPwdActivity.this,
@@ -124,7 +124,7 @@ public class GetPwdActivity extends BaseActivity{
  			public void onFailure(Throwable t, int errorNo, String strMsg){
  				super.onFailure(t, errorNo, strMsg);
 	 				MessageDialog msgDialog = new MessageDialog(GetPwdActivity.this,
-	 						"发送失败\n请检查网络连接");
+	 						getString(R.string.send_fail));
 					msgDialog.show();
 					cancelAll();
  			}
@@ -135,7 +135,7 @@ public class GetPwdActivity extends BaseActivity{
     			pwdEdit.getText().toString().trim().equals("") ||
     			checknumEdit.getText().toString().trim().equals("")){
     		MessageDialog msgDialog = new MessageDialog(GetPwdActivity.this,
-					"输入为空");
+					getString(R.string.input_null));
 			msgDialog.show();
 			return;
     	}
@@ -156,7 +156,7 @@ public class GetPwdActivity extends BaseActivity{
 					int code = jsonData.getInt("code");
 					if (code == 1){
 						final MessageDialog msgDialog = new MessageDialog(GetPwdActivity.this,
-								"修改成功");
+								getString(R.string.change_success));
 						msgDialog.show(new OnClickListener(){
 					        @Override
 					        public void onClick(View v)
@@ -180,7 +180,7 @@ public class GetPwdActivity extends BaseActivity{
  			public void onFailure(Throwable t, int errorNo, String strMsg){
  				super.onFailure(t, errorNo, strMsg);
 	 				MessageDialog msgDialog = new MessageDialog(GetPwdActivity.this,
-	 						"修改失败\n请检查网络连接");
+	 						getString(R.string.change_fail));
 					msgDialog.show();
 					cancelAll();
  			}

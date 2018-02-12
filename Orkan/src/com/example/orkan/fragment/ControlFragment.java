@@ -236,7 +236,7 @@ public class ControlFragment extends BaseTabFragment implements
 			public void onClick(View v) {
 				
 				if(autoclick){
-					Toast.makeText(getActivity(), "请先关闭智能模式", Toast.LENGTH_SHORT).show();
+					Toast.makeText(getActivity(),R.string.close_mode, Toast.LENGTH_SHORT).show();
 					return;
 				}
 				
@@ -244,7 +244,7 @@ public class ControlFragment extends BaseTabFragment implements
 						+ Util.INITIAL_STATUS_SWITCHMODE);
 				if (Util.INITIAL_STATUS_OPEN == 0) {
 					MessageDialog msgDialog = new MessageDialog(getActivity(),
-							"请先打开总开关");
+							getString(R.string.close_all_device));
 					msgDialog.show();
 
 					return;
@@ -269,13 +269,13 @@ public class ControlFragment extends BaseTabFragment implements
 			public void onClick(View v) {
 				
 				if(autoclick){
-					Toast.makeText(getActivity(), "请先关闭智能模式", Toast.LENGTH_SHORT).show();
+					Toast.makeText(getActivity(),R.string.close_mode, Toast.LENGTH_SHORT).show();
 					return;
 				}
 				
 				if (Util.INITIAL_STATUS_OPEN == 0) {
 					MessageDialog msgDialog = new MessageDialog(getActivity(),
-							"请先打开总开关");
+							getString(R.string.close_all_device));
 					msgDialog.show();
 					return;
 				}
@@ -306,7 +306,7 @@ public class ControlFragment extends BaseTabFragment implements
 				
 				if (Util.INITIAL_STATUS_OPEN == 0) {
 					MessageDialog msgDialog = new MessageDialog(getActivity(),
-							"请先打开总开关");
+							getString(R.string.close_all_device));
 					msgDialog.show();
 					return;
 				}
@@ -347,7 +347,7 @@ public class ControlFragment extends BaseTabFragment implements
 				window.setContentView(R.layout.dialog_quit);
 				TextView alert_btn_title = (TextView) window
 						.findViewById(R.id.alert_btn_title);
-				alert_btn_title.setText("真的要重置内层滤网时间么？");
+				alert_btn_title.setText(R.string.reset_1);
 				Button reboot_cancel_alert_btn = (Button) window
 						.findViewById(R.id.reboot_cancel_alert_btn);
 				reboot_cancel_alert_btn
@@ -390,7 +390,7 @@ public class ControlFragment extends BaseTabFragment implements
 				window.setContentView(R.layout.dialog_quit);
 				TextView alert_btn_title = (TextView) window
 						.findViewById(R.id.alert_btn_title);
-				alert_btn_title.setText("真的要重置中层滤网时间么？");
+				alert_btn_title.setText(R.string.reset_2);
 				Button reboot_cancel_alert_btn = (Button) window
 						.findViewById(R.id.reboot_cancel_alert_btn);
 				reboot_cancel_alert_btn
@@ -433,7 +433,7 @@ public class ControlFragment extends BaseTabFragment implements
 				window.setContentView(R.layout.dialog_quit);
 				TextView alert_btn_title = (TextView) window
 						.findViewById(R.id.alert_btn_title);
-				alert_btn_title.setText("真的要重置外层滤网时间么？");
+				alert_btn_title.setText(R.string.reset_3);
 				Button reboot_cancel_alert_btn = (Button) window
 						.findViewById(R.id.reboot_cancel_alert_btn);
 				reboot_cancel_alert_btn
@@ -464,7 +464,7 @@ public class ControlFragment extends BaseTabFragment implements
 			public void onClick(View v) {
 				
 				if(autoclick){
-					Toast.makeText(getActivity(), "请先关闭智能模式", Toast.LENGTH_SHORT).show();
+					Toast.makeText(getActivity(),R.string.close_mode, Toast.LENGTH_SHORT).show();
 					return;
 			    }
 				Intent intent = new Intent(getActivity(),
@@ -561,7 +561,7 @@ public class ControlFragment extends BaseTabFragment implements
 										.getInt("time1");
 								initData();
 							} else {
-								Toast.makeText(getActivity(), "获取滤网信息失败",
+								Toast.makeText(getActivity(), R.string.get_info_error,
 										Toast.LENGTH_SHORT).show();
 								return;
 							}
@@ -613,11 +613,11 @@ public class ControlFragment extends BaseTabFragment implements
 		}
 
 		if (Util.INITIAL_STATUS_TIMING == 1) {
-			control_timing_open.setText("开启");
+			control_timing_open.setText(R.string.open);
 			control_timing_open.setTextColor(getActivity().getResources()
 					.getColor(R.color.theme_color));
 		} else {
-			control_timing_open.setText("关闭");
+			control_timing_open.setText(R.string.close);
 			control_timing_open.setTextColor(getActivity().getResources()
 					.getColor(R.color.lb_tx));
 		}
@@ -658,13 +658,13 @@ public class ControlFragment extends BaseTabFragment implements
 		}
 
 		if (Util.INITIAL_STATUS_SWITCHMODE == 1) {
-			fengsu_tx.setText("风速:一级");
+			fengsu_tx.setText(R.string.fengsu1);
 		}
 		if (Util.INITIAL_STATUS_SWITCHMODE == 2) {
-			fengsu_tx.setText("风速:二级");
+			fengsu_tx.setText(R.string.fengsu2);
 		}
 		if (Util.INITIAL_STATUS_SWITCHMODE == 3) {
-			fengsu_tx.setText("风速:三级");
+			fengsu_tx.setText(R.string.fengsu3);
 		}
 
 		if (v3 < 25) {

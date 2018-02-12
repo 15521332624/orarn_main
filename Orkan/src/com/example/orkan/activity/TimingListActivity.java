@@ -185,7 +185,7 @@ public class TimingListActivity extends BaseActivity implements UDPWatcher {
 			String level = getmap.get("level");
 			int l = Integer.parseInt(level);
 			if (startTime.equals("00:00") && endTime.equals("00:00")) {
-				setmap.put("list_content", "关闭");
+				setmap.put("list_content", getString(R.string.close));
 			} else {
 				setmap.put("list_content", startTime + "~" + endTime + " " + levelStrs[l]);
 			}
@@ -251,7 +251,7 @@ public class TimingListActivity extends BaseActivity implements UDPWatcher {
 
 		if (code == 0x04) {
 			cancelAll();
-			Toast.makeText(getApplicationContext(), "设置成功", Toast.LENGTH_SHORT).show();
+			Toast.makeText(getApplicationContext(), R.string.setting_success, Toast.LENGTH_SHORT).show();
 			finish();
 		} else if (code == 0x16) {
 			cancelAll();
