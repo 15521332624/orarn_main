@@ -116,7 +116,7 @@
             android:layout_alignTop="@id/control_image"
             android:layout_marginRight="2dp"
             android:layout_toLeftOf="@id/control_door_im"
-            android:text="智能模式"
+            android:text="@string/fr_c_01"
             android:textColor="@color/theme_tx_color"
             android:textSize="13sp" />
 
@@ -138,7 +138,7 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="84dp"
             android:paddingBottom="20dp"
-            android:text="风速:一级"
+            android:text="@string/fengsu1"
             android:textColor="@color/theme_tx_color"
             android:textSize="10sp" />
 
@@ -410,7 +410,7 @@
                     android:layout_alignTop="@id/timing_image"
                     android:layout_marginLeft="2dp"
                     android:layout_marginRight="6dp"
-                    android:text="关闭"
+                    android:text="@string/close"
                     android:textColor="@color/lb_tx"
                     android:textSize="15sp" />
             </RelativeLayout>

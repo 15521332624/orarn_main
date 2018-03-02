@@ -93,8 +93,8 @@ public class StateFragment extends BaseTabFragment implements View.OnClickListen
 			R.drawable.pm_count20, R.drawable.pm_count21, R.drawable.pm_count22, R.drawable.pm_count23,
 			R.drawable.pm_count24, R.drawable.pm_count25, R.drawable.pm_count26, R.drawable.pm_count27,
 			R.drawable.pm_count28, };
-	private String pmtipsArray[] = { "质量棒棒哒，继续保持~", "质量还可以，继续加油~", "轻度污染了，要努力哦~", "中度污染了，需要净化～", "重度污染了，急需净化～", "严重污染了，急需净化～" };
-	private String pmgradArray[] = { "优", "良", "中", "差","重度","严重" };
+	private int pmtipsArray[] = { R.string.pmtipar_0,R.string.pmtipar_1,R.string.pmtipar_2,R.string.pmtipar_3,R.string.pmtipar_4,R.string.pmtipar_5 };
+	private int pmgradArray[] = { R.string.pmgrad_0,R.string.pmgrad_1,R.string.pmgrad_2,R.string.pmgrad_3,R.string.pmgrad_4,R.string.pmgrad_5 };
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {

@@ -32,7 +32,7 @@
             android:paddingLeft="30dip"
             android:layout_centerHorizontal="true"
             android:textSize="20sp"
-            android:text="确定"
+            android:text="@string/ok"
             android:textColor="@color/white"
             android:background="@color/theme_color"
             />
@@ -42,7 +42,7 @@
             android:layout_height="wrap_content"
             android:textSize="20sp"
             android:visibility="gone"
-            android:text="取消"
+            android:text="@string/di_s_cancel"
             android:textColor="@color/theme_color"
             android:background="@color/white"
             />

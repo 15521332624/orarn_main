@@ -89,4 +89,77 @@
     <string name="device_xiangfan_introduce">Air inspection, New fan control, Wall installation</string>
     <string name="device_fenwen_introduce">Air testing, New fan control, Desktop placement</string>
     
+    
+       <!-- Other -->
+    <string name="device_no_search">No search device\nComfirm phone and device in same with and re-try</string>
+    <string name="device_select">Select Device</string>
+    <string name="band_success">Device Bind Success</string>
+    <string name="band_fail">Device Bind Fail</string>
+    <string name="connect_wifi">Connect WIFI</string>
+    <string name="connect_hf">Connect WIFI： hf-lpt120</string>
+    <string name="plz_connect_wifi_account">Input wifi account</string>
+    <string name="plz_connect_wifi_password">Input wifi password</string>
+    <string name="select_device">Select Device</string>
+	<string name="plz_try">Re-try</string>
+	<string name="light_green">Led is green,bind the device</string>
+	<string name="light_red">Led still red,try again</string>
+	<string name="light_always_light">图标已经常亮，搜索已入网设备</string>
+	<string name="light_evasive">The Icon flash,Try again</string>
+    <string name="time_out">Time Out</string>
+    <string name="on_line">OnLine</string>
+    <string name="out_line">OutLine</string>
+    <string name="re_login">Login Fail\nCheck Network</string>
+    <string name="device_fail">Get DeviceList Fail</string>
+    <string name="phone_null">Phone Number is Null</string>
+    <string name="send_success">Send Success</string>
+    <string name="send_fail">Send Fail\nCheck Network</string>
+    <string name="input_null">Input is Null</string>
+    <string name="change_success">Change Success</string>
+    <string name="change_fail">Change Faile\nCheck Network</string>
+    <string name="login_fail">Login Fail\nCheck Network</string>
+    <string name="device_out">The Device is OutLine</string>
+    <string name="login_other_device">The account is login other device\nPlease Re-Login</string>
+    <string name="not_connect_fan_device">未联动新风机\n请将新风机重新插电,然后点击确定</string>
+    <string name="pair_success">新风机配对成功</string>
+    <string name="close">Close</string>
+    <string name="open">Open</string>
+    <string name="setting_success">Setting Success</string>
+    <string name="close_mode">请先关闭智能模式</string>
+    <string name="close_all_device">请先打开总开关</string>
+    <string name="reset_1">真的要重置内层滤网时间么？</string>
+    <string name="reset_2">真的要重置中层滤网时间么？</string>
+    <string name="reset_3">真的要重置外层滤网时间么？</string>
+    <string name="get_info_error">获取滤网信息失败</string>
+    <string name="fengsu1">风速:一级</string>
+    <string name="fengsu2">风速:二级</string>
+    <string name="fengsu3">风速:三级</string>
+    
+    
+    <string name="wl_t_01">设置无效，起始时间应早于终止时间</string>
+    <string name="fr_c_01">智能模式</string>
+    <string name="di_s_cancel">Cancel</string>
+    <string name="di_q">Out Orkan</string>
+    <string name="topic">Topic</string>
+    <string name="time">Time</string>
+    <string name="timefor_alert">设置无效，起始时间应早于终止时间</string>
+    <string name="fengsu">风速</string>
+    <string name="yiji">一级</string>
+    <string name="de_setting">Delete Setting</string>
+    <string name="close_time">关闭定时</string>
+    
+      <string name="pmtipar_0">质量棒棒哒，继续保持~</string>
+    <string name="pmtipar_1">质量还可以，继续加油~</string>
+    <string name="pmtipar_2">轻度污染了，要努力哦~</string>
+    <string name="pmtipar_3">中度污染了，需要净化～</string>
+    <string name="pmtipar_4">重度污染了，急需净化～</string>
+    <string name="pmtipar_5">严重污染了，急需净化～</string>
+    <string name="pmgrad_0">Good</string>
+    <string name="pmgrad_1">良</string>
+    <string name="pmgrad_2">中</string>
+    <string name="pmgrad_3">差</string>
+    <string name="pmgrad_4">重度</string>
+    <string name="pmgrad_5">严重</string>
+    
+    <string name="get_user_fail">获取用户信息失败</string>
+    
 </resources>

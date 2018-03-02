@@ -14,7 +14,7 @@
 		android:textSize="22sp"
 		android:textStyle="normal|bold"
 		android:layout_marginTop="10dp"
-		android:text="退出Orkan?"
+		android:text="@string/di_q"
 		android:textColor="@color/theme_color"
         />
     
@@ -31,7 +31,7 @@
             android:layout_height="wrap_content"
             android:textSize="20sp"
             android:layout_weight="1"
-            android:text="确定"
+            android:text="@string/ok"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:textColor="@color/white"
@@ -45,7 +45,7 @@
             android:layout_weight="1"
        		android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
-            android:text="取消"
+            android:text="@string/di_s_cancel"
             android:textColor="@color/theme_color"
             android:background="@color/white"
             />

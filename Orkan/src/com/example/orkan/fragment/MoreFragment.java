@@ -557,7 +557,7 @@ public class MoreFragment extends BaseTabFragment implements View.OnClickListene
 			@Override
 			public void onFailure(Throwable t, int errorNo, String strMsg) {
 				super.onFailure(t, errorNo, strMsg);
-				MessageDialog msgDialog = new MessageDialog(context, "获取用户信息失败");
+				MessageDialog msgDialog = new MessageDialog(context, getString(R.string.get_user_fail));
 				msgDialog.show();
 			}
 		});

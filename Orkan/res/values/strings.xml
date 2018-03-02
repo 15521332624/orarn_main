@@ -88,7 +88,7 @@
     <string name="device_type_fenwen">桌面式检测控制器</string>
     <string name="device_xiangfan_introduce">空气检测,新风机控制,嵌墙安装</string>
     <string name="device_fenwen_introduce">空气检测,新风机控制,桌面摆放</string>
-    
+
     <!-- Other -->
     <string name="device_no_search">未搜索到设备\n请确保手机和设备在同一wifi并重试</string>
     <string name="device_select">选择设备</string>
@@ -99,11 +99,11 @@
     <string name="plz_connect_wifi_account">请输入WIFI账号</string>
     <string name="plz_connect_wifi_password">请输入WIFI密码</string>
     <string name="select_device">选择设备</string>
-	<string name="plz_try">请重试</string>
-	<string name="light_green">灯已变绿，绑定该设备</string>
-	<string name="light_red">灯依然红色，重新操作一次</string>
-	<string name="light_always_light">图标已经常亮，搜索已入网设备</string>
-	<string name="light_evasive">图标一直闪缩，重新操作一遍</string>
+    <string name="plz_try">请重试</string>
+    <string name="light_green">灯已变绿，绑定该设备</string>
+    <string name="light_red">灯依然红色，重新操作一次</string>
+    <string name="light_always_light">图标已经常亮，搜索已入网设备</string>
+    <string name="light_evasive">图标一直闪缩，重新操作一遍</string>
     <string name="time_out">请求超时</string>
     <string name="on_line">在线</string>
     <string name="out_line">离线</string>
@@ -132,24 +132,34 @@
     <string name="fengsu1">风速:一级</string>
     <string name="fengsu2">风速:二级</string>
     <string name="fengsu3">风速:三级</string>
+    <string name="wl_t_01">设置无效，起始时间应早于终止时间</string>
+    <string name="fr_c_01">智能模式</string>
+    <string name="di_s_cancel">取消</string>
+    <string name="di_q">退出Orkan</string>
+    <string name="topic">标题</string>
+    <string name="time">时间</string>
+    <string name="timefor_alert">设置无效，起始时间应早于终止时间</string>
+    <string name="fengsu">风速</string>
+    <string name="yiji">一级</string>
+    <string name="de_setting">删除设置</string>
+    <string name="close_time">关闭定时</string>
+    
+    
+    <string name="pmtipar_0">质量棒棒哒，继续保持~</string>
+    <string name="pmtipar_1">质量还可以，继续加油~</string>
+    <string name="pmtipar_2">轻度污染了，要努力哦~</string>
+    <string name="pmtipar_3">中度污染了，需要净化～</string>
+    <string name="pmtipar_4">重度污染了，急需净化～</string>
+    <string name="pmtipar_5">严重污染了，急需净化～</string>
+    <string name="pmgrad_0">优</string>
+    <string name="pmgrad_1">良</string>
+    <string name="pmgrad_2">中</string>
+    <string name="pmgrad_3">差</string>
+    <string name="pmgrad_4">重度</string>
+    <string name="pmgrad_5">严重</string>
+    
+    <string name="get_user_fail">获取用户信息失败</string>
     
    
-   
 
-
-
-
-
-
-
-    
-    
-  
-    
-   
-    
-    
-    
-    
-    
 </resources>
