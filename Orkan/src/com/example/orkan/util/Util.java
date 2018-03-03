@@ -30,6 +30,7 @@ public class Util
     //屏幕尺寸
     public static int DEVICE_SCREEN_WIDTH;
     public static int DEVICE_SCREEN_HEIGHT;
+    public static Context mcontext = null;
     
     //HTTP
 	public static final String NetWork = "http://weatherapi.market.xiaomi.com/wtr-v2/weather";

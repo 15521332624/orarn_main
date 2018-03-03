@@ -37,6 +37,7 @@ public class TimingListActivity extends BaseActivity implements UDPWatcher {
 	ListView timinglistView;
 	TimingListAdapter adapter;
 	String[] levelStrs = { "一级", "二级", "三级" };
+	int[] levelStrs_int = { R.string.level_1, R.string.level_2, R.string.level_3};
 	private MQTTController mqttController;
 	TextView title_tx;
 	ImageView title_im;
@@ -49,6 +50,7 @@ public class TimingListActivity extends BaseActivity implements UDPWatcher {
 	// private ProbeHandler probeHandler = new ProbeHandler();
 	private List<Map<String, String>> timingList = new ArrayList<Map<String, String>>();
 	private String[] timingModeList = { "周一", "周二", "周三", "周四", "周五", "周六", "周日", "周一到周五", "每天" };
+	private int[] timingModeList_int = { R.string.week_1, R.string.week_2, R.string.week_3, R.string.week_4, R.string.week_5, R.string.week_6, R.string.week_7, R.string.week_8, R.string.week_9 };
 
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -178,7 +180,7 @@ public class TimingListActivity extends BaseActivity implements UDPWatcher {
 			HashMap<String, String> getmap = gettimingList.get(i);
 			HashMap<String, String> setmap = new HashMap<String, String>();
 			// setmap.put("Id", getmap.get("Id"));
-			setmap.put("list_title", timingModeList[i]);
+			setmap.put("list_title", getString(timingModeList_int[i]));
 			String startTime = getmap.get("StartTime");
 			String endTime = getmap.get("EndTime");
 			Util.d(i + "  " + startTime + "  " + endTime);
@@ -187,7 +189,7 @@ public class TimingListActivity extends BaseActivity implements UDPWatcher {
 			if (startTime.equals("00:00") && endTime.equals("00:00")) {
 				setmap.put("list_content", getString(R.string.close));
 			} else {
-				setmap.put("list_content", startTime + "~" + endTime + " " + levelStrs[l]);
+				setmap.put("list_content", startTime + "~" + endTime + " " + getString(levelStrs_int[l]));
 			}
 			timingList.add(setmap);
 		}

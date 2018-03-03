@@ -45,6 +45,7 @@ import com.example.orkan.view.slidedatetimepicker.SlideDateTimePicker;
 
 public class TimingSetActivity extends Activity implements UDPWatcher{
 	private String[] timingModeList = {"周一","周二","周三","周四","周五","周六","周日","周一到周五","每天"};
+	private int[] timingModeList_int = { R.string.week_1, R.string.week_2, R.string.week_3, R.string.week_4, R.string.week_5, R.string.week_6, R.string.week_7, R.string.week_8, R.string.week_9 };
   	private List<Map<String, String>> modelist = new ArrayList<Map<String, String>>(); // 定义显示的内容包
   	private SimpleAdapter modeSimpleAdapter = null;
 	private ListView modListView;
@@ -55,6 +56,7 @@ public class TimingSetActivity extends Activity implements UDPWatcher{
     KProgressHUD hud;
 	protected UDPSocketServer mProbeSocketDiscover;
 	String [] levelStrs = {"一级","二级","三级"};
+	int[] levelStrs_int = { R.string.level_1, R.string.level_2, R.string.level_3};
     TextView timing_day_name_tx;
  //   private String id;
     private String startTime;
@@ -123,7 +125,7 @@ public class TimingSetActivity extends Activity implements UDPWatcher{
         stHourView = (WheelView) findViewById(R.id.wheel_st_hour);
         NumericWheelAdapter stHourViewAdapter = new NumericWheelAdapter(
                 this, 0, 23, "%02d");
-        stHourViewAdapter.setLabel(" 时 ");
+        stHourViewAdapter.setLabel(getString(R.string.time_h));
         // 开始 时
         stHourView.setCyclic(true);
         stHourView.setViewAdapter(stHourViewAdapter);
@@ -134,7 +136,7 @@ public class TimingSetActivity extends Activity implements UDPWatcher{
         stMinView = (WheelView) findViewById(R.id.wheel_st_min);
         NumericWheelAdapter stMinViewAdapter = new NumericWheelAdapter(
         		this, 0, 59, "%02d");
-        stMinViewAdapter.setLabel(" 分 ");
+        stMinViewAdapter.setLabel(getString(R.string.time_m));
         // 开始 分
         stMinView.setCyclic(true);
         stMinView.setViewAdapter(stMinViewAdapter);
@@ -145,7 +147,7 @@ public class TimingSetActivity extends Activity implements UDPWatcher{
         endHourView = (WheelView) findViewById(R.id.wheel_end_hour);
         NumericWheelAdapter endHourViewAdapter = new NumericWheelAdapter(
         		this, 0, 23, "%02d");
-        endHourViewAdapter.setLabel(" 时 ");
+        endHourViewAdapter.setLabel(getString(R.string.time_h));
         // 结束 时
         endHourView.setCyclic(true);
         endHourView.setViewAdapter(endHourViewAdapter);
@@ -156,7 +158,7 @@ public class TimingSetActivity extends Activity implements UDPWatcher{
         endMinView = (WheelView) findViewById(R.id.wheel_end_min);
         NumericWheelAdapter endMinViewAdapter = new NumericWheelAdapter(
         		this, 0, 59, "%02d");
-        endMinViewAdapter.setLabel(" 分 ");
+        endMinViewAdapter.setLabel(getString(R.string.time_m));
         // 结束 分
         endMinView.setCyclic(true);
         endMinView.setViewAdapter(endMinViewAdapter);
@@ -221,7 +223,7 @@ public class TimingSetActivity extends Activity implements UDPWatcher{
     	HashMap<String, String> map = Util.CONTROL_TIMING_LIST.get(modeInt);
     	int level = Integer.parseInt(map.get("level"));
     	if (level < 3){
-    		timing_fengsu_button.setText(levelStrs[level]);
+    		timing_fengsu_button.setText(getString(levelStrs_int[level]));
     		chooseLevel = level;
     	}
           
@@ -236,17 +238,17 @@ public class TimingSetActivity extends Activity implements UDPWatcher{
             	window.setContentView(R.layout.dialog_list);
             	deviceListView = (ListView)window.findViewById(R.id.dialog_list);
             	TextView dialog_title = (TextView)window.findViewById(R.id.dialog_title);
-            	dialog_title.setText("选择风速");
+            	dialog_title.setText(R.string.select_wind_speed);
             	devicelist.clear();
                 
             		Map<String, String> map = new HashMap<String, String>(); // 定义Map集合，保存每一行数据  
-            		map.put("device", "一级");
+            		map.put("device", getString(R.string.level_1));
             		devicelist.add(map); // 保存了所有的数据行  
             		 map = new HashMap<String, String>(); // 定义Map集合，保存每一行数据  
-             		map.put("device", "二级");
+             		map.put("device", getString(R.string.level_2));
              		devicelist.add(map); // 保存了所有的数据行  
              		 map = new HashMap<String, String>(); // 定义Map集合，保存每一行数据  
-             		map.put("device", "三级");
+             		map.put("device", getString(R.string.level_3));
              		devicelist.add(map); // 保存了所有的数据行  
             
             	deviceSimpleAdapter = new SimpleAdapter(TimingSetActivity.this, devicelist,  
@@ -259,7 +261,7 @@ public class TimingSetActivity extends Activity implements UDPWatcher{
 							long id) {  
 						// TODO Auto-generated method stub
 						chooseLevel = position;
-						timing_fengsu_button.setText(levelStrs[chooseLevel]);
+						timing_fengsu_button.setText(getString(levelStrs_int[chooseLevel]));
                     	 alertDialog.cancel();
 					}
                      
@@ -286,7 +288,7 @@ public class TimingSetActivity extends Activity implements UDPWatcher{
             	modelist.clear();
             	for (int x = 0; x < timingModeList.length; x++) {  
             		Map<String, String> map = new HashMap<String, String>(); // 定义Map集合，保存每一行数据  
-            		map.put("mode", timingModeList[x]); // 与data_list.xml中的TextView组加匹配
+            		map.put("mode", getString(timingModeList_int[x])); // 与data_list.xml中的TextView组加匹配
             		modelist.add(map); // 保存了所有的数据行  
             	}  
             	modeSimpleAdapter = new SimpleAdapter(TimingSetActivity.this, modelist,  
@@ -299,7 +301,7 @@ public class TimingSetActivity extends Activity implements UDPWatcher{
 					public void onItemClick(AdapterView<?> parent, View view, int position,  
 							long id) {  
 						// TODO Auto-generated method stub
-						 timing_day_name_tx.setText(timingModeList[position]);
+						 timing_day_name_tx.setText(getString(timingModeList_int[position]));
                    // 	 mode = position+"";
                     	 alertDialog.cancel();
 					}
@@ -346,7 +348,7 @@ public class TimingSetActivity extends Activity implements UDPWatcher{
 	            	if (hud.isShowing()){
 	            		hud.dismiss();
 	            		Toast.makeText(TimingSetActivity.this,
-			                    "请求超时", Toast.LENGTH_SHORT).show();
+			                    getString(R.string.time_out), Toast.LENGTH_SHORT).show();
 	            	}
 	            }
 	        }, Util.TIME_OUT_LEN);

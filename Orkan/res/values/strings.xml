@@ -143,8 +143,6 @@
     <string name="yiji">一级</string>
     <string name="de_setting">删除设置</string>
     <string name="close_time">关闭定时</string>
-    
-    
     <string name="pmtipar_0">质量棒棒哒，继续保持~</string>
     <string name="pmtipar_1">质量还可以，继续加油~</string>
     <string name="pmtipar_2">轻度污染了，要努力哦~</string>
@@ -157,9 +155,29 @@
     <string name="pmgrad_3">差</string>
     <string name="pmgrad_4">重度</string>
     <string name="pmgrad_5">严重</string>
-    
     <string name="get_user_fail">获取用户信息失败</string>
-    
-   
+    <string name="time_slot">时间段</string>
+    <string name="unbind_device">真的要解绑设备吗？</string>
+    <string name="input_device_name">请输入设备名称</string>
+    <string name="connect_fail">连接超时</string>
+    <string name="change_name_fail">修改失败</string>
+    <string name="unbind_success">设备解绑成功\n</string>
+    <string name="unbind_fail">设备解绑失败\n</string>
+    <string name="share_to">分享到</string>
+    <string name="week_1">周一</string>
+    <string name="week_2">周二</string>
+    <string name="week_3">周三</string>
+    <string name="week_4">周四</string>
+    <string name="week_5">周五</string>
+    <string name="week_6">周六</string>
+    <string name="week_7">周天</string>
+    <string name="week_8">周一到周五</string>
+    <string name="week_9">每天</string>
+    <string name="level_1">一级</string>
+    <string name="level_2">二级</string>
+    <string name="level_3">三级</string>
+    <string name="select_wind_speed">选择风速</string>
+    <string name="time_h"> 时 </string>
+    <string name="time_m"> 分 </string>
 
 </resources>

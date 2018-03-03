@@ -1862,11 +1862,13 @@ containing a value of this type.
         public static final int band_fail=0x7f0b0065;
         public static final int band_success=0x7f0b0064;
         public static final int change_fail=0x7f0b007a;
+        public static final int change_name_fail=0x7f0b00a8;
         public static final int change_success=0x7f0b0079;
         public static final int close=0x7f0b0080;
         public static final int close_all_device=0x7f0b0084;
         public static final int close_mode=0x7f0b0083;
         public static final int close_time=0x7f0b0096;
+        public static final int connect_fail=0x7f0b00a7;
         public static final int connect_hf=0x7f0b0067;
         public static final int connect_wifi=0x7f0b0066;
         public static final int control_automode=0x7f0b0037;
@@ -1933,7 +1935,11 @@ containing a value of this type.
         public static final int history_week=0x7f0b0034;
         public static final int hot_city=0x7f0b0045;
         public static final int indoor=0x7f0b0028;
+        public static final int input_device_name=0x7f0b00a6;
         public static final int input_null=0x7f0b0078;
+        public static final int level_1=0x7f0b00b5;
+        public static final int level_2=0x7f0b00b6;
+        public static final int level_3=0x7f0b00b7;
         public static final int light_always_light=0x7f0b006e;
         public static final int light_evasive=0x7f0b006f;
         public static final int light_green=0x7f0b006c;
@@ -1985,10 +1991,12 @@ containing a value of this type.
         public static final int ri_reg=0x7f0b0020;
         public static final int select_city=0x7f0b0044;
         public static final int select_device=0x7f0b006a;
+        public static final int select_wind_speed=0x7f0b00b8;
         public static final int send_fail=0x7f0b0077;
         public static final int send_success=0x7f0b0076;
         public static final int set_password=0x7f0b001e;
         public static final int setting_success=0x7f0b0082;
+        public static final int share_to=0x7f0b00ab;
         public static final int state_humidity=0x7f0b002d;
         public static final int state_pm=0x7f0b002b;
         public static final int state_temperature=0x7f0b002c;
@@ -2000,7 +2008,10 @@ containing a value of this type.
          */
         public static final int tab_state=0x7f0b000f;
         public static final int time=0x7f0b0091;
+        public static final int time_h=0x7f0b00b9;
+        public static final int time_m=0x7f0b00ba;
         public static final int time_out=0x7f0b0070;
+        public static final int time_slot=0x7f0b00a4;
         public static final int timefor_alert=0x7f0b0092;
         public static final int title_bund=0x7f0b0019;
         public static final int title_devicelist=0x7f0b001b;
@@ -2015,6 +2026,18 @@ containing a value of this type.
         public static final int title_timing=0x7f0b0018;
         public static final int title_type=0x7f0b001a;
         public static final int topic=0x7f0b0090;
+        public static final int unbind_device=0x7f0b00a5;
+        public static final int unbind_fail=0x7f0b00aa;
+        public static final int unbind_success=0x7f0b00a9;
+        public static final int week_1=0x7f0b00ac;
+        public static final int week_2=0x7f0b00ad;
+        public static final int week_3=0x7f0b00ae;
+        public static final int week_4=0x7f0b00af;
+        public static final int week_5=0x7f0b00b0;
+        public static final int week_6=0x7f0b00b1;
+        public static final int week_7=0x7f0b00b2;
+        public static final int week_8=0x7f0b00b3;
+        public static final int week_9=0x7f0b00b4;
         public static final int wl_t_01=0x7f0b008c;
         public static final int yiji=0x7f0b0094;
     }

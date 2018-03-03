@@ -99,7 +99,7 @@ public class MainActivity extends BaseActivity implements UDPWatcher, MQTTFinish
  		initData();
         initView();
         
-        
+        Util.mcontext = MainActivity.this;
     }
     protected void onNewIntent(Intent intent) {
 

@@ -1,25 +1,29 @@
 package com.example.orkan.adapter;
 
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
-
+import com.example.orkan.R;
 import com.example.orkan.fragment.HistoryChatHumidityPageFragment;
 import com.example.orkan.fragment.HistoryChatPMPageFragment;
 import com.example.orkan.fragment.HistoryChatTemperaturePageFragment;
 import com.example.orkan.util.Util;
+
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
 
 
 public class HistoryTabAdapter extends FragmentPagerAdapter {
 	// 内容标题
 	public static final String[] DONG_HUA_TITLE = new String[] {"PM2.5","湿度",
 			"温度"};
+	public static final int[] DONG_HUA_TITEL_INT = new int[] {R.string.history_pm,R.string.history_temperature,R.string.history_humidity};
 	public HistoryChatPMPageFragment pmPage;
 	public HistoryChatHumidityPageFragment humidityPage;
 	public HistoryChatTemperaturePageFragment temperaturePage;
+	public FragmentManager fm_t = null;
 	
 	public HistoryTabAdapter(FragmentManager fm) {
 		super(fm);
+		fm_t = fm;
 		fm.getFragments().clear();
 		pmPage = new HistoryChatPMPageFragment();
 		humidityPage = new HistoryChatHumidityPageFragment();
@@ -63,7 +67,10 @@ public class HistoryTabAdapter extends FragmentPagerAdapter {
 	@Override
 	public CharSequence getPageTitle(int position) {
 		// 返回页面标题
-		return DONG_HUA_TITLE[position % DONG_HUA_TITLE.length];
+		return Util.mcontext.getString(DONG_HUA_TITEL_INT[position % DONG_HUA_TITLE.length]);
+		//return fm_t.findFragmentById(0).getActivity().getString(DONG_HUA_TITEL_INT[position % DONG_HUA_TITLE.length]);
+		
+		//return DONG_HUA_TITLE[position % DONG_HUA_TITLE.length];
 	}
 
 	@Override

@@ -97,7 +97,7 @@ public class HistoryFragment extends BaseTabFragment implements
 
 		history_page_time_tx = (TextView) view
 				.findViewById(R.id.history_page_time_tx);
-		history_page_time_tx.setText("时间段");
+		history_page_time_tx.setText(R.string.time_slot);
 		hourButton = (RadioButton) view.findViewById(R.id.hour);
 		dayButton = (RadioButton) view.findViewById(R.id.day);
 		weekButton = (RadioButton) view.findViewById(R.id.week);
@@ -279,7 +279,7 @@ public class HistoryFragment extends BaseTabFragment implements
 						probeHandler.sendMessage(msg);
 
 					} else {
-						Toast.makeText(context, "获取数据失败", Toast.LENGTH_SHORT)
+						Toast.makeText(context, getString(R.string.get_user_fail), Toast.LENGTH_SHORT)
 								.show();
 
 					}
@@ -294,7 +294,7 @@ public class HistoryFragment extends BaseTabFragment implements
 			public void onFailure(Throwable t, int errorNo, String strMsg) {
 				super.onFailure(t, errorNo, strMsg);
 				Util.d("fail->>" + strMsg);
-				Toast.makeText(context, "获取数据失败", Toast.LENGTH_SHORT).show();
+				Toast.makeText(context, getString(R.string.get_user_fail), Toast.LENGTH_SHORT).show();
 				cancelAll();
 			}
 		});

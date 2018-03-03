@@ -133,7 +133,7 @@ public class MoreFragment extends BaseTabFragment implements View.OnClickListene
 			shareIntent.setType("text/plain");
 
 			// 设置分享列表的标题，并且每次都显示分享列表
-			startActivity(Intent.createChooser(shareIntent, "分享到"));
+			startActivity(Intent.createChooser(shareIntent, getString(R.string.share_to)));
 			break;
 		case R.id.more_unbund_li:
 			if("null".endsWith(Util.MQTT_DEVICE_ID))
@@ -143,7 +143,7 @@ public class MoreFragment extends BaseTabFragment implements View.OnClickListene
 			Window window = alertDialog.getWindow();
 			window.setContentView(R.layout.dialog_quit);
 			TextView alert_btn_title = (TextView) window.findViewById(R.id.alert_btn_title);
-			alert_btn_title.setText("真的要解绑设备吗？");
+			alert_btn_title.setText(R.string.unbind_device);
 			Button reboot_cancel_alert_btn = (Button) window.findViewById(R.id.reboot_cancel_alert_btn);
 			reboot_cancel_alert_btn.setOnClickListener(new OnClickListener() {
 				@Override
@@ -234,7 +234,7 @@ public class MoreFragment extends BaseTabFragment implements View.OnClickListene
 				alertDialog.dismiss();
 			}
 		});
-		dialog_title.setText("请输入设备名称");
+		dialog_title.setText(R.string.input_device_name);
 		
 		alertDialog.setView(window);
 		alertDialog.setOnShowListener(new OnShowListener() {  
@@ -306,7 +306,7 @@ public class MoreFragment extends BaseTabFragment implements View.OnClickListene
 			case Util.HANDLER_GET_DEVICE_TIMEOUT:
 				if (hud != null && hud.isShowing()) {
 					hud.dismiss();
-					Toast.makeText(getActivity(), "连接超时", Toast.LENGTH_SHORT).show();
+					Toast.makeText(getActivity(), getString(R.string.connect_fail), Toast.LENGTH_SHORT).show();
 					clearRes();
 				}
 				break;
@@ -404,11 +404,11 @@ public class MoreFragment extends BaseTabFragment implements View.OnClickListene
 					if (code == 1) {
 						Util.MQTT_DEVICE_NAME = name;
 						device_id.setText(Util.MQTT_DEVICE_NAME);
-						MessageDialog msgDialog = new MessageDialog(getActivity(), "修改成功\n");
+						MessageDialog msgDialog = new MessageDialog(getActivity(), getString(R.string.change_success));
 						msgDialog.show();
 
 					} else {
-						MessageDialog msgDialog = new MessageDialog(getActivity(), "修改失败");
+						MessageDialog msgDialog = new MessageDialog(getActivity(), getString(R.string.change_name_fail));
 						msgDialog.show();
 					}
 
@@ -421,7 +421,7 @@ public class MoreFragment extends BaseTabFragment implements View.OnClickListene
 			@Override
 			public void onFailure(Throwable t, int errorNo, String strMsg) {
 				super.onFailure(t, errorNo, strMsg);
-				MessageDialog msgDialog = new MessageDialog(getActivity(), "修改失败");
+				MessageDialog msgDialog = new MessageDialog(getActivity(), getString(R.string.change_name_fail));
 				msgDialog.show();
 
 			}
@@ -454,7 +454,7 @@ public class MoreFragment extends BaseTabFragment implements View.OnClickListene
 
 					if (code == 1) {
 						Util.MQTT_USER_MAC = "";
-						MessageDialog msgDialog = new MessageDialog(getActivity(), "设备解绑成功\n");
+						MessageDialog msgDialog = new MessageDialog(getActivity(), getString(R.string.unbind_success));
 						msgDialog.show(new OnClickListener() {
 							@Override
 							public void onClick(View v) {
@@ -464,7 +464,7 @@ public class MoreFragment extends BaseTabFragment implements View.OnClickListene
 						});
 
 					} else {
-						MessageDialog msgDialog = new MessageDialog(getActivity(), "设备解绑失败");
+						MessageDialog msgDialog = new MessageDialog(getActivity(), getString(R.string.unbind_fail));
 						msgDialog.show();
 					}
 
@@ -479,7 +479,7 @@ public class MoreFragment extends BaseTabFragment implements View.OnClickListene
 			@Override
 			public void onFailure(Throwable t, int errorNo, String strMsg) {
 				super.onFailure(t, errorNo, strMsg);
-				MessageDialog msgDialog = new MessageDialog(getActivity(), "设备解绑失败");
+				MessageDialog msgDialog = new MessageDialog(getActivity(), getString(R.string.unbind_fail));
 				msgDialog.show();
 				hud.dismiss();
 
