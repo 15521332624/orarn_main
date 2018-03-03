@@ -24,7 +24,7 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/login_rect"
-            android:text="新设备入网"
+            android:text="@string/ap_add_dev_new"
             android:textColor="@color/white"
             android:textSize="20sp" />
     </LinearLayout>
@@ -44,7 +44,7 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/login_rect"
-            android:text="添加已有设备"
+            android:text="@string/ap_add_dev"
             android:textColor="@color/white"
             android:textSize="20sp" />
     </LinearLayout>
@@ -63,7 +63,7 @@
             android:layout_margin="5dip"
             android:layout_marginRight="10dip"
             android:background="@drawable/login_rect"
-            android:text="旧版配网模式"
+            android:text="@string/ap_add_dev_old"
             android:textColor="@color/white"
             android:textSize="8sp" />
     </LinearLayout>

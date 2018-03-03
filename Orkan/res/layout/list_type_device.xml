@@ -58,7 +58,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_toLeftOf="@id/device_list_rightim"
-                android:text="立即绑定"
+                android:text="@string/bind_now"
                 android:textColor="@color/theme_tx_color"
                 android:textSize="15sp" />
         </RelativeLayout>

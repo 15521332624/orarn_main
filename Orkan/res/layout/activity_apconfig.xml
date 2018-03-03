@@ -81,7 +81,7 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/login_rect"
-            android:text="step2 : 设备联网"
+            android:text="@string/ap_step2_device"
             android:textColor="@color/white"
             android:textSize="20sp" />
     </LinearLayout>
@@ -114,7 +114,7 @@
              android:layout_width="fill_parent"
              android:layout_height="wrap_content"
              android:background="@drawable/login_rect"
-             android:text="灯已变绿，搜索已入网设备"
+             android:text="@string/light_green"
              android:textColor="@color/white"
              android:layout_margin="20dip"
              android:visibility="gone"
@@ -125,7 +125,7 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/login_rect"
-            android:text="灯依然红色，重新操作一次"
+            android:text="@string/light_red"
             android:textColor="@color/white"
             android:layout_margin="20dip"
             android:visibility="gone"

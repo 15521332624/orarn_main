@@ -93,7 +93,7 @@ public class RegActivity extends BaseActivity{
     private void getCheckNum(){
     	if(accountEdit.getText().toString().trim().equals("")){
     		MessageDialog msgDialog = new MessageDialog(RegActivity.this,
-					"手机号为空");
+					getString(R.string.phone_null));
 			msgDialog.show();
 			return;
     	}
@@ -109,7 +109,7 @@ public class RegActivity extends BaseActivity{
 					int code = jsonData.getInt("code");
 					if (code == 1){
 						MessageDialog msgDialog = new MessageDialog(RegActivity.this,
-								"发送成功");
+								getString(R.string.send_success));
 						msgDialog.show();
 					}else{
 						MessageDialog msgDialog = new MessageDialog(RegActivity.this,
@@ -126,7 +126,7 @@ public class RegActivity extends BaseActivity{
  			public void onFailure(Throwable t, int errorNo, String strMsg){
  				super.onFailure(t, errorNo, strMsg);
 	 				MessageDialog msgDialog = new MessageDialog(RegActivity.this,
-	 						"发送失败\n请检查网络连接");
+	 						getString(R.string.send_fail));
 					msgDialog.show();
 					cancelAll();
  			}
@@ -137,7 +137,7 @@ public class RegActivity extends BaseActivity{
     			pwdEdit.getText().toString().trim().equals("") ||
     			checknumEdit.getText().toString().trim().equals("")){
     		MessageDialog msgDialog = new MessageDialog(RegActivity.this,
-					"输入为空");
+					getString(R.string.input_null));
 			msgDialog.show();
 			return;
     	}
@@ -159,7 +159,7 @@ public class RegActivity extends BaseActivity{
 					int code = jsonData.getInt("code");
 					if (code == 1){
 						MessageDialog msgDialog = new MessageDialog(RegActivity.this,
-								"注册成功");
+								getString(R.string.reg_ok));
 						msgDialog.show(new OnClickListener(){
 					        @Override
 					        public void onClick(View v)
@@ -183,7 +183,7 @@ public class RegActivity extends BaseActivity{
  			public void onFailure(Throwable t, int errorNo, String strMsg){
  				super.onFailure(t, errorNo, strMsg);
 	 				MessageDialog msgDialog = new MessageDialog(RegActivity.this,
-	 						"注册失败\n请检查网络连接");
+	 						getString(R.string.reg_fail));
 					msgDialog.show();
 					cancelAll();
  			}
@@ -205,7 +205,7 @@ public class RegActivity extends BaseActivity{
 	    public void onTick(long millisUntilFinished){//计时过程显示
 	    	checknumButton.setClickable(false);
 	    	checknumButton.setTextColor(RegActivity.this.getResources().getColor(R.color.lb_tx));
-	    	checknumButton.setText(millisUntilFinished /1000+"秒");
+	    	checknumButton.setText(millisUntilFinished /1000+"S");
     	}
     }
 }

@@ -38,6 +38,7 @@
     <string name="state_humidity">湿度</string>
     <string name="history_pm">PM2.5</string>
     <string name="history_temperature">温度</string>
+    <string name="history_temperature_h">温度</string>
     <string name="history_humidity">湿度</string>
     <string name="history_start_time">开始时间</string>
     <string name="history_hour">小时</string>
@@ -179,5 +180,14 @@
     <string name="select_wind_speed">选择风速</string>
     <string name="time_h"> 时 </string>
     <string name="time_m"> 分 </string>
+	<string name="ap_add_dev">添加已有设备</string>
+	<string name="ap_add_dev_old">旧版配网模式</string>
+	<string name="ap_add_dev_new">新设备入网</string>
+	<string name="bind_now">立即绑定</string>
+	<string name="ap_step2_device">step2 : 设备联网</string>
+	<string name="reg_ok">注册成功</string>
+	<string name="reg_fail">注册失败\n请检查网络连接</string>
+	
+	
 
 </resources>
