@@ -29,8 +29,8 @@
             android:id="@+id/account_tx"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="4"
-            android:padding="6dp"
+            android:layout_weight="3"
+            android:padding="2dp"
             android:text="@string/account"
             android:textColor="@color/lb_tx"
             android:textSize="18sp" />
@@ -64,8 +64,8 @@
             android:id="@+id/pwd_tx"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="4"
-            android:padding="6dp"
+            android:layout_weight="3"
+            android:padding="2dp"
             android:text="@string/password"
             android:textColor="@color/lb_tx"
             android:textSize="18sp" />
@@ -100,7 +100,7 @@
             android:id="@+id/checknum_tx"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="6dp"
+            android:padding="2dp"
             android:text="@string/phone_checknum"
             android:textColor="@color/lb_tx"
             android:textSize="18sp" />

@@ -1,5 +1,7 @@
 package com.example.orkan.third.citypicker;
 
+import com.example.orkan.util.Util;
+
 /**
  * author zaaach on 2016/1/26.
  */
@@ -15,7 +17,16 @@ public class City {
     }
 
     public String getName() {
+    	 if(Util.language == 1) {
         return name;
+    	 }else
+    	 {
+    		 return pinyin;
+    	 }
+    }
+    
+    public String getEnName() {
+    		return name;
     }
 
     public void setName(String name) {

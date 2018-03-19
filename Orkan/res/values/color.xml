@@ -1,40 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <color name="black">#000000</color>
     <color name="white">#FFFFFF</color>
-    
-       <color name="bg_dialog">#CFFF</color>
+    <color name="bg_dialog">#CFFF</color>
     <color name="text_color_message">#282828</color>
     <color name="text_color_btn">#1b9bfc</color>
     <color name="bg_btn_pressed">#CACACB</color>
-    
-
     <color name="lb">#bcbcbc</color>
-     <color name="llb">#dfdfdf</color>
+    <color name="llb">#dfdfdf</color>
     <color name="lb_tx">#a1a1a1</color>
     <color name="blue">#1C8CFD</color>
     <color name="lightblue">#ff70bbd9</color>
- 
     <color name="title_background_color">#198AC5</color>
     <color name="titile_back">#1E90FF</color>
     <color name="or">#FF742F</color>
-	<color name="theme_char_line_color">#BDC532</color>
+    <color name="theme_char_line_color">#BDC532</color>
     <color name="theme_color">#32c5bd</color>
     <color name="theme_color_uf">#bcbcbc</color>
     <color name="history_tx_color">#bcbcbc</color>
     <color name="theme_tx_color">#bcbcbc</color>
     <color name="theme_line_color">#e2e2e2</color>
-    <color name="red">#ffff0000</color>   
-       <color name="kprogresshud_default_color">#b1000000</color>
+    <color name="red">#ffff0000</color>
+    <color name="kprogresshud_default_color">#b1000000</color>
     <color name="kprogresshud_grey_color">#449E9E9E</color>
-    
-      <item name="gray_holo_dark" type="color">#ff464646</item>
+
+    <item name="gray_holo_dark" type="color">#ff464646</item>
     <item name="gray_holo_light" type="color">#ffd0d0d0</item>
-    
+
     <color name="colorPrimary">#F3F3F3</color>
     <color name="colorPrimaryDark">#F3F3F3</color>
     <color name="colorAccent">#F3F3F3</color>
-
     <color name="divider">#E5E5E5</color>
     <color name="shadow">#AAEBEBEB</color>
     <color name="common_bg">#FAFAFA</color>
@@ -43,4 +39,5 @@
     <color name="gray_deep">#5c5c5c</color>
     <color name="alpha_gray">#CC646464</color>
     <color name="theme_gray">#646464</color>
+
 </resources>

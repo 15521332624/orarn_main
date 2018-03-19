@@ -4,12 +4,27 @@ import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import net.tsz.afinal.FinalHttp;
-import net.tsz.afinal.http.AjaxCallBack;
-import net.tsz.afinal.http.AjaxParams;
-
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import com.baidu.location.BDLocation;
+import com.baidu.location.BDLocationListener;
+import com.baidu.location.LocationClient;
+import com.baidu.location.LocationClientOption;
+import com.example.orkan.R;
+import com.example.orkan.controller.MQTTController;
+import com.example.orkan.controller.MainController;
+import com.example.orkan.net.UDPWatcher;
+import com.example.orkan.third.citypicker.CityDB;
+import com.example.orkan.third.citypicker.CityPickerActivity;
+import com.example.orkan.third.citypicker.CityProvider;
+import com.example.orkan.third.citypicker.CityProvider.CityConstants;
+import com.example.orkan.util.GetSharedData;
+import com.example.orkan.util.SaveSharedData;
+import com.example.orkan.util.ScreeShoot;
+import com.example.orkan.util.Util;
+import com.example.orkan.view.SwitchView;
+import com.example.orkan.view.SwitchView.OnStateChangedListener;
 
 import android.content.ContentResolver;
 import android.content.Intent;
@@ -30,28 +45,15 @@ import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.widget.ImageView;
 import android.widget.TextView;
-
-import com.baidu.location.BDLocation;
-import com.baidu.location.BDLocationListener;
-import com.baidu.location.LocationClient;
-import com.baidu.location.LocationClientOption;
-import com.example.orkan.R;
-import com.example.orkan.controller.MQTTController;
-import com.example.orkan.controller.MainController;
-import com.example.orkan.net.UDPWatcher;
-import com.example.orkan.third.citypicker.CityDB;
-import com.example.orkan.third.citypicker.CityPickerActivity;
-import com.example.orkan.third.citypicker.LocateState;
-import com.example.orkan.third.citypicker.StringUtils;
-import com.example.orkan.third.citypicker.CityPickerActivity.BDLocationListenerImpl;
-import com.example.orkan.third.citypicker.CityProvider;
-import com.example.orkan.third.citypicker.CityProvider.CityConstants;
-import com.example.orkan.util.GetSharedData;
-import com.example.orkan.util.SaveSharedData;
-import com.example.orkan.util.ScreeShoot;
-import com.example.orkan.util.Util;
-import com.example.orkan.view.SwitchView;
-import com.example.orkan.view.SwitchView.OnStateChangedListener;
+import net.sourceforge.pinyin4j.PinyinHelper;
+import net.sourceforge.pinyin4j.format.HanyuPinyinCaseType;
+import net.sourceforge.pinyin4j.format.HanyuPinyinOutputFormat;
+import net.sourceforge.pinyin4j.format.HanyuPinyinToneType;
+import net.sourceforge.pinyin4j.format.HanyuPinyinVCharType;
+import net.sourceforge.pinyin4j.format.exception.BadHanyuPinyinOutputFormatCombination;
+import net.tsz.afinal.FinalHttp;
+import net.tsz.afinal.http.AjaxCallBack;
+import net.tsz.afinal.http.AjaxParams;
 
 /**
  * Ap information fragment
@@ -81,6 +83,8 @@ public class StateFragment extends BaseTabFragment implements View.OnClickListen
 	ImageView indoor_logo_image;
 	String image;
 	LocationClient mLocClient;  
+	String city_en = "";
+	String city_pinyin = "";
 
 	protected MQTTController mqttController;
 
@@ -149,11 +153,26 @@ public class StateFragment extends BaseTabFragment implements View.OnClickListen
 		outdoor_state_temperature_value = (TextView) view.findViewById(R.id.outdoor_state_temperature_value);
 
 		outdoor_state_city = (TextView) view.findViewById(R.id.outdoor_state_city);
-		String shareCity = GetSharedData.GetData(getActivity(), "city", Util.INITIAL_STATUS_CITY);
-		if("null".equals(shareCity)){
-			initLocation();
-		}else{
-			outdoor_state_city.setText(shareCity);
+		if(Util.language == 1) {
+			String shareCity = GetSharedData.GetData(getActivity(), "city", Util.INITIAL_STATUS_CITY);
+			String shareCityPinyin = GetSharedData.GetData(getActivity(), "city_pinyin", Util.INITIAL_STATUS_CITY);
+			if("null".equals(shareCity)){
+				initLocation();
+			}else{
+				outdoor_state_city.setText(shareCity);
+				city_en = shareCity;
+				city_pinyin = shareCityPinyin;
+			}
+		}else {
+			String shareCityPinyin = GetSharedData.GetData(getActivity(), "city_pinyin", Util.INITIAL_STATUS_CITY);
+			String shareCity = GetSharedData.GetData(getActivity(), "city", Util.INITIAL_STATUS_CITY);
+			if("null".equals(shareCityPinyin)){
+				initLocation();
+			}else{
+				outdoor_state_city.setText(shareCityPinyin);
+				city_en = shareCity;
+				city_pinyin = shareCityPinyin;
+			}
 		}
 		
 		outdoor_state_location = (ImageView) view.findViewById(R.id.outdoor_state_location);
@@ -175,11 +194,18 @@ public class StateFragment extends BaseTabFragment implements View.OnClickListen
 		mainController.setCityInterface(new MainController.CityInterface() {
 
 			@Override
-			public void setcity(String city) {
+			public void setcity(String city,String city_pinyin) {
 				if (city != null && (!city.equals(""))) {
 					Util.d("choose city: " + city);
-					outdoor_state_city.setText(city);
+					if(Util.language == 0) {
+						outdoor_state_city.setText(city_pinyin);
+					}else {
+						outdoor_state_city.setText(city);
+					}
 					SaveSharedData.SaveData(getActivity(), "city", city);
+					SaveSharedData.SaveData(getActivity(), "city_pinyin", city_pinyin);
+					city_en = city;
+					city_pinyin = city_pinyin;
 					getOutdoorData();
 				}
 
@@ -260,9 +286,31 @@ public class StateFragment extends BaseTabFragment implements View.OnClickListen
         public void onReceiveLocation(BDLocation location) {  
             String city_temp = location.getCity();
             String city = city_temp.replace("市","").trim();
-            outdoor_state_city.setText(city);
+           
             mLocClient.stop();
+            
+            city_en = city;
+            HanyuPinyinOutputFormat format = new HanyuPinyinOutputFormat();
+            format.setToneType(HanyuPinyinToneType.WITH_TONE_MARK);
+            format.setVCharType(HanyuPinyinVCharType.WITH_U_UNICODE);
+            format.setCaseType(HanyuPinyinCaseType.LOWERCASE);
+            for(int i=0;i<city_en.length();i++)
+            {
+            		try {
+						city_pinyin = city_pinyin + PinyinHelper.toHanyuPinyinStringArray(city_en.charAt(i),format)[0];
+					} catch (BadHanyuPinyinOutputFormatCombination e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+            		Log.v("snake", "city_pinyin = " + city_pinyin + "  en = " + city_en.charAt(i));
+            }
+            		
             SaveSharedData.SaveData(getActivity(), "city", city);
+            SaveSharedData.SaveData(getActivity(), "city_pinyin", city_pinyin);
+            if(Util.language == 1)
+            		outdoor_state_city.setText(city);
+            else
+            		outdoor_state_city.setText(city_pinyin);
             getOutdoorData();
         }  
   
@@ -350,7 +398,7 @@ public class StateFragment extends BaseTabFragment implements View.OnClickListen
 	}
 
 	protected void getOutdoorData() {
-		String cityname = outdoor_state_city.getText().toString();
+		String cityname = city_en;
 		String cityId = getLocationCityFromDB(cityname).getPostID();
 		Util.d(outdoor_state_city.getText() + "：" + cityId);
 		FinalHttp fh = new FinalHttp();

@@ -111,8 +111,8 @@ public class CityPickerActivity extends BaseActivity implements View.OnClickList
         mCityAdapter = new CityListAdapter(this, mAllCities);
         mCityAdapter.setOnCityClickListener(new CityListAdapter.OnCityClickListener() {
             @Override
-            public void onCityClick(String name) {
-                back(name);
+            public void onCityClick(String name,String pinyin) {
+                back(name,pinyin);
             }
 
             @Override
@@ -176,7 +176,7 @@ public class CityPickerActivity extends BaseActivity implements View.OnClickList
         mResultListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                back(mResultAdapter.getItem(position).getName());
+                back(mResultAdapter.getItem(position).getEnName(),mResultAdapter.getItem(position).getPinyin());
             }
         });
 
@@ -187,10 +187,10 @@ public class CityPickerActivity extends BaseActivity implements View.OnClickList
         backBtn.setOnClickListener(this);
     }
 
-    private void back(String city){
+    private void back(String city,String city_pinyin){
        // ToastUtils.showToast(this, "点击的城市：" + city);
         MainController mainController = MainController.getInstance(this);
-        mainController.citychoosed(city);
+        mainController.citychoosed(city,city_pinyin);
         finish();
     }
 

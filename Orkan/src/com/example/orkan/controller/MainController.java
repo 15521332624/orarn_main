@@ -70,14 +70,14 @@ public class MainController {
     }
     //为了解决Activity传值的bug而直接用回调解决
     public interface CityInterface {
-        void setcity(String city);
+        void setcity(String city,String city_pinyin);
     }
     public void setCityInterface(CityInterface cityInterface){  //注册
         this.cityInterface = cityInterface;
     }
      
-    public void citychoosed(String city){
-    	cityInterface.setcity(city);
+    public void citychoosed(String city,String city_pinyin){
+    	cityInterface.setcity(city,city_pinyin);
     }
     
 }

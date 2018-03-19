@@ -15,7 +15,7 @@ public class HistoryTabAdapter extends FragmentPagerAdapter {
 	// 内容标题
 	public static final String[] DONG_HUA_TITLE = new String[] {"PM2.5","湿度",
 			"温度"};
-	public static final int[] DONG_HUA_TITEL_INT = new int[] {R.string.history_pm,R.string.history_humidity,R.string.history_temperature_h};
+	public static final int[] DONG_HUA_TITEL_INT = new int[] {R.string.history_pm,R.string.history_temperature_h,R.string.history_humidity};
 	public HistoryChatPMPageFragment pmPage;
 	public HistoryChatHumidityPageFragment humidityPage;
 	public HistoryChatTemperaturePageFragment temperaturePage;
@@ -40,9 +40,9 @@ public class HistoryTabAdapter extends FragmentPagerAdapter {
 		case 0:
 			return pmPage;
 		case 1:
-			return humidityPage;
-		case 2:
 			return temperaturePage;
+		case 2:
+			return humidityPage;
 		default:
 			return pmPage;
 		}

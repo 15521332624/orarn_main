@@ -32,6 +32,8 @@ public class Util
     public static int DEVICE_SCREEN_HEIGHT;
     public static Context mcontext = null;
     
+    public static int language = 1;
+    
     //HTTP
 	public static final String NetWork = "http://weatherapi.market.xiaomi.com/wtr-v2/weather";
 	

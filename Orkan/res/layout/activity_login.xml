@@ -26,18 +26,17 @@ android:orientation="vertical">
       android:padding="5dp"
             android:background="@color/white"      
       >
-      
-      <TextView
+
+     <TextView
          android:id="@+id/account_tx"
-         android:layout_weight="4"
-        android:layout_width="fill_parent"
-      android:layout_height="wrap_content"
-         android:padding="6dp"
+         android:layout_width="fill_parent"
+         android:layout_height="wrap_content"
+         android:layout_weight="3"
+         android:padding="2dp"
          android:text="@string/account"
          android:textColor="@color/lb_tx"
-         
-         android:textSize="18sp"
-         />
+         android:textSize="18sp" />
+
       <EditText 
            android:id="@+id/account_edit"
            android:layout_weight="1"
@@ -67,10 +66,10 @@ android:orientation="vertical">
       
       <TextView
          android:id="@+id/pwd_tx"
-         android:layout_weight="4"
+         android:layout_weight="3"
         android:layout_width="fill_parent"
       	android:layout_height="wrap_content"
-         android:padding="6dp"
+         android:padding="2dp"
          android:text="@string/password"
          android:textColor="@color/lb_tx"
          android:textSize="18sp"
@@ -166,16 +165,24 @@ android:orientation="vertical">
 	      android:background="@color/llb"
           />
   </RelativeLayout>
-        <Button 
-	      android:id="@+id/outlogin_button"
-	      android:layout_width="match_parent"
-	      android:layout_height="match_parent"
-	      android:padding="15dip"
-	      android:gravity="bottom|right"
-	      android:text="@string/outlogin"
-	      android:textColor="@color/theme_color"
-	      android:textSize="20sp"
-	      android:background="@color/llb"
-          />
+  
+  <RelativeLayout 
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      >
+
+  <Button
+      android:id="@+id/outlogin_button"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_alignParentRight="true"
+      android:layout_alignParentBottom="true"
+      android:background="@color/llb"
+      android:gravity="bottom|right"
+      android:padding="15dip"
+      android:text="@string/outlogin"
+      android:textColor="@color/theme_color"
+      android:textSize="20sp" />
+  </RelativeLayout>
   
 </LinearLayout>

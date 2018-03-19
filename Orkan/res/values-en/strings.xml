@@ -18,16 +18,16 @@
     <string name="title_bund">Bind</string>
     <string name="title_type">Device Type</string>
     <string name="title_devicelist">Device List</string>
-    <string name="account">ID</string>
-    <string name="password">PWD</string>
+    <string name="account">Phone</string>
+    <string name="password">Password</string>
     <string name="set_password">Password Setting</string>
-    <string name="phone_checknum">PIN   </string>
+    <string name="phone_checknum">Phone-PIN</string>
     <string name="ri_reg">Register</string>
     <string name="outlogin">Skip Login</string>
     <string name="get_checknum">Get</string>
     <string name="forget_num">Forget Password</string>
     <string name="get_pwd">Find Password</string>
-    <string name="new_pwd">PWD</string>
+    <string name="new_pwd">NEW-PWD</string>
     <string name="ok">Comfirm</string>
     <string name="plzlogin">Login</string>
     <string name="indoor">Indoor</string>
@@ -92,7 +92,7 @@
 
 
     <!-- Other -->
-    <string name="device_no_search">No search device\nComfirm phone and device in same with and re-try</string>
+    <string name="device_no_search">No search device\nComfirm phone and device in same wifi and re-try</string>
     <string name="device_select">Select Device</string>
     <string name="band_success">Device Bind Success</string>
     <string name="band_fail">Device Bind Fail</string>
@@ -175,9 +175,9 @@
     <string name="week_7">Sunday</string>
     <string name="week_8">Monday To Friday</string>
     <string name="week_9">EveryDay</string>
-    <string name="level_1">Level One</string>
-    <string name="level_2">Level Second</string>
-    <string name="level_3">Level Third</string>
+    <string name="level_1">Level1</string>
+    <string name="level_2">Level2</string>
+    <string name="level_3">Level3</string>
     <string name="select_wind_speed">Select Wind Speed</string>
     <string name="time_h"> h </string>
     <string name="time_m"> m </string>

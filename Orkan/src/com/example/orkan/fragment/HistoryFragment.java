@@ -209,9 +209,10 @@ public class HistoryFragment extends BaseTabFragment implements
 
 							if (type.equals("pm25")) {
 								if (date.equals("Day")) {
+									String str = time.replace("日", "D").replace("时", ":00");
 									Util.CHAR_POINTS_INDOOR_PM
 											.add(new CharData(Float
-													.parseFloat(value), time));
+													.parseFloat(value), str.substring(str.indexOf("D") + 1)));
 								} else if (date.equals("Week")) {
 									Util.CHAR_POINTS_INDOOR_PM
 											.add(new CharData(Float
@@ -228,9 +229,10 @@ public class HistoryFragment extends BaseTabFragment implements
 
 							} else if (type.equals("temp")) {
 								if (date.equals("Day")) {
+									String str = time.replace("日", "D").replace("时", ":00");
 									Util.CHAR_INDOOR_TEMPERATURE
 											.add(new CharData(Float
-													.parseFloat(value), time));
+													.parseFloat(value), str.substring(str.indexOf("D") + 1)));
 								} else if (date.equals("Week")) {
 									Util.CHAR_INDOOR_TEMPERATURE
 											.add(new CharData(Float
@@ -246,9 +248,10 @@ public class HistoryFragment extends BaseTabFragment implements
 								}
 							} else if (type.equals("humi")) {
 								if (date.equals("Day")) {
+									String str = time.replace("日", "D").replace("时", ":00");
 									Util.CHAR_POINTS_INDOOR_HUMIDITY
 											.add(new CharData(Float
-													.parseFloat(value), time));
+													.parseFloat(value), str.substring(str.indexOf("D") + 1)));
 								} else if (date.equals("Week")) {
 									Util.CHAR_POINTS_INDOOR_HUMIDITY
 											.add(new CharData(Float

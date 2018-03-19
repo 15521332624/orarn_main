@@ -16,6 +16,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import com.example.orkan.R;
+import com.example.orkan.util.Util;
 /**
  * author zaaach on 2016/1/26.
  */
@@ -30,6 +31,8 @@ public class CityListAdapter extends BaseAdapter {
     private OnCityClickListener onCityClickListener;
     private int locateState = LocateState.LOCATING;
     private String locatedCity;
+    private String locatedCityEn;
+    private String locatedCityPinyin;
 
     public CityListAdapter(Context mContext, List<City> mCities) {
         this.mContext = mContext;
@@ -38,8 +41,8 @@ public class CityListAdapter extends BaseAdapter {
         if (mCities == null){
             mCities = new ArrayList<City>();
         }
-        mCities.add(0, new City("定位", "0"));
-        mCities.add(1, new City("热门", "1"));
+        mCities.add(0, new City("Loc", "0"));
+        mCities.add(1, new City("Hot", "1"));
         int size = mCities.size();
         letterIndexes = new HashMap<String, Integer>();
         sections = new String[size];
@@ -62,6 +65,17 @@ public class CityListAdapter extends BaseAdapter {
     public void updateLocateState(int state, String city){
         this.locateState = state;
         this.locatedCity = city;
+        this.locatedCityEn = city;
+        if(Util.language == 0) {
+        		for(int i=0;i<mCities.size();i++) {
+        			if(mCities.get(i).getEnName().equals(city)) {
+        				this.locatedCity = mCities.get(i).getName();
+        				this.locatedCityPinyin = this.locatedCity;
+        				break;
+        			}
+        				
+        		}
+        }
         notifyDataSetChanged();
     }
 
@@ -131,7 +145,7 @@ public class CityListAdapter extends BaseAdapter {
                         }else if (locateState == LocateState.SUCCESS){
                             //返回定位城市
                             if (onCityClickListener != null){
-                                onCityClickListener.onCityClick(locatedCity);
+                                onCityClickListener.onCityClick(locatedCityEn,locatedCityPinyin);
                             }
                         }
                     }
@@ -146,7 +160,7 @@ public class CityListAdapter extends BaseAdapter {
                     @Override
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                         if (onCityClickListener != null){
-                            onCityClickListener.onCityClick(hotCityGridAdapter.getItem(position));
+                            onCityClickListener.onCityClick(hotCityGridAdapter.getItemEn(position),hotCityGridAdapter.getItemPinyin(position));
                         }
                     }
                 });
@@ -164,6 +178,8 @@ public class CityListAdapter extends BaseAdapter {
                 if (position >= 1){
                     final String city = mCities.get(position).getName();
                     holder.name.setText(city);
+                    final String city_pinyin = mCities.get(position).getPinyin();
+                    final String city_enName = mCities.get(position).getEnName();
                     String currentLetter = PinyinUtils.getFirstLetter(mCities.get(position).getPinyin());
                     String previousLetter = position >= 1 ? PinyinUtils.getFirstLetter(mCities.get(position - 1).getPinyin()) : "";
                     if (!TextUtils.equals(currentLetter, previousLetter)){
@@ -176,7 +192,7 @@ public class CityListAdapter extends BaseAdapter {
                         @Override
                         public void onClick(View v) {
                             if (onCityClickListener != null){
-                                onCityClickListener.onCityClick(city);
+                                onCityClickListener.onCityClick(city_enName,city_pinyin);
                             }
                         }
                     });
@@ -196,7 +212,7 @@ public class CityListAdapter extends BaseAdapter {
     }
 
     public interface OnCityClickListener{
-        void onCityClick(String name);
+        void onCityClick(String name,String pinyin);
         void onLocateClick();
     }
 }

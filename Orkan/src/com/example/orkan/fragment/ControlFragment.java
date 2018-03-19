@@ -173,6 +173,21 @@ public class ControlFragment extends BaseTabFragment implements
 				.findViewById(R.id.control_timing_open);
 		control_opendoor = (ToggleButton) view
 				.findViewById(R.id.control_door_im);
+		
+		if(Util.language == 0) {
+			control_wind_im2.setImageDrawable(getActivity().getResources()
+					.getDrawable(R.drawable.control_feng0_eng));
+		}else {
+			control_wind_im2.setImageDrawable(getActivity().getResources()
+					.getDrawable(R.drawable.control_feng0));
+		}
+		
+		if(getResources().getConfiguration().locale.getCountry().equals("CN")||getResources().getConfiguration().locale.getCountry().equals("TW")) {
+			
+		}else {
+			
+		}
+		
 		control_opendoor.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -653,8 +668,13 @@ public class ControlFragment extends BaseTabFragment implements
 			control_handler.postDelayed(runnablefengleft, 500);
 			control_ver_handler.postDelayed(runnablefengver, 500);
 		} else {
-			control_wind_im2.setImageDrawable(getActivity().getResources()
-					.getDrawable(R.drawable.control_feng0));
+			if(Util.language == 0) {
+				control_wind_im2.setImageDrawable(getActivity().getResources()
+						.getDrawable(R.drawable.control_feng0_eng));
+			}else {
+				control_wind_im2.setImageDrawable(getActivity().getResources()
+						.getDrawable(R.drawable.control_feng0));
+			}
 		}
 
 		if (Util.INITIAL_STATUS_SWITCHMODE == 1) {
@@ -846,22 +866,40 @@ public class ControlFragment extends BaseTabFragment implements
 
 		@Override
 		public void run() {
-
-			if (control_feng_num == 0) {
-				control_wind_im2.setImageDrawable(getActivity().getResources()
-						.getDrawable(R.drawable.control_feng0));
-			} else if (control_feng_num == 1) {
-				control_wind_im2.setImageDrawable(getActivity().getResources()
-						.getDrawable(R.drawable.control_feng1));
-			} else if (control_feng_num == 2) {
-				control_wind_im2.setImageDrawable(getActivity().getResources()
-						.getDrawable(R.drawable.control_feng2));
-			} else if (control_feng_num == 3) {
-				control_wind_im2.setImageDrawable(getActivity().getResources()
-						.getDrawable(R.drawable.control_feng3));
-			} else if (control_feng_num == 4) {
-				control_wind_im2.setImageDrawable(getActivity().getResources()
-						.getDrawable(R.drawable.control_feng4));
+			if(Util.language == 0) {
+				if (control_feng_num == 0) {
+					control_wind_im2.setImageDrawable(getActivity().getResources()
+							.getDrawable(R.drawable.control_feng0_eng));
+				} else if (control_feng_num == 1) {
+					control_wind_im2.setImageDrawable(getActivity().getResources()
+							.getDrawable(R.drawable.control_feng1_eng));
+				} else if (control_feng_num == 2) {
+					control_wind_im2.setImageDrawable(getActivity().getResources()
+							.getDrawable(R.drawable.control_feng2_eng));
+				} else if (control_feng_num == 3) {
+					control_wind_im2.setImageDrawable(getActivity().getResources()
+							.getDrawable(R.drawable.control_feng3_eng));
+				} else if (control_feng_num == 4) {
+					control_wind_im2.setImageDrawable(getActivity().getResources()
+							.getDrawable(R.drawable.control_feng4_eng));
+				}
+			}else {
+				if (control_feng_num == 0) {
+					control_wind_im2.setImageDrawable(getActivity().getResources()
+							.getDrawable(R.drawable.control_feng0));
+				} else if (control_feng_num == 1) {
+					control_wind_im2.setImageDrawable(getActivity().getResources()
+							.getDrawable(R.drawable.control_feng1));
+				} else if (control_feng_num == 2) {
+					control_wind_im2.setImageDrawable(getActivity().getResources()
+							.getDrawable(R.drawable.control_feng2));
+				} else if (control_feng_num == 3) {
+					control_wind_im2.setImageDrawable(getActivity().getResources()
+							.getDrawable(R.drawable.control_feng3));
+				} else if (control_feng_num == 4) {
+					control_wind_im2.setImageDrawable(getActivity().getResources()
+							.getDrawable(R.drawable.control_feng4));
+				}
 			}
 
 			// 要做的事情
@@ -899,21 +937,41 @@ public class ControlFragment extends BaseTabFragment implements
 		@Override
 		public void run() {
 
-			if (control_feng_num == 0) {
-				control_wind_im2.setImageDrawable(getActivity().getResources()
-						.getDrawable(R.drawable.control_feng0));
-			} else if (control_feng_num == 1) {
-				control_wind_im2.setImageDrawable(getActivity().getResources()
-						.getDrawable(R.drawable.control_fengleft1));
-			} else if (control_feng_num == 2) {
-				control_wind_im2.setImageDrawable(getActivity().getResources()
-						.getDrawable(R.drawable.control_fengleft2));
-			} else if (control_feng_num == 3) {
-				control_wind_im2.setImageDrawable(getActivity().getResources()
-						.getDrawable(R.drawable.control_fengleft3));
-			} else if (control_feng_num == 4) {
-				control_wind_im2.setImageDrawable(getActivity().getResources()
-						.getDrawable(R.drawable.control_fengleft4));
+			if(Util.language == 0) {
+				if (control_feng_num == 0) {
+					control_wind_im2.setImageDrawable(getActivity().getResources()
+							.getDrawable(R.drawable.control_feng0_eng));
+				} else if (control_feng_num == 1) {
+					control_wind_im2.setImageDrawable(getActivity().getResources()
+							.getDrawable(R.drawable.control_fengleft1_eng));
+				} else if (control_feng_num == 2) {
+					control_wind_im2.setImageDrawable(getActivity().getResources()
+							.getDrawable(R.drawable.control_fengleft2_eng));
+				} else if (control_feng_num == 3) {
+					control_wind_im2.setImageDrawable(getActivity().getResources()
+							.getDrawable(R.drawable.control_fengleft3_eng));
+				} else if (control_feng_num == 4) {
+					control_wind_im2.setImageDrawable(getActivity().getResources()
+							.getDrawable(R.drawable.control_fengleft4_eng));
+				}
+			}else {
+			
+				if (control_feng_num == 0) {
+					control_wind_im2.setImageDrawable(getActivity().getResources()
+							.getDrawable(R.drawable.control_feng0));
+				} else if (control_feng_num == 1) {
+					control_wind_im2.setImageDrawable(getActivity().getResources()
+							.getDrawable(R.drawable.control_fengleft1));
+				} else if (control_feng_num == 2) {
+					control_wind_im2.setImageDrawable(getActivity().getResources()
+							.getDrawable(R.drawable.control_fengleft2));
+				} else if (control_feng_num == 3) {
+					control_wind_im2.setImageDrawable(getActivity().getResources()
+							.getDrawable(R.drawable.control_fengleft3));
+				} else if (control_feng_num == 4) {
+					control_wind_im2.setImageDrawable(getActivity().getResources()
+							.getDrawable(R.drawable.control_fengleft4));
+				}
 			}
 
 			// 要做的事情

@@ -83,13 +83,13 @@ public class MainActivity extends BaseActivity implements UDPWatcher, MQTTFinish
                                     R.drawable.tab_control_index,
                                     R.drawable.tab_history_index,
                                     R.drawable.tab_mine_index};
-
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Util.d("MainActivity oncreate");
  		setContentView(R.layout.activity_main);
- 		
+
  		offlineMsgDialog = new MessageDialog(MainActivity.this,
 				getString(R.string.device_out));
  		fengjiAlertDialog = new AlertDialog.Builder(this).create(); 
@@ -98,6 +98,12 @@ public class MainActivity extends BaseActivity implements UDPWatcher, MQTTFinish
  		
  		initData();
         initView();
+        
+		if(getResources().getConfiguration().locale.getCountry().equals("CN")||getResources().getConfiguration().locale.getCountry().equals("TW")) {
+			Util.language = 1;
+		}else {
+			Util.language = 0;
+		}
         
         Util.mcontext = MainActivity.this;
     }

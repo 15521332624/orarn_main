@@ -53,6 +53,15 @@ public class AboutUsActivity extends BaseActivity{
     	title_left= (ImageView)findViewById(R.id.title_left);
     	title_left.setImageResource(R.drawable.back);
     	title_left.setVisibility(View.VISIBLE);
+    	
+    	if(Util.language == 0) {
+    		content_im.setImageDrawable(getResources()
+					.getDrawable(R.drawable.aboutusinfor_eng));
+    	}else {
+    		content_im.setImageDrawable(getResources()
+					.getDrawable(R.drawable.aboutusinfor));
+    	}
+    	
     	title_left.setOnClickListener(new OnClickListener() {
 
             @Override

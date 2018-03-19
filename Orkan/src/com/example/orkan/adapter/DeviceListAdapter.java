@@ -14,11 +14,13 @@ public class DeviceListAdapter extends SimpleAdapter {
     //回调代理
     private TimingListAdapterListener mTimingListAdapterListener;
     private List<Map<String,  Object>> data;
+    private Context mcontext;
 
     public DeviceListAdapter(Context context, List<Map<String, Object>> data,
                               int resource, String[] from, int[] to) {
         super(context, data, resource,from,to);
         this.data = data;
+        this.mcontext = context;
     }
 
     public void setTimingListAdapterListener(TimingListAdapterListener delegate){
@@ -37,6 +39,11 @@ public class DeviceListAdapter extends SimpleAdapter {
         }
         
         TextView device_online_txt = (TextView)convertView.findViewById(R.id.device_online_txt);
+        if(device_online_txt.getText().toString().equals(mcontext.getString(R.string.on_line))) {
+        		device_online_txt.setTextColor(mcontext.getResources().getColor(R.color.theme_color));	
+        }else {
+        		device_online_txt.setTextColor(mcontext.getResources().getColor(R.color.theme_tx_color));
+        }
        // Map<String,String> map = data.get(position);
         
         return convertView;
