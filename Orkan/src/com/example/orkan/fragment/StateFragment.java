@@ -552,7 +552,6 @@ public class StateFragment extends BaseTabFragment implements View.OnClickListen
 
 			if (data14 == 0) {
 				Util.INITIAL_STATUS_XINFENG_OPEN = 0;
-
 			} else {
 				Util.INITIAL_STATUS_XINFENG_OPEN = 1;
 			}

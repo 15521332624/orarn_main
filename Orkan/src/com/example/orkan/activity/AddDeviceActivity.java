@@ -191,7 +191,7 @@ public class AddDeviceActivity extends BaseActivity implements
 		title_tx.setText(R.string.title_bund);
 		title_left = (ImageView) findViewById(R.id.title_left);
 		title_left.setImageResource(R.drawable.back);
-		title_left.setVisibility(View.GONE);
+		title_left.setVisibility(View.VISIBLE);
 		title_left.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -209,7 +209,7 @@ public class AddDeviceActivity extends BaseActivity implements
 				// TODO Auto-generated method stub
 				startActivity(new Intent(AddDeviceActivity.this,
 						SmartConfigActivity.class));
-				AddDeviceActivity.this.finish();
+				//AddDeviceActivity.this.finish();
 
 			}
 		});
@@ -248,7 +248,7 @@ public class AddDeviceActivity extends BaseActivity implements
 			public void onClick(View arg0) {
 				startActivity(new Intent(AddDeviceActivity.this,
 						APConfigFirstActivity.class));
-				AddDeviceActivity.this.finish();
+				//AddDeviceActivity.this.finish();
 			}
 		});
 

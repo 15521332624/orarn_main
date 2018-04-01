@@ -81,7 +81,7 @@ public class APConfigTypeActivity extends BaseActivity{
 					Util.AP_MODULE_CONFIG = Util.MODULE_INSERT;
 				}
 				startActivity(new Intent(APConfigTypeActivity.this,AddDeviceActivity.class));
-				APConfigTypeActivity.this.finish();
+				//APConfigTypeActivity.this.finish();
 			}
 		});
 	}

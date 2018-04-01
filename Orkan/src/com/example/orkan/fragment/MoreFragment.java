@@ -161,9 +161,14 @@ public class MoreFragment extends BaseTabFragment implements View.OnClickListene
 			});
 			break;
 		case R.id.more_device_li:
+			//if("null".endsWith(Util.MQTT_DEVICE_ID))
+			//	break;
+			//bund();
+			
 			if("null".endsWith(Util.MQTT_DEVICE_ID))
 				break;
-			bund();
+			startActivity(new Intent(getActivity(), DeviceListActivity.class));
+			getActivity().finish();
 			// 设备
 			break;
 		case R.id.more_help_li:

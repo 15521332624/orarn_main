@@ -55,6 +55,28 @@ public class DeviceListActivity extends BaseActivity {
 	int[] device_type_pic = { R.drawable.orkan, R.drawable.xiangfan };
 	List<Map<String, Object>> deviceList = new ArrayList<Map<String, Object>>();;
 	protected UDPSocketServer mProbeSocketDiscover;
+	
+	private ArrayList<String> mapList = new ArrayList<String>();
+	
+	private String xianfan_map[] = {"f0fe6ba7e511","f0fe6bae0960","f0fe6bae09ad","f0fe6bae092f",
+			"f0fe6bae0972","f0fe6bae0953","f0fe6ba7daef","f0fe6ba7db53","f0fe6ba7db2b","f0fe6bae09d5",
+			"f0fe6ba7db43","f0fe6ba7db59","f0fe6bae093c","f0fe6ba7dae4","f0fe6bae09a9","f0fe6ba7da21",
+			"f0fe6bae08db","f0fe6bae0d0d","f0fe6bae0d99","f0fe6ba7db2e","f0fe6bae093b","f0fe6ba7da01",                        
+			"f0fe6bae0998","f0fe6ba7da06","f0fe6bae0df8","f0fe6ba7db45","f0fe6bae0938","f0fe6bae0d37",                    
+			"f0fe6bae0928","f0fe6ba7db38","f0fe6ba7db3e","f0fe6ba7db4d","f0fe6ba7d9f7","f0fe6bae0d22",
+			"f0fe6bae0d00","f0fe6bae095c","f0fe6bae0d17","f0fe6bae0db2","f0fe6ba7daeb","f0fe6ba7db0f",
+			"f0fe6bae0901","f0fe6ba7e553","f0fe6bae0d00","f0fe6ba7dfa2","f0fe6ba7dfa9","f0fe6bae096d",
+			"f0fe6bae0dc3","f0fe6bae0d1d","f0fe6bae0885","f0fe6bae0990","f0fe6bae09ae","f0fe6bae091f",
+			"f0fe6ba7db1a","f0fe6ba7daf8","f0fe6bae0d58","f0fe6bae0d47","f0fe6ba7e50f","f0fe6bae08b5",
+			"f0fe6bae092c","f0fe6bae0cfb","f0fe6bae0866","f0fe6bae0df3","f0fe6bae0d53","f0fe6ba7db14",    
+			"f0fe6ba7da02","f0fe6bae0d2d","f0fe6bae0d3c","f0fe6ba7db25","f0fe6ba7db37","f0fe6ba7db29",
+			"f0fe6bae097a","f0fe6ba7daf7","f0fe6bae09af","f0fe6bae0d39","f0fe6bae0991","f0fe6bae093f",
+			"f0fe6ba7db51","f0fe6ba7da09","f0fe6bae08a2",
+			"f0fe6ba7daeb","f0fe6ba7e512","f0fe6ba7e553","f0fe6ba7da1f","f0fe6ba7db33","f0fe6ba7daf3",
+			"f0fe6bae0964","f0fe6ba7e4fd","f0fe6ba7db3b","f0fe6ba7db49","f0fe6ba7e4da","f0fe6ba7daf4",
+			"f0fe6ba7db1c","f0fe6ba7db3a","f0fe6bae08a2","f0fe6ba7db4f","f0fe6ba7e53f","f0fe6ba7d9f5",
+			"f0fe6ba7dfa6","f0fe6bae0d27","f0fe6ba7db36","f0fe6bae09ac”,“f0fe6ba7e557","f0fe6ba7e4e0",
+			"f0fe6ba7daf0","f0fe6bae0db2","f0fe6ba7dae6","f0fe6ba7df7b","f0fe6ba7e50d","f0fe6bae0903"};
 	// private ProbeHandler probeHandler = new ProbeHandler();
 
 	public void onCreate(Bundle savedInstanceState) {
@@ -78,7 +100,7 @@ public class DeviceListActivity extends BaseActivity {
 			public void onClick(View v) {
 				// startActivity(new Intent(DeviceListActivity.this,AddDeviceActivity.class));
 				startActivity(new Intent(DeviceListActivity.this, APConfigTypeActivity.class));
-				DeviceListActivity.this.finish();
+				//DeviceListActivity.this.finish();
 			}
 		});
 		title_left = (ImageView) findViewById(R.id.title_left);
@@ -112,7 +134,8 @@ public class DeviceListActivity extends BaseActivity {
 			}
 		});
 
-
+		for(int p = 0;p<xianfan_map.length;p++)
+			mapList.add(xianfan_map[p]);
 		initData();
 		deviceList.clear();
 		beginAll();
@@ -168,13 +191,15 @@ public class DeviceListActivity extends BaseActivity {
 							dmap.put("deviceName", deviceName);
 							dmap.put("id", id);
 							if ("1".equals(type)) {
-								dmap.put("type", device_type_pic[0]);
+								if(mapList.contains(mac))
+									dmap.put("type", device_type_pic[1]);
+								else
+									dmap.put("type", device_type_pic[0]);
 							} else {
 								dmap.put("type", device_type_pic[1]);
 							}
-
+	
 							deviceList.add(dmap);
-
 						}
 
 						// 获取在线状态

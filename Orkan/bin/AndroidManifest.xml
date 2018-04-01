@@ -50,7 +50,7 @@
         </activity>
         <activity android:name="com.example.orkan.activity.LoginActivity" >
         </activity>
-        <activity android:name="com.example.orkan.activity.DeviceListActivity" >
+        <activity android:name="com.example.orkan.activity.DeviceListActivity" android:launchMode="singleTask">
         </activity>
         <activity android:name="com.example.orkan.activity.APConfigTypeActivity" >
         </activity>
@@ -66,7 +66,7 @@
         </activity>
         <activity android:name="com.example.orkan.activity.APConfigFirstActivity" >
         </activity>
-        <activity android:name="com.example.orkan.activity.AddDeviceActivity" >
+        <activity android:name="com.example.orkan.activity.AddDeviceActivity"  >
         </activity>
         <activity android:name="com.example.orkan.activity.GetPwdActivity" >
         </activity>
