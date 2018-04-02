@@ -1,10 +1,6 @@
 package com.example.orkan.activity;
 
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-
 import net.tsz.afinal.FinalHttp;
 import net.tsz.afinal.http.AjaxCallBack;
 import net.tsz.afinal.http.AjaxParams;
@@ -13,43 +9,32 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import android.app.Activity;
 import android.app.AlertDialog;
-import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.net.wifi.WifiManager;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTabHost;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.Window;
 import android.view.View.OnClickListener;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TabHost;
 import android.widget.TextView;
-import android.widget.Toast;
-import android.net.wifi.WifiInfo;
-import android.net.wifi.WifiManager;
 
-import com.example.orkan.R.drawable;
-import com.example.orkan.R.layout;
+import com.example.orkan.R;
 import com.example.orkan.controller.MQTTController;
 import com.example.orkan.controller.MQTTController.MQTTFinish;
 import com.example.orkan.dialog.MessageDialog;
-import com.example.orkan.fragment.*;
-import com.example.orkan.net.UDPSocketServer;
-import com.example.orkan.net.UDPWatched;
+import com.example.orkan.fragment.ControlFragment;
+import com.example.orkan.fragment.HistoryFragment;
+import com.example.orkan.fragment.MoreFragment;
+import com.example.orkan.fragment.StateFragment;
 import com.example.orkan.net.UDPWatcher;
 import com.example.orkan.third.kprogresshud.KProgressHUD;
 import com.example.orkan.util.MQTTUtil;
 import com.example.orkan.util.Util;
-import com.example.orkan.view.BezierCurveChart;
-import com.example.orkan.view.BezierCurveChart.Point;
-import com.example.orkan.R;
 
 /**
  * Main Activity with slidemenu for EAP controller
@@ -106,6 +91,10 @@ public class MainActivity extends BaseActivity implements UDPWatcher, MQTTFinish
 		}
         
         Util.mcontext = MainActivity.this;
+        
+        
+       // BDAutoUpdateSDK
+        
     }
     protected void onNewIntent(Intent intent) {
 

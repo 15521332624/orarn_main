@@ -16,6 +16,7 @@ import com.example.orkan.activity.LoginActivity;
 import com.example.orkan.dialog.MessageDialog;
 import com.example.orkan.net.UDPSocketServer;
 import com.example.orkan.third.kprogresshud.KProgressHUD;
+import com.example.orkan.util.SaveSharedData;
 import com.example.orkan.util.Util;
 import com.example.orkan.view.CircleImageView;
 import com.nostra13.universalimageloader.core.ImageLoader;
@@ -189,6 +190,7 @@ public class MoreFragment extends BaseTabFragment implements View.OnClickListene
 			break;
 		case R.id.more_quit_li:
 			// 退出登录
+			SaveSharedData.SaveData(getActivity(),Util.SAVED_LOGIN_DEVICEMAC, "null");
 			startActivity(new Intent(this.getActivity(), LoginActivity.class));
 			getActivity().finish();
 			break;

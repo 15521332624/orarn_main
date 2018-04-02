@@ -108,6 +108,9 @@ public class WelcomeActivity extends BaseActivity implements UDPWatcher{
 			break;
 	}
 	}  
+	
+	
+
 
 
 }

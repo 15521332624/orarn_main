@@ -13,33 +13,24 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
-import android.util.Log;
 import android.view.View;
-import android.view.Window;
 import android.view.View.OnClickListener;
+import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.orkan.R;
 import com.example.orkan.adapter.DeviceListAdapter;
-import com.example.orkan.adapter.TimingListAdapter;
-import com.example.orkan.controller.MQTTController;
 import com.example.orkan.dialog.MessageDialog;
 import com.example.orkan.net.UDPSocketServer;
-import com.example.orkan.net.UDPWatcher;
 import com.example.orkan.third.kprogresshud.KProgressHUD;
-import com.example.orkan.util.GetSharedData;
-import com.example.orkan.util.MQTTUtil;
+import com.example.orkan.util.SaveSharedData;
 import com.example.orkan.util.Util;
 
 public class DeviceListActivity extends BaseActivity {
@@ -129,6 +120,7 @@ public class DeviceListActivity extends BaseActivity {
 				Util.MQTT_DEVICE_NAME = (String) deviceList.get(position).get("deviceName");
 				Util.MQTT_USER_MAC = (String) deviceList.get(position).get("mac");
 				Util.MQTT_DEVICE_ID = (String) deviceList.get(position).get("id");
+				SaveSharedData.SaveData(getApplicationContext(),Util.SAVED_LOGIN_DEVICEMAC, Util.MQTT_USER_MAC);
 				startActivity(new Intent(DeviceListActivity.this, MainActivity.class));
 				DeviceListActivity.this.finish();
 			}

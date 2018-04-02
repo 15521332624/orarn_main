@@ -69,6 +69,7 @@ public class Util
 	//sharedpreference
 	public static final String SAVED_ACCOUNT = "account";
 	public static final String SAVED_PWD = "password";
+	public static final String SAVED_LOGIN_DEVICEMAC = "";
 	
     //设备检测模块
     public static final int HANDLER_GET_DEVICE_SUCCESS = 1;
